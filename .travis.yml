@@ -1,4 +1,4 @@
 language: python
 script:
-  - scripts/build.sh
-  - scripts/ci/deploy.sh
+  - sh scripts/build.sh
+  - sh scripts/ci/deploy.sh
