@@ -1,0 +1,14 @@
+{
+  "images": {
+    "icon-small": "https://code.visualstudio.com/favicon.ico",
+    "icon-medium": "https://code.visualstudio.com/favicon.ico",
+    "icon-large": "https://code.visualstudio.com/favicon.ico"
+  },
+  "assets": {
+    "container": {
+      "docker": {
+        "image": "codercom/code-server:3.0.1"
+      }
+    }
+  }
+}
