@@ -53,5 +53,5 @@
       "required": ["virtual-host", "https-redirect"]
     }
   },
-  "required": ["service", "networking"]
+  "required": ["service", "rstudio", "networking"]
 }
