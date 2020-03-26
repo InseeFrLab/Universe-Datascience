@@ -1,6 +1,6 @@
 {
     "packagingVersion": "3.0",
-    "name": "jupyter-datascience",
+    "name": "jupyter",
     "version": "1.0",
     "minDcosReleaseVersion": "1.8",
     "scm": "https://github.com/jupyter/docker-stacks",
