@@ -13,9 +13,7 @@ rm -rf ${REPO_BASE_DIR}/target/venv
 python3 -m venv ${REPO_BASE_DIR}/target/venv
 
 # Install dependencies
-chmod +x ${REPO_BASE_DIR}/target/venv/bin/activate
-${REPO_BASE_DIR}/target/venv/bin/activate
-${REPO_BASE_DIR}/target/venv/bin/pip install -r ${SCRIPTS_DIR}/requirements/requirements.txt
+pip install -r ${SCRIPTS_DIR}/requirements/requirements.txt
 
 "${REPO_BASE_DIR}"/target/venv/bin/python3 "$SCRIPTS_DIR"/validate_packages.py
 "${REPO_BASE_DIR}"/target/venv/bin/python3 "$SCRIPTS_DIR"/gen_universe.py \
