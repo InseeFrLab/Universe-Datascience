@@ -1,18 +1,20 @@
 {
-    "packagingVersion": "2.0",
+    "packagingVersion": "3.0",
     "name": "jupyter-datascience",
-    "version": "5.0",
+    "version": "1.0",
+    "minDcosReleaseVersion": "1.8",
     "scm": "https://github.com/jupyter/docker-stacks",
     "maintainer": "https://github.com/inseefrlab",
-    "description": "Jupyter is a notebook accessible through a web browser. It allows you to run multiple interpreters.",
+    "website": "https://github.com/jupyter/docker-stacks",
     "framework": false,
+    "description": "Jupyter is a notebook accessible through a web browser. It allows you to run multiple interpreters.",
     "tags": [
         "datascience",
         "notebook",
         "python"
     ],
-    "website": "https://github.com/jupyter/docker-stacks",
     "preInstallNotes": "Attention no data persistence is guaranteed. You must therefore make sure to save your notebooks on Gitlab or manually manage the downloading and uploading of your notebooks.",
     "postInstallNotes": "Your notebook has installed! Report any problems",
-    "status": "beta"
+    "selected": false,
+    "lastUpdated": 1585220308
 }

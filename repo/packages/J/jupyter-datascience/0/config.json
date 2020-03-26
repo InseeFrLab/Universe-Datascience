@@ -30,7 +30,7 @@
       ]
     },
     "networking": {
-      "description": "Networking-related configuration properties for RStudio on DC/OS.",
+      "description": "Networking-related configuration properties for jupyter on DC/OS.",
       "type": "object",
       "properties": {
         "virtual-host": {
