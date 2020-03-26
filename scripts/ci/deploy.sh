@@ -12,7 +12,7 @@ MESSAGE="Republishing universe for revision $TRAVIS_COMMIT: $TRAVIS_COMMIT_MESSA
 AUTHOR="$USER <>"
 
 if [ "$TRAVIS_PULL_REQUEST" != "false" ];then
-  echo "Not republishing won't build on pull request"
+  echo "Not republishing : on pull request"
   exit 0
 fi
 
@@ -22,6 +22,7 @@ if [ "$TRAVIS_BRANCH" != "$MAIN_BRANCH" ];then
 fi
 
 function setup() {
+    ls target
 }
 
 function publish() {
