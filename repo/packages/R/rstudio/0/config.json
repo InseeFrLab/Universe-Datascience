@@ -34,8 +34,7 @@
           "description": "Password",
           "default": ""
         }
-      },
-      "required": []
+      }
     },
     "networking": {
       "description": "Networking-related configuration properties for RStudio on DC/OS.",
