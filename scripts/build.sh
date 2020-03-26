@@ -6,8 +6,6 @@ REPO_BASE_DIR=${SCRIPTS_DIR}/..
 
 echo "Building the universe!"
 
-mv ~/.pydistutils.cfg ~/oldpydistutils.cfg
-
 mkdir -p ${REPO_BASE_DIR}/target/
 
 # Create a new virtual environment
