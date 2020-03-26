@@ -6,7 +6,7 @@ DOC_FOLDER="docs"
 SITE_FOLDER="website"
 BUNDLE_REPORT_FOLDER="bundle-report"
 
-MAIN_BRANCH="master"
+MAIN_BRANCH="setup-ci"
 UPSTREAM="https://$GITHUB_TOKEN@github.com/$TRAVIS_REPO_SLUG.git"
 MESSAGE="Republishing universe for revision $TRAVIS_COMMIT: $TRAVIS_COMMIT_MESSAGE"
 AUTHOR="$USER <>"
