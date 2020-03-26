@@ -7,7 +7,7 @@ This universe use the Onyxia format extension so that it can be used with Onyxia
 
 ## Using this universe
 
-This universe is published at https://inseefrlab.github.io/universe-datascience/universe.json.
+This universe is published at https://inseefrlab.github.io/Universe-Datascience/universe.json.
 
 ## Building the universe
 
