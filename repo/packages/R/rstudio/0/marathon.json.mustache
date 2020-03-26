@@ -4,7 +4,12 @@
   "mem": {{service.mem}},
   "instances": 1,
   "env": {
-    "DISABLE_AUTH": "true"
+    {{#advanced.password}}
+      "PASSWORD": "{{rstudio.password}}"
+    {{/advanced.password}}
+    {{^advanced.password}}
+      "DISABLE_AUTH": "true"
+    {{/advanced.password}}
   },
   "container": {
        "type": "DOCKER",

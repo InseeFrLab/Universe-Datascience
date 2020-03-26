@@ -2,7 +2,7 @@
   "type": "object",
   "properties": {
     "service": {
-      "description": "Configuration properties for the Wordpress service for DC/OS.",
+      "description": "Configuration properties for the RStudio service for DC/OS.",
       "type": "object",
       "properties": {
         "name": {
@@ -11,13 +11,13 @@
           "default": "rstudio"
         },
         "cpus": {
-          "description": "CPU shares to allocate to this WordPress instance.",
+          "description": "CPU shares to allocate to this RStudio instance.",
           "type": "number",
           "default": 0.5,
           "minimum": 0.1
         },
         "mem": {
-          "description": "Memory (in MB) to allocate to this WordPress instance.",
+          "description": "Memory (in MB) to allocate to this RStudio instance.",
           "type": "number",
           "default": 2048,
           "minimum": 256
@@ -25,8 +25,20 @@
       },
       "required": ["name", "cpus", "mem"]
     },
+    "rstudio": {
+      "description": "RStudio specific configuration",
+      "type": "object",
+      "properties": {
+        "password": {
+          "type": "string",
+          "description": "Password",
+          "default": ""
+        }
+      },
+      "required": []
+    },
     "networking": {
-      "description": "Networking-related configuration properties for WordPress on DC/OS.",
+      "description": "Networking-related configuration properties for RStudio on DC/OS.",
       "type": "object",
       "properties": {
         "virtual-host": {
