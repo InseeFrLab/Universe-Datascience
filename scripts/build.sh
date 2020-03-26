@@ -6,13 +6,14 @@ REPO_BASE_DIR=${SCRIPTS_DIR}/..
 
 echo "Building the universe!"
 
+mv ~/.pydistutils.cfg ~/oldpydistutils.cfg
+
 mkdir -p ${REPO_BASE_DIR}/target/
 
 # Create a new virtual environment
 rm -rf ${REPO_BASE_DIR}/target/venv
 python3 -m venv ${REPO_BASE_DIR}/target/venv
 
-ls ${REPO_BASE_DIR}/target/venv/bin/
 # Install dependencies
 ${REPO_BASE_DIR}/target/venv/bin/pip install -r ${SCRIPTS_DIR}/requirements/requirements.txt
 
