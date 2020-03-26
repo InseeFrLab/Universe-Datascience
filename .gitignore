@@ -1,0 +1,13 @@
+docker/certs
+local-universe.tar.gz
+docker/server/target/
+target/
+
+.idea/*
+*.iml
+tmp/
+repo/packages/T/tests
+
+config-reference.md
+
+.DS_Store
