@@ -1,0 +1,3 @@
+language: python
+script:
+  - scripts/build.sh
