@@ -3,7 +3,7 @@
     "cpus": {{service.cpus}},
     "mem":  {{service.mem}},
     "instances":1,
-    "cmd": "chown root:users $MESOS_SANDBOX && chmod 775 $MESOS_SANDBOX {{#advanced.jupyter_lab}} start.sh jupyter-lab {{/advanced.jupyter_lab}} {{^advanced.jupyter_lab}} start-notebook.sh {{/advanced.jupyter_lab}} {{#advanced.security_token.enable}} --NotebookApp.token='{{advanced.security_token.token}}'{{/advanced.security_token.enable}} {{^advanced.security_token.enable}} --NotebookApp.token=''{{/advanced.security_token.enable}},
+    "cmd": "chown root:users $MESOS_SANDBOX && chmod 775 $MESOS_SANDBOX {{#advanced.jupyter_lab}} start.sh jupyter-lab {{/advanced.jupyter_lab}} {{^advanced.jupyter_lab}} start-notebook.sh {{/advanced.jupyter_lab}} {{#advanced.security_token.enable}} --NotebookApp.token='{{advanced.security_token.token}}'{{/advanced.security_token.enable}} {{^advanced.security_token.enable}} --NotebookApp.token=''{{/advanced.security_token.enable}}",
     "container": {
         "type": "DOCKER",
         "docker": {
