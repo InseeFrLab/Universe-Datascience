@@ -1,0 +1,58 @@
+{
+    "type": "object",
+    "properties": {
+      "service": {
+        "description": "Configuration properties for the ubuntu service for DC/OS.",
+        "type": "object",
+        "properties": {
+          "name": {
+            "description": "The name of the service to display in the DC/OS dashboard.",
+            "type": "string",
+            "default": "ubuntu"
+          },
+          "cpus": {
+            "description": "CPU shares to allocate to this ubuntu instance.",
+            "type": "number",
+            "default": 0.5,
+            "minimum": 0.1
+          },
+          "mem": {
+            "description": "Memory (in MB) to allocate to this ubuntu instance.",
+            "type": "number",
+            "default": 2048,
+            "minimum": 256
+          }
+        },
+        "required": ["name", "cpus", "mem"]
+      },
+      "ubuntu": {
+        "description": "ubuntu specific configuration",
+        "type": "object",
+        "properties": {
+          "password": {
+            "type": "string",
+            "description": "Password",
+            "default": "changeme"
+          }
+        }
+      },
+      "networking": {
+        "description": "Networking-related configuration properties for ubuntu on DC/OS.",
+        "type": "object",
+        "properties": {
+          "virtual-host": {
+            "description": "The virtual host address to configure for integration with Marathon-lb.",
+            "type": "string"
+          },
+          "https-redirect": {
+            "description": "Whether Marathon-lb should redirect HTTP traffic to HTTPS. This requires 'virtual-host' to be set. By default, this is false.",
+            "type": "boolean",
+            "default": true
+          }
+        },
+        "required": ["virtual-host", "https-redirect"]
+      }
+    },
+    "required": ["service", "ubuntu", "networking"]
+  }
+  

@@ -1,0 +1,15 @@
+{
+    "images": {
+      "icon-small": "https://cdn.icon-icons.com/icons2/1508/PNG/512/distributorlogoubuntu_103999.png",
+      "icon-medium": "https://cdn.icon-icons.com/icons2/1508/PNG/512/distributorlogoubuntu_103999.png",
+      "icon-large": "https://cdn.icon-icons.com/icons2/1508/PNG/512/distributorlogoubuntu_103999.png"
+    },
+    "assets": {
+      "container": {
+        "docker": {
+          "image": "dorowu/ubuntu-desktop-lxde-vnc"
+        }
+      }
+    }
+  }
+  
