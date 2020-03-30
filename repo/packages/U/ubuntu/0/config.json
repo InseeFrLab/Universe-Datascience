@@ -42,12 +42,15 @@
         "properties": {
           "virtual-host": {
             "description": "The virtual host address to configure for integration with Marathon-lb.",
-            "type": "string"
+            "type": "string",
+            "x-form": {
+                "hidden": true
+            }
           },
           "https-redirect": {
             "description": "Whether Marathon-lb should redirect HTTP traffic to HTTPS. This requires 'virtual-host' to be set. By default, this is false.",
             "type": "boolean",
-            "default": true
+            "default": false
           }
         },
         "required": ["virtual-host", "https-redirect"]
