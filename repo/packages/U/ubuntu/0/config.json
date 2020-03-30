@@ -50,7 +50,10 @@
           "https-redirect": {
             "description": "Whether Marathon-lb should redirect HTTP traffic to HTTPS. This requires 'virtual-host' to be set. By default, this is false.",
             "type": "boolean",
-            "default": false
+            "default": true,
+            "x-form": {
+                "hidden": true
+            }
           }
         },
         "required": ["virtual-host", "https-redirect"]
