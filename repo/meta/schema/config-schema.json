@@ -142,7 +142,7 @@
         "x-form": {
           "hidden": {
             "type": "boolean",
-            "default": true
+            "default": false
           },
           "readonly": {
             "type": "boolean",
