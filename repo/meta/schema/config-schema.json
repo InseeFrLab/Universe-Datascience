@@ -140,9 +140,9 @@
         "oneOf": { "$ref": "#/definitions/schemaArray" },
         "not": { "$ref": "#" },
         "x-form": {
-          "visible": {
+          "hidden": {
             "type": "boolean",
-            "default": true
+            "default": false
           },
           "readonly": {
             "type": "boolean",

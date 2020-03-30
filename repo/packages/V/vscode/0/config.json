@@ -47,7 +47,7 @@
           "type": "string",
           "description": "Virtual host to expose VSCode on",
           "x-form": {
-            "visible": false
+            "hidden": true
           }
         }
       }
