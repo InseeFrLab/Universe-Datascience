@@ -10,7 +10,7 @@
   "container": {
        "type": "DOCKER",
        "docker": {
-           "image": "{{resource.assets.container.docker.image}}",
+           "image": "{{vscode.image}}",
            "network": "BRIDGE",
            "portMappings": [
               { "containerPort": 8080, "hostPort": 0 }

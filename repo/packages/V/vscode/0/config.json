@@ -36,6 +36,12 @@
           "x-form": {
             "value": "{{user.password}}"
           }
+        },
+        "image": {
+          "type": "string",
+          "description": "Version of vscode to use",
+          "default": "inseefrlab/vscode-python",
+          "enum": ["inseefrlab/vscode-python", "codercom/code-server:3.0.1"]
         }
       }
     },
