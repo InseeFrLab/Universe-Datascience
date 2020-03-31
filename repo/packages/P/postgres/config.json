@@ -76,7 +76,7 @@
           "type": "string"
         },
         "uri": {
-          "description": ".sql files could be on an archive root",
+          "description": "Sql files could be on an archive root",
           "title": "Initialisation script Url",
           "type": "string",
           "media": {
