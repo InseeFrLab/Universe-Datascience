@@ -1,0 +1,89 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "properties": {
+    "service": {
+      "type": "object",
+      "description": "DC/OS service configuration properties",
+      "properties": {
+        "name": {
+          "description": "Name of this service instance.",
+          "type": "string",
+          "default": "postgresql",
+          "api-defined": true,
+          "js-control": "shadow",
+          "api-control": "strict",
+          "api-default": "/users/[$IDEP]/postgresql-[$UUID]"
+        },
+        "endpoint": {
+          "description": "Label pour private endpoint",
+          "type": "string",
+          "default": "postgresql://changeme.org:5432/",
+          "api-defined": true,
+          "js-control": "shadow",
+          "api-control": "strict",
+          "api-default": "postgresql://postgresql-[$UUID]-[$IDEP]-users.marathon.containerip.dcos.thisdcos.directory:5432"
+        },
+        "cpus": {
+          "description": "CPU shares to allocate to each PostgreSQL node.",
+          "type": "number",
+          "default": 0.1,
+          "minimum": 0.1
+        },
+        "mem": {
+          "description": "Memory to allocate to each service instance.",
+          "type": "number",
+          "default": 1024.0,
+          "minimum": 1024.0
+        }
+      },
+      "required": ["cpus", "mem"]
+    },
+    "database": {
+      "type": "object",
+      "description": "PostgreSQL database configuration properties",
+      "properties": {
+        "version": {
+          "description": "postgresql major version",
+          "type": "string",
+          "enum": ["9", "10", "11", "12"],
+          "default": "12"
+        },
+        "username": {
+          "description": "Postgres user name.",
+          "type": "string",
+          "default": "admin",
+          "api-defined": true,
+          "js-control": "rw",
+          "api-control": "nocontrol",
+          "api-default": "[$IDEP]"
+        },
+        "password": {
+          "description": "Postgres password.",
+          "type": "string",
+          "default": "password",
+          "api-defined": true,
+          "js-control": "rw",
+          "api-control": "nocontrol",
+          "api-default": "[$USERPASSWORD]"
+        },
+        "dbname": {
+          "description": "Name for the default database that is created when the image is first started.",
+          "type": "string",
+          "default": "defaultdb"
+        },
+        "initdbargs": {
+          "description": "Arguments to send to postgres initdb. The value is a space separated string of arguments as postgres initdb would expect them.",
+          "type": "string"
+        },
+        "uri": {
+          "description": ".sql files could be on an archive root",
+          "title": "Initialisation script Url",
+          "type": "string",
+          "media": {
+            "type": "sql"
+          }
+        }
+      }
+    }
+  }
+}

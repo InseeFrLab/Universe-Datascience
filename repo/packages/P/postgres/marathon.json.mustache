@@ -1,0 +1,65 @@
+{
+  "id": "{{service.name}}",
+  "cpus": {{service.cpus}},
+  "mem": {{service.mem}},
+  "cmd": "{{#database.uri}}rm -rf /docker-entrypoint-initdb.d && ln -s $MESOS_SANDBOX /docker-entrypoint-initdb.d && {{/database.uri}}docker-entrypoint.sh postgres",
+  "instances": 1,
+  "env": {
+    "POSTGRES_USER": "{{database.username}}",
+    "POSTGRES_PASSWORD": "{{database.password}}",
+    "POSTGRES_DB": "{{database.dbname}}",
+    "POSTGRES_INITDB_ARGS": "{{database.initdbargs}}"
+  },
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "postgres:{{database.version}}",
+      "portMappings": [{
+          "containerPort": 5432,
+          "hostPort": 0,
+          "protocol": "tcp",
+          "name": "postgresql"
+      }],
+      "forcePullImage": false
+    }
+  },
+  "networks": [
+    {
+      "name": "dcos",
+      "mode": "container"
+    }
+  ],
+  "upgradeStrategy": {
+    "maximumOverCapacity": 0,
+    "minimumHealthCapacity": 0
+  },
+  "healthChecks": [
+    {{#database.uri}}
+        {
+            "protocol": "MESOS_TCP",
+            "portIndex": 0,
+            "gracePeriodSeconds": 300,
+            "intervalSeconds": 60,
+            "timeoutSeconds": 20,
+            "maxConsecutiveFailures": 3
+        }
+    {{/database.uri}}
+   ],
+  "fetch": [
+    {{#database.uri}}
+        {
+            "uri": "{{database.uri}}",
+            "extract": true,
+            "executable": false,
+            "cache": false
+        }
+    {{/database.uri}}
+    ],
+  "backoffFactor": 5,
+  "backoffSeconds": 10,
+  "maxLaunchDelaySeconds": 7200,
+  "labels": {
+    "MARATHON_SINGLE_INSTANCE_APP": "true",
+    "ONYXIA_PRIVATE_ENDPOINT": "{{service.endpoint}}"
+  }
+}

@@ -26,8 +26,8 @@
           "default": 512
         },
         "uri": {
-          "description": "Les fichiers peuvent être à la racine d'une archive",
-          "title": "Url des fichiers à importer",
+          "description": "Files could be on an archive root",
+          "title": "file Url you want to import",
           "type": "string",
           "media": {
             "type": "csv"
