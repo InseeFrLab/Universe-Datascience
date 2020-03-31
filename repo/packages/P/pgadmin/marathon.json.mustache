@@ -1,0 +1,44 @@
+{
+    "id": "{{service.name}}",
+    "cpus": {{service.cpus}},
+    "mem":  {{service.mem}},
+    "cmd": "chown pgadmin:pgadmin $MESOS_SANDBOX && /entrypoint su-exec pgadmin python /usr/local/lib/python3.7/site-packages/pgadmin4/pgAdmin4.py",
+    "instances": 1,
+    "container": {
+        "type": "DOCKER",
+        "docker": {
+            "image": "{{resource.assets.container.docker.pgadmin}}",
+            "network": "BRIDGE",
+            "portMappings": [
+                { "protocol": "tcp", "hostPort": 0, "containerPort": 5050 }
+            ]
+        }
+    },
+    "backoffFactor": 5,
+    "backoffSeconds": 10,
+    "maxLaunchDelaySeconds": 7200,
+    "healthChecks": [{
+        "protocol": "MESOS_TCP",
+        "gracePeriodSeconds": 300,
+        "intervalSeconds": 60,
+        "portIndex": 0,
+        "timeoutSeconds": 15,
+        "maxConsecutiveFailures": 3
+    }],
+    "fetch": [
+        {{#service.uri}}
+            {
+                "uri": "{{service.uri}}",
+                "extract": true,
+                "executable": false,
+                "cache": false
+            }
+        {{/service.uri}}
+    ],
+    "labels": {
+       "HAPROXY_GROUP": "external",
+        "HAPROXY_0_VHOST": "{{service.dns}}",
+        "HAPROXY_0_FRONTEND_HEAD": "",
+        "HAPROXY_0_FRONTEND_BACKEND_GLUE": ""
+    }
+}

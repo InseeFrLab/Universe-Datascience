@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "properties": {
+    "service": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "service id",
+          "type": "string",
+          "default": "pgadmin",
+          "api-defined": true,
+          "js-control": "shadow",
+          "api-control": "strict",
+          "api-default": "/users/[$IDEP]/pgadmin-[$UUID]"
+        },
+        "cpus": {
+          "description": "CPU",
+          "type": "number",
+          "default": 0.2,
+          "minimum": 0.1
+        },
+        "mem": {
+          "description": "Mémoire",
+          "type": "number",
+          "default": 512
+        },
+        "uri": {
+          "description": "Les fichiers peuvent être à la racine d'une archive",
+          "title": "Url des fichiers à importer",
+          "type": "string",
+          "media": {
+            "type": "csv"
+          }
+        },
+        "dns": {
+          "description": "dns name",
+          "type": "string",
+          "default": "change.me",
+          "api-defined": true,
+          "js-control": "shadow",
+          "api-control": "strict",
+          "api-default": "[$IDEP]-pgadmin-[$UUID].[$STATUS].[$DNS]"
+        }
+      }
+    }
+  }
+}
