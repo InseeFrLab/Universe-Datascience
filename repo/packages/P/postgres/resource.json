@@ -7,7 +7,7 @@
   "assets": {
     "container": {
       "docker": {
-        "image": "dpage/pgadmin4"
+        "image": "postgres"
       }
     }
   }
