@@ -7,7 +7,7 @@
   "assets": {
     "container": {
       "docker": {
-        "image": "codercom/code-server:3.0.1"
+        "image": "inseefrlab/vscode-python"
       }
     }
   }
