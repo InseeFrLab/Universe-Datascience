@@ -7,7 +7,7 @@
     "container": {
         "type": "DOCKER",
         "docker": {
-            "image": "{{resource.assets.container.docker.pgadmin}}",
+            "image": "{{resource.assets.container.docker.image}}",
             "network": "BRIDGE",
             "portMappings": [
                 { "protocol": "tcp", "hostPort": 0, "containerPort": 5050 }
@@ -36,10 +36,12 @@
         {{/service.uri}}
     ],
     "labels": {
-       "HAPROXY_GROUP": "external",
-       "HAPROXY_0_ENABLED": "true",
-        "HAPROXY_0_VHOST": "{{service.dns}}",
+        "HAPROXY_GROUP": "external",
+        "HAPROXY_0_ENABLED": "true",
+        "HAPROXY_0_VHOST":"{{networking.virtual-host}}",
+        "HAPROXY_0_REDIRECT_TO_HTTPS": "{{networking.https-redirect}}",
         "HAPROXY_0_FRONTEND_HEAD": "",
-        "HAPROXY_0_FRONTEND_BACKEND_GLUE": ""
+        "HAPROXY_0_FRONTEND_BACKEND_GLUE": "",
+        "MARATHON_SINGLE_INSTANCE_APP": "true",
     }
 }

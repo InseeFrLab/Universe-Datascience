@@ -1,12 +1,13 @@
 {
-  "$schema": "http://json-schema.org/schema#",
   "type": "object",
   "properties": {
     "service": {
+      "description": "Configuration properties for the RStudio service for DC/OS.",
       "type": "object",
+      "required": ["name", "cpus", "mem"],
       "properties": {
         "name": {
-          "description": "service id",
+          "description": "The name of the service to display in the DC/OS dashboard.",
           "type": "string",
           "default": "pgadmin",
           "api-defined": true,
@@ -15,13 +16,13 @@
           "api-default": "/users/[$IDEP]/pgadmin-[$UUID]"
         },
         "cpus": {
-          "description": "CPU",
+          "description": "CPU shares to allocate to this RStudio instance.",
           "type": "number",
           "default": 0.2,
           "minimum": 0.1
         },
         "mem": {
-          "description": "Mémoire",
+          "description": "Memory (in MB) to allocate to this RStudio instance.",
           "type": "number",
           "default": 512
         },
