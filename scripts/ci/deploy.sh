@@ -28,7 +28,7 @@ fi
 
 if [ "$TRAVIS_BRANCH" == "$PREVIEW_BRANCH" ]; then
   MESSAGE="Republishing test universe for revision $TRAVIS_COMMIT: $TRAVIS_COMMIT_MESSAGE"
-  UNIVERSE_JSON="universe-test.json"
+  UNIVERSE_JSON="universe-preview.json"
 fi
 
 
