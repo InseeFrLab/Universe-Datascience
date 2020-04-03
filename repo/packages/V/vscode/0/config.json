@@ -71,7 +71,7 @@
               "description": "the white list of IP is whitespace",
               "title": "Whitelist of IP",
               "x-form": {
-                "value": "192.168.253.0/24 {{user.ip}}"
+                "value": "{{user.ip}}"
               }
             }
           }
