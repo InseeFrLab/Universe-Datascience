@@ -1,18 +1,29 @@
 {
-  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
   "properties": {
     "service": {
       "type": "object",
-      "description": "DC/OS service configuration properties",
+      "description": "Configuration properties for the postgreSQL service for DC/OS.",
       "properties": {
         "name": {
-          "description": "Name of this service instance.",
+          "description": "The name of the service to display in the DC/OS dashboard.",
           "type": "string",
           "default": "postgresql",
-          "api-defined": true,
-          "js-control": "shadow",
-          "api-control": "strict",
-          "api-default": "/users/[$IDEP]/postgresql-[$UUID]"
+          "x-form": {
+            "hidden": true
+          }
+        },
+        "cpus": {
+          "description": "CPU shares to allocate to this PostgreSQL instance.",
+          "type": "number",
+          "default": 0.1,
+          "minimum": 0.1
+        },
+        "mem": {
+          "description": "Memory to allocate to this PostgreSQL instance.",
+          "type": "number",
+          "default": 1024.0,
+          "minimum": 1024.0
         },
         "endpoint": {
           "description": "Label pour private endpoint",
@@ -22,23 +33,10 @@
           "js-control": "shadow",
           "api-control": "strict",
           "api-default": "postgresql://postgresql-[$UUID]-[$IDEP]-users.marathon.containerip.dcos.thisdcos.directory:5432"
-        },
-        "cpus": {
-          "description": "CPU shares to allocate to each PostgreSQL node.",
-          "type": "number",
-          "default": 0.1,
-          "minimum": 0.1
-        },
-        "mem": {
-          "description": "Memory to allocate to each service instance.",
-          "type": "number",
-          "default": 1024.0,
-          "minimum": 1024.0
         }
-      },
-      "required": ["cpus", "mem"]
+      }
     },
-    "database": {
+    "postresql": {
       "type": "object",
       "description": "PostgreSQL database configuration properties",
       "properties": {

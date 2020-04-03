@@ -2,24 +2,33 @@
   "id": "{{service.name}}",
   "cpus": {{service.cpus}},
   "mem": {{service.mem}},
-  "cmd": "{{#database.uri}}rm -rf /docker-entrypoint-initdb.d && ln -s $MESOS_SANDBOX /docker-entrypoint-initdb.d && {{/database.uri}}docker-entrypoint.sh postgres",
+  "cmd": "{{#postresql.uri}}rm -rf /docker-entrypoint-initdb.d && ln -s $MESOS_SANDBOX /docker-entrypoint-initdb.d && {{/postresql.uri}}docker-entrypoint.sh postgres",
   "instances": 1,
   "env": {
-    "POSTGRES_USER": "{{database.username}}",
-    "POSTGRES_PASSWORD": "{{database.password}}",
-    "POSTGRES_DB": "{{database.dbname}}",
-    "POSTGRES_INITDB_ARGS": "{{database.initdbargs}}"
+    "POSTGRES_USER": "{{postresql.username}}",
+    "POSTGRES_PASSWORD": 
+      {{#postresql.password}}
+        "PASSWORD": "{{postresql.password}}"
+      {{/postresql.password}}
+      {{^postresql.password}}
+        "DISABLE_AUTH": "true"
+      {{/postresql.password}}
+    "POSTGRES_DB": "{{postresql.dbname}}",
+    "POSTGRES_INITDB_ARGS": "{{postresql.initdbargs}}"
   },
   "container": {
     "type": "DOCKER",
     "docker": {
-      "image": "postgres:{{database.version}}",
-      "portMappings": [{
+      "image": "{{resource.assets.container.docker.image}}:{{postresql.version}}",
+      "portMappings": 
+      [
+        {
           "containerPort": 5432,
           "hostPort": 0,
           "protocol": "tcp",
           "name": "postgresql"
-      }],
+        }
+      ],
       "forcePullImage": false
     }
   },
@@ -29,12 +38,13 @@
       "mode": "container"
     }
   ],
-  "upgradeStrategy": {
+  "upgradeStrategy": 
+  {
     "maximumOverCapacity": 0,
     "minimumHealthCapacity": 0
   },
   "healthChecks": [
-    {{#database.uri}}
+    {{#postresql.uri}}
         {
             "protocol": "MESOS_TCP",
             "portIndex": 0,
@@ -43,22 +53,20 @@
             "timeoutSeconds": 20,
             "maxConsecutiveFailures": 3
         }
-    {{/database.uri}}
+    {{/postresql.uri}}
    ],
   "fetch": [
-    {{#database.uri}}
+    {{#postresql.uri}}
         {
-            "uri": "{{database.uri}}",
+            "uri": "{{postresql.uri}}",
             "extract": true,
             "executable": false,
             "cache": false
         }
-    {{/database.uri}}
+    {{/postresql.uri}}
     ],
-  "backoffFactor": 5,
-  "backoffSeconds": 10,
-  "maxLaunchDelaySeconds": 7200,
   "labels": {
+    "HAPROXY_0_ENABLED":"true",
     "MARATHON_SINGLE_INSTANCE_APP": "true",
     "ONYXIA_PRIVATE_ENDPOINT": "{{service.endpoint}}"
   }
