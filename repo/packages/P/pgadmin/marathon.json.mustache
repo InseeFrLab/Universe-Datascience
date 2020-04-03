@@ -14,17 +14,16 @@
             ]
         }
     },
-    "backoffFactor": 5,
-    "backoffSeconds": 10,
-    "maxLaunchDelaySeconds": 7200,
-    "healthChecks": [{
-        "protocol": "MESOS_TCP",
-        "gracePeriodSeconds": 300,
-        "intervalSeconds": 60,
-        "portIndex": 0,
-        "timeoutSeconds": 15,
-        "maxConsecutiveFailures": 3
-    }],
+    "healthChecks": [
+        {
+            "protocol": "MESOS_TCP",
+            "gracePeriodSeconds": 300,
+            "intervalSeconds": 60,
+            "portIndex": 0,
+            "timeoutSeconds": 15,
+            "maxConsecutiveFailures": 3
+        }
+    ],
     "fetch": [
         {{#service.uri}}
             {
@@ -42,6 +41,21 @@
         "HAPROXY_0_REDIRECT_TO_HTTPS": "{{networking.https-redirect}}",
         "HAPROXY_0_FRONTEND_HEAD": "",
         "HAPROXY_0_FRONTEND_BACKEND_GLUE": "",
-        "MARATHON_SINGLE_INSTANCE_APP": "true",
-    }
+        {{#networking.whitelist.enable}}
+            "HAPROXY_0_BACKEND_NETWORK_ALLOWED_ACL": "{{networking.whitelist.ip}}",
+        {{/networking.whitelist.enable}} 
+        "MARATHON_SINGLE_INSTANCE_APP": "true"
+    },
+    "upgradeStrategy": {
+       "maximumOverCapacity": 0,
+       "minimumHealthCapacity": 0
+    },
+    "env": {
+        {{#pgadmin.password}}
+            "PASSWORD": "{{pgadmin.password}}"
+        {{/pgadmin.password}}
+        {{^pgadmin.password}}
+            "DISABLE_AUTH": "true"
+        {{/pgadmin.password}}
+  },
 }

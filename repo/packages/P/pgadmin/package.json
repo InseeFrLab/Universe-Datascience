@@ -7,7 +7,7 @@
   "maintainer": "https://hub.docker.com/u/dpage",
   "website": "https://www.pgadmin.org/docs/pgadmin4/4.19/index.html",
   "framework": false,
-  "description": "A webclient for postgres",
+  "description": "PgAdmin is a webclient for postgres",
   "tags": [
     "SQL",
     "pgadmin",
