@@ -1,0 +1,15 @@
+{
+    "images": {
+      "icon-small": "https://humancoders-formations.s3.amazonaws.com/uploads/course/logo/23/thumb_bigger_formation-neo4j.png",
+      "icon-medium": "https://humancoders-formations.s3.amazonaws.com/uploads/course/logo/23/thumb_bigger_formation-neo4j.png",
+      "icon-large": "https://humancoders-formations.s3.amazonaws.com/uploads/course/logo/23/thumb_bigger_formation-neo4j.png"
+    },
+    "assets": {
+      "container": {
+        "docker": {
+          "image": "neo4j"
+        }
+      }
+    }
+  }
+  
