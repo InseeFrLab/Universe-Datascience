@@ -52,7 +52,7 @@
               "description": "version de neo4j",
               "type": "string",
               "enum": [
-                  "4.0"
+                  "4.0",
                   "3.5",
                   "3.4",
                   "3.3",
