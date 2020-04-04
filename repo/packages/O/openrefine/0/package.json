@@ -1,0 +1,20 @@
+{
+    "packagingVersion": "3.0",
+    "name": "openrefine",
+    "version": "1.0",
+    "minDcosReleaseVersion": "1.8",
+    "scm": "https://github.com/vimagick/dockerfiles",
+    "maintainer": "https://github.com/inseefrlab",
+    "website": "https://openrefine.org/",
+    "framework": false,
+    "description": "OpenRefine (previously Google Refine) is a powerful tool for working with messy data: cleaning it; transforming it from one format into another; and extending it with web services and external data.",
+    "tags": [
+      "Tabular"
+    ],
+    "preInstallNotes": "Warning : data are not stored on this service.",
+    "postInstallNotes": "Openrefine has been installed.",
+    "postUninstallNotes": "Openrefine has been uninstalled.",
+    "selected": false,
+    "lastUpdated": 1585220308
+  }
+  
