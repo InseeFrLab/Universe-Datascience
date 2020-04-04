@@ -1,0 +1,15 @@
+{
+    "images": {
+      "icon-small": "https://upload.wikimedia.org/wikipedia/commons/7/76/Google-refine-logo.svg",
+      "icon-medium": "https://upload.wikimedia.org/wikipedia/commons/7/76/Google-refine-logo.svg",
+      "icon-large": "https://upload.wikimedia.org/wikipedia/commons/7/76/Google-refine-logo.svg"
+    },
+    "assets": {
+      "container": {
+        "docker": {
+          "image": "vimagick/openrefine"
+        }
+      }
+    }
+  }
+  
