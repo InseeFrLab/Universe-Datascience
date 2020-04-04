@@ -40,14 +40,6 @@
               "value": "{{user.password}}"
             }
           },
-          "user": {
-            "type": "string",
-            "description": "user",
-            "default": "neo4j",
-            "x-form": {
-              "value": "{{user.idep}}"
-            }
-          },
           "version": {
               "description": "version de neo4j",
               "type": "string",

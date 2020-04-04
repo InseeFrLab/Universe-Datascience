@@ -5,7 +5,7 @@
   "instances": 1,
   "env": {
     {{#neo4j.password}}
-    "NEO4J_AUTH": "{{neo4j.user}}/{{neo4j.password}}",
+    "NEO4J_AUTH": "neo4j/{{neo4j.password}}",
     {{/neo4j.password}}
     {{^neo4j.password}}
     "NEO4J_AUTH": "none",
