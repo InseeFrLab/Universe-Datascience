@@ -34,18 +34,10 @@
         "properties": {
           "password": {
             "type": "string",
-            "description": "Password",
+            "description": "Password of the neo4j user",
             "default": "changeme",
             "x-form": {
               "value": "{{user.password}}"
-            }
-          },
-          "user": {
-            "type": "string",
-            "description": "user",
-            "default": "neo4j",
-            "x-form": {
-              "value": "{{user.idep}}"
             }
           },
           "version": {
