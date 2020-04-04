@@ -1,13 +1,13 @@
 {
     "images": {
-      "icon-small": "https://cdn.icon-icons.com/icons2/1508/PNG/512/distributorlogoubuntu_103999.png",
-      "icon-medium": "https://cdn.icon-icons.com/icons2/1508/PNG/512/distributorlogoubuntu_103999.png",
-      "icon-large": "https://cdn.icon-icons.com/icons2/1508/PNG/512/distributorlogoubuntu_103999.png"
+      "icon-small": "https://humancoders-formations.s3.amazonaws.com/uploads/course/logo/23/thumb_bigger_formation-neo4j.png",
+      "icon-medium": "https://humancoders-formations.s3.amazonaws.com/uploads/course/logo/23/thumb_bigger_formation-neo4j.png",
+      "icon-large": "https://humancoders-formations.s3.amazonaws.com/uploads/course/logo/23/thumb_bigger_formation-neo4j.png"
     },
     "assets": {
       "container": {
         "docker": {
-          "image": "dorowu/ubuntu-desktop-lxde-vnc"
+          "image": "neo4j"
         }
       }
     }

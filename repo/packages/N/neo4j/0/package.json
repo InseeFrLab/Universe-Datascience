@@ -1,21 +1,20 @@
 {
     "packagingVersion": "3.0",
-    "name": "ubuntu",
+    "name": "neo4j",
     "version": "1.0",
     "minDcosReleaseVersion": "1.8",
-    "scm": "https://github.com/fcwu/docker-ubuntu-vnc-desktop",
+    "scm": "https://github.com/neo4j/docker-neo4j-publish",
     "maintainer": "https://github.com/inseefrlab",
-    "website": "https://github.com/fcwu/docker-ubuntu-vnc-desktop",
+    "website": "https://neo4j.com",
     "framework": false,
-    "description": "VNC remote desktop",
+    "description": "Neo4j is a graph database management system developed by Neo4j, Inc. Described by its developers as an ACID-compliant transactional database with native graph storage and processing",
     "tags": [
-      "Ubuntu",
-      "desktop",
-      "vnc"
+      "database",
+      "graph"
     ],
-    "preInstallNotes": "Warning : data are not stored on this service. Use GIT to save your code.",
-    "postInstallNotes": "ubuntu has been installed.",
-    "postUninstallNotes": "ubuntu has been uninstalled.",
+    "preInstallNotes": "Warning : data are not stored on this service. ",
+    "postInstallNotes": "neo4j has been installed.",
+    "postUninstallNotes": "neo4j has been uninstalled.",
     "selected": false,
     "lastUpdated": 1585220308
   }
