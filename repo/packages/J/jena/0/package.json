@@ -10,8 +10,6 @@
     "description": "A free and open source Java framework for building Semantic Web and Linked Data applications.p",
     "tags": [
       "RDF",
-      "Graph",
-      "Linked Data",
       "Triple Store",
       "OWL"
     ],
