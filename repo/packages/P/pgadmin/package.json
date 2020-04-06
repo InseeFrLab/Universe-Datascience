@@ -1,0 +1,24 @@
+{
+  "packagingVersion": "3.0",
+  "name": "pgadmin",
+  "version": "1.0",
+  "minDcosReleaseVersion": "1.8",
+  "scm": "https://github.com/postgres/pgadmin4",
+  "maintainer": "https://hub.docker.com/u/dpage",
+  "website": "https://www.pgadmin.org/docs/pgadmin4/4.19/index.html",
+  "framework": false,
+  "description": "PgAdmin is a webclient for postgres",
+  "tags": [
+    "SQL",
+    "pgadmin",
+    "datascience",
+    "webclient",
+    "database",
+    "postgres"
+  ],
+  "preInstallNotes": "Warning : to manage data with this pgadmin, you need to link it with a postgres database",
+  "postInstallNotes": "PGadmin has been installed.",
+  "postUninstallNotes": "PGadmin has been uninstalled.",
+  "selected": false,
+  "lastUpdated": 1585220308
+}

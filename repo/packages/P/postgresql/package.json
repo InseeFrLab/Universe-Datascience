@@ -1,0 +1,22 @@
+{
+  "packagingVersion": "3.0",
+  "name": "postresql",
+  "version": "1.0",
+  "minDcosReleaseVersion": "1.8",
+  "scm": "https://github.com/docker-library/postgres",
+  "maintainer": "PostgreSQL Docker Community",
+  "website": "https://hub.docker.com/_/postgres",
+  "framework": false,
+  "description": "An object-relational database management system, a database server",
+  "tags": [
+    "SQL",
+    "datascience",
+    "database",
+    "postgres"
+  ],
+  "preInstallNotes": "Warning : data are not stored on this service. Use GIT to save your code.",
+  "postInstallNotes": "Postgres has been installed.\n\nDefault login: `admin`/`password`",
+  "postUninstallNotes": "Postgres has been uninstalled.",
+  "selected": false,
+  "lastUpdated": 1585220308
+}
