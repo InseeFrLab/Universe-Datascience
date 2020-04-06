@@ -1,0 +1,14 @@
+{
+  "images": {
+    "icon-small": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/langfr-220px-Postgresql_elephant.svg.png",
+    "icon-medium": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/langfr-220px-Postgresql_elephant.svg.png",
+    "icon-large": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/langfr-220px-Postgresql_elephant.svg.png"
+  },
+  "assets": {
+    "container": {
+      "docker": {
+        "image": "postgres"
+      }
+    }
+  }
+}
