@@ -2,7 +2,6 @@
     "id": "{{service.name}}",
     "cpus": {{service.cpus}},
     "mem":  {{service.mem}},
-    "cmd": "chown pgadmin:pgadmin $MESOS_SANDBOX && /entrypoint su-exec pgadmin python /usr/local/lib/python3.7/site-packages/pgadmin4/pgAdmin4.py",
     "instances": 1,
     "container": {
         "type": "DOCKER",
@@ -52,10 +51,14 @@
     },
     "env": {
         {{#pgadmin.password}}
-            "PASSWORD": "{{pgadmin.password}}"
+            "PASSWORD": "{{pgadmin.password}}",
         {{/pgadmin.password}}
         {{^pgadmin.password}}
-            "DISABLE_AUTH": "true"
+            "DISABLE_AUTH": "true",
         {{/pgadmin.password}}
+        "PGADMIN_DEFAULT_EMAIL" : unused@unused.fr,
+        "PGADMIN_DEFAULT_PASSWORD" : unused,
+        "PGADMIN_CONFIG_SERVER_MODE" : False,
+        "PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED" : False
   }
 }
