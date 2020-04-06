@@ -34,7 +34,7 @@
         "properties": {
           "password": {
             "type": "string",
-            "description": "Password",
+            "description": "Password of the admin account",
             "default": "changeme",
             "x-form": {
               "value": "{{user.password}}"
