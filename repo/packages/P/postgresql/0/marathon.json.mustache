@@ -5,8 +5,7 @@
   "cmd": "{{#postresql.uri}}rm -rf /docker-entrypoint-initdb.d && ln -s $MESOS_SANDBOX /docker-entrypoint-initdb.d && {{/postresql.uri}}docker-entrypoint.sh postgres",
   "instances": 1,
   "env": {
-    "POSTGRES_USER": "{{postresql.username}}",
-    "POSTGRES_PASSWORD": 
+    "POSTGRES_USER": "{{postresql.username}}", 
       {{#postresql.password}}
         "PASSWORD": "{{postresql.password}}",
       {{/postresql.password}}
