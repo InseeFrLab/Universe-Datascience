@@ -1,0 +1,21 @@
+{
+    "packagingVersion": "3.0",
+    "name": "elk",
+    "version": "1.0",
+    "minDcosReleaseVersion": "1.8",
+    "scm": "https://github.com/fcwu/docker-elk-vnc-desktop",
+    "maintainer": "https://github.com/inseefrlab",
+    "website": "https://github.com/elastic",
+    "framework": false,
+    "description": "Elasticsearch is a search engine based on the Lucene library. It provides a distributed, multitenant-capable full-text search engine with an HTTP web interface and schema-free JSON documents",
+    "tags": [
+      "Search",
+      "Lucene",
+      "JSON"
+    ],
+    "preInstallNotes": "Warning : data are not stored on this service.",
+    "postInstallNotes": "elk has been installed.",
+    "postUninstallNotes": "elk has been uninstalled.",
+    "selected": false,
+    "lastUpdated": 1585220308
+}  
