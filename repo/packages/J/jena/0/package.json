@@ -1,0 +1,23 @@
+{
+    "packagingVersion": "3.0",
+    "name": "jena",
+    "version": "1.0",
+    "minDcosReleaseVersion": "1.8",
+    "scm": "https://github.com/apache/jena",
+    "maintainer": "https://github.com/inseefrlab",
+    "website": "http://jena.apache.org/",
+    "framework": false,
+    "description": "A free and open source Java framework for building Semantic Web and Linked Data applications.",
+    "tags": [
+      "RDF",
+      "Triple Store",
+      "OWL",
+      "Graph",
+      "Linked Data"
+    ],
+    "preInstallNotes": "Warning : data are not stored on this service.",
+    "postInstallNotes": "Jena has been installed.",
+    "postUninstallNotes": "Jena has been uninstalled.",
+    "selected": false,
+    "lastUpdated": 1585220308
+}
