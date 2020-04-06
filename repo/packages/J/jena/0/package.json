@@ -10,7 +10,8 @@
   "description": "A free and open source Java framework for building Semantic Web and Linked Data applications.",
   "tags": [
     "RDF",
-    "OWL"
+    "OWL",
+    "Graph"
   ],
   "preInstallNotes": "Warning : data are not stored on this service.",
   "postInstallNotes": "Jena has been installed.",
