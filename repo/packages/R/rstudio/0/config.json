@@ -38,7 +38,7 @@
           "default": "changeme",
           "x-form": {
             "value": "{{user.password}}"
-          }          
+          }
         }
       }
     },
@@ -81,7 +81,7 @@
       },
       "required": ["virtual-host", "https-redirect"]
     },
-    "s3":{ 
+    "s3": {
       "description": "S3-related configuration properties for RStudio on DC/OS.",
       "type": "object",
       "properties": {
@@ -89,12 +89,11 @@
           "description": "AWS Access Key",
           "type": "string",
           "x-form": {
-            "hidden": false,
-            "value": {{s3.AWS_ACCESS_KEY_ID}}
+            "value": "{{s3.AWS_ACCESS_KEY_ID}}"
           }
         }
       }
-    }    
+    }
   },
-  "required": ["service", "rstudio", "networking","s3"]
+  "required": ["service", "rstudio", "networking"]
 }
