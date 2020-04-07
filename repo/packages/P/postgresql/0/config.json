@@ -58,7 +58,7 @@
         "password": {
           "description": "Postgres password.",
           "type": "string",
-          "default": "password",
+          "default": "changeme",
           "api-defined": true,
           "js-control": "rw",
           "api-control": "nocontrol",
