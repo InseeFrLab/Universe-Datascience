@@ -7,7 +7,7 @@
   "assets": {
     "container": {
       "docker": {
-        "image": "rocker/geospatial"
+        "image": "inseefrlab/rstudio"
       }
     }
   }
