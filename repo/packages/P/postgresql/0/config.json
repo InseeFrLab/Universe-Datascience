@@ -29,10 +29,10 @@
           "description": "Label pour private endpoint",
           "type": "string",
           "default": "postgresql://changeme.org:5432/",
-          "api-defined": true,
-          "js-control": "shadow",
-          "api-control": "strict",
-          "api-default": "postgresql://postgresql-[$UUID]-[$IDEP]-users.marathon.containerip.dcos.thisdcos.directory:5432"
+          "x-form": {
+            "value": "this.privatedns",
+            "hidden": "true"
+          }
         }
       }
     },
@@ -50,19 +50,17 @@
           "description": "Postgres user name.",
           "type": "string",
           "default": "admin",
-          "api-defined": true,
-          "js-control": "rw",
-          "api-control": "nocontrol",
-          "api-default": "[$IDEP]"
+          "x-form": {
+            "value": "{{user.idep}}"
+          }
         },
         "password": {
           "description": "Postgres password.",
           "type": "string",
           "default": "changeme",
-          "api-defined": true,
-          "js-control": "rw",
-          "api-control": "nocontrol",
-          "api-default": "[$USERPASSWORD]"
+          "x-form": {
+            "value": "{{user.password}}"
+          }
         },
         "dbname": {
           "description": "Name for the default database that is created when the image is first started.",
@@ -76,10 +74,7 @@
         "uri": {
           "description": "Sql files could be on an archive root",
           "title": "Initialisation script Url",
-          "type": "string",
-          "media": {
-            "type": "sql"
-          }
+          "type": "string"
         }
       }
     }

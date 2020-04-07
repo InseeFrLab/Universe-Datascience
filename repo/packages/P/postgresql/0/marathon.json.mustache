@@ -6,12 +6,7 @@
   "instances": 1,
   "env": {
     "POSTGRES_USER": "{{postresql.username}}", 
-      {{#postresql.password}}
-        "POSTGRES_PASSWORD": "{{postresql.password}}",
-      {{/postresql.password}}
-      {{^postresql.password}}
-        "DISABLE_AUTH": "true",
-      {{/postresql.password}}
+    "POSTGRES_PASSWORD": "{{postresql.password}}",
     "POSTGRES_DB": "{{postresql.dbname}}",
     "POSTGRES_INITDB_ARGS": "{{postresql.initdbargs}}"
   },
