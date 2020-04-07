@@ -27,10 +27,7 @@
       },
       "uri": {
         "description": "Files could be on an archive root",
-        "type": "string",
-        "media": {
-          "type": "csv"
-        }
+        "type": "string"
       }
     },
     "pgadmin": {
