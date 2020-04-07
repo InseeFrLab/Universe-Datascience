@@ -82,14 +82,49 @@
       "required": ["virtual-host", "https-redirect"]
     },
     "s3": {
-      "description": "S3-related configuration properties for RStudio on DC/OS.",
+      "description": "Configuration of temporary identity",
       "type": "object",
       "properties": {
-        "accessKey": {
+        "accessKeyId": {
           "description": "AWS Access Key",
           "type": "string",
           "x-form": {
             "value": "{{s3.AWS_ACCESS_KEY_ID}}"
+          }
+        },
+        "endpoint": {
+          "description": "AWS S3 Endpoint",
+          "type": "string",
+          "x-form": {
+            "value": "{{s3.AWS_S3_ENDPOINT}}"
+          }
+        },
+        "defaultRegion": {
+          "description": "AWS S3 default region",
+          "type": "string",
+          "x-form": {
+            "value": "{{s3.AWS_DEFAULT_REGION}}"
+          }
+        },
+        "secretAccessKey": {
+          "description": "AWS S3 secret access key",
+          "type": "string",
+          "x-form": {
+            "value": "{{s3.AWS_SECRET_ACCESS_KEY}}"
+          }
+        },
+        "sessionToken": {
+          "description": "AWS S3 session Token",
+          "type": "string",
+          "x-form": {
+            "value": "{{s3.AWS_SESSION_TOKEN}}"
+          }
+        },
+        "expiration": {
+          "description": "Temporary identity expiration date",
+          "type": "string",
+          "x-form": {
+            "value": "{{s3.AWS_EXPIRATION}}"
           }
         }
       }

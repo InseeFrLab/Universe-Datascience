@@ -4,7 +4,12 @@
   "mem": {{service.mem}},
   "instances": 1,
   "env": {
-    "AWS_ACCESS_KEY_ID" : "{{s3.accessKey}}",
+    "AWS_ACCESS_KEY_ID" : "{{s3.accessKeyId}}",
+    "AWS_S3_ENDPOINT" : "{{s3.endpoint}}",
+    "AWS_DEFAULT_REGION" : "{{s3.defaultRegion}}",
+    "AWS_SECRET_ACCESS_KEY" : "{{s3.secretAccessKey}}",
+    "AWS_SESSION_TOKEN" : "{{s3.sessionToken}}",
+    "AWS_EXPIRATION" : "{{s3.expiration}}",
     {{#rstudio.password}}
       "PASSWORD": "{{rstudio.password}}"
     {{/rstudio.password}}
