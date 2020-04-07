@@ -4,6 +4,7 @@
   "mem": {{service.mem}},
   "instances": 1,
   "env": {
+    "AWS_ACCESS_KEY_ID" : "{{s3.accessKey}}",
     {{#rstudio.password}}
       "PASSWORD": "{{rstudio.password}}"
     {{/rstudio.password}}
