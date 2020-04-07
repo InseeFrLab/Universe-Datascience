@@ -1,8 +1,10 @@
 {
   "type": "object",
+  "required": ["service", "postresql"],
   "properties": {
     "service": {
       "type": "object",
+      "required": ["name", "cpu", "mem"],
       "description": "Configuration properties for the postgreSQL service for DC/OS.",
       "properties": {
         "name": {
@@ -24,20 +26,12 @@
           "type": "number",
           "default": 1024.0,
           "minimum": 1024.0
-        },
-        "endpoint": {
-          "description": "Label pour private endpoint",
-          "type": "string",
-          "default": "postgresql://changeme.org:5432/",
-          "x-form": {
-            "value": "this.privatedns",
-            "hidden": "true"
-          }
         }
       }
     },
     "postresql": {
       "type": "object",
+      "required": ["version", "username", "password"],
       "description": "PostgreSQL database configuration properties",
       "properties": {
         "version": {
