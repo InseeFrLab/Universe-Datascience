@@ -4,6 +4,14 @@
     "mem":  {{service.mem}},
     "instances":1,
     "cmd": "{{#advanced.jupyter_lab}} start.sh jupyter-lab {{/advanced.jupyter_lab}} {{^advanced.jupyter_lab}} start-notebook.sh {{/advanced.jupyter_lab}} {{#advanced.security_token.enable}} --NotebookApp.token='{{advanced.security_token.password}}'{{/advanced.security_token.enable}} {{^advanced.security_token.enable}} --NotebookApp.token=''{{/advanced.security_token.enable}}",
+    "env": {
+        "AWS_ACCESS_KEY_ID" : "{{s3.accessKeyId}}",
+        "AWS_S3_ENDPOINT" : "{{s3.endpoint}}",
+        "AWS_DEFAULT_REGION" : "{{s3.defaultRegion}}",
+        "AWS_SECRET_ACCESS_KEY" : "{{s3.secretAccessKey}}",
+        "AWS_SESSION_TOKEN" : "{{s3.sessionToken}}",
+        "AWS_EXPIRATION" : "{{s3.expiration}}"
+    },
     "container": {
         "type": "DOCKER",
         "docker": {
