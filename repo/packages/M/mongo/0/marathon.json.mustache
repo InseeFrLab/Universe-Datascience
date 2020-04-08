@@ -1,0 +1,45 @@
+{
+  "id": "{{service.name}}",
+    "cpus": {{service.cpus}},
+    "mem": {{service.mem}},
+    "instances": 1,
+    "env": {
+      "MONGO_INITDB_ROOT_PASSWORD": "{{postgresql.password}}",
+      "MONGO_INITDB_ROOT_USERNAME": "{{postgresql.username}}",
+    }
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "{{resource.assets.container.docker.image}}:{{mongo.version}}",
+      "network": "BRIDGE",
+      "portMappings":
+        [
+        {
+          "containerPort": 27017,
+          "hostPort": 0,
+          "protocol": "tcp",
+          "name": "mongo"
+        }
+        ],
+        "forcePullImage": false
+    }
+  },
+    "upgradeStrategy":
+    {
+      "maximumOverCapacity": 0,
+      "minimumHealthCapacity": 0
+    },
+    "labels": {
+      "HAPROXY_0_ENABLED":"true",
+      "MARATHON_SINGLE_INSTANCE_APP": "true",
+      "ONYXIA_PRIVATE_ENDPOINT":"mongodb://{{context.internaluri}}:27017"
+    }
+  "healthChecks": [{
+    "protocol": "MESOS_TCP",
+    "gracePeriodSeconds": 300,
+    "intervalSeconds": 60,
+    "portIndex": 0,
+    "timeoutSeconds": 15,
+    "maxConsecutiveFailures": 3
+  }]
+}
