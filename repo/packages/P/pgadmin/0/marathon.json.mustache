@@ -1,0 +1,64 @@
+{
+    "id": "{{service.name}}",
+    "cpus": {{service.cpus}},
+    "mem":  {{service.mem}},
+    "instances": 1,
+    "container": {
+        "type": "DOCKER",
+        "docker": {
+            "image": "{{resource.assets.container.docker.image}}",
+            "network": "BRIDGE",
+            "portMappings": [
+                { "protocol": "tcp", "hostPort": 0, "containerPort": 80 }
+            ]
+        }
+    },
+    "healthChecks": [
+        {
+            "protocol": "MESOS_TCP",
+            "gracePeriodSeconds": 300,
+            "intervalSeconds": 60,
+            "portIndex": 0,
+            "timeoutSeconds": 15,
+            "maxConsecutiveFailures": 3
+        }
+    ],
+    "fetch": [
+        {{#service.uri}}
+            {
+                "uri": "{{service.uri}}",
+                "extract": true,
+                "executable": false,
+                "cache": false
+            }
+        {{/service.uri}}
+    ],
+    "labels": {
+        "HAPROXY_GROUP": "external",
+        "HAPROXY_0_ENABLED": "true",
+        "HAPROXY_0_VHOST":"{{networking.virtual-host}}",
+        "HAPROXY_0_REDIRECT_TO_HTTPS": "{{networking.https-redirect}}",
+        "HAPROXY_0_FRONTEND_HEAD": "",
+        "HAPROXY_0_FRONTEND_BACKEND_GLUE": "",
+        {{#networking.whitelist.enable}}
+            "HAPROXY_0_BACKEND_NETWORK_ALLOWED_ACL": "{{networking.whitelist.ip}}",
+        {{/networking.whitelist.enable}} 
+        "MARATHON_SINGLE_INSTANCE_APP": "true"
+    },
+    "upgradeStrategy": {
+       "maximumOverCapacity": 0,
+       "minimumHealthCapacity": 0
+    },
+    "env": {
+        {{#pgadmin.password}}
+            "PASSWORD": "{{pgadmin.password}}",
+        {{/pgadmin.password}}
+        {{^pgadmin.password}}
+            "DISABLE_AUTH": "true",
+        {{/pgadmin.password}}
+        "PGADMIN_DEFAULT_EMAIL" : "unused@unused.fr",
+        "PGADMIN_DEFAULT_PASSWORD" : "unused",
+        "PGADMIN_CONFIG_SERVER_MODE" : "False",
+        "PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED" : "False"
+  }
+}

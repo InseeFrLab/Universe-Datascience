@@ -1,0 +1,76 @@
+{
+  "type": "object",
+  "required": ["service", "postresql"],
+  "properties": {
+    "service": {
+      "type": "object",
+      "required": ["name", "cpu", "mem"],
+      "description": "Configuration properties for the postgreSQL service for DC/OS.",
+      "properties": {
+        "name": {
+          "description": "The name of the service to display in the DC/OS dashboard.",
+          "type": "string",
+          "default": "postgresql",
+          "x-form": {
+            "hidden": true
+          }
+        },
+        "cpus": {
+          "description": "CPU shares to allocate to this PostgreSQL instance.",
+          "type": "number",
+          "default": 0.1,
+          "minimum": 0.1
+        },
+        "mem": {
+          "description": "Memory to allocate to this PostgreSQL instance.",
+          "type": "number",
+          "default": 1024.0,
+          "minimum": 1024.0
+        }
+      }
+    },
+    "postresql": {
+      "type": "object",
+      "required": ["version", "username", "password"],
+      "description": "PostgreSQL database configuration properties",
+      "properties": {
+        "version": {
+          "description": "postgresql major version",
+          "type": "string",
+          "enum": ["9", "10", "11", "12"],
+          "default": "12"
+        },
+        "username": {
+          "description": "Postgres user name.",
+          "type": "string",
+          "default": "admin",
+          "x-form": {
+            "value": "{{user.idep}}"
+          }
+        },
+        "password": {
+          "description": "Postgres password.",
+          "type": "string",
+          "default": "changeme",
+          "x-form": {
+            "value": "{{user.password}}"
+          }
+        },
+        "dbname": {
+          "description": "Name for the default database that is created when the image is first started.",
+          "type": "string",
+          "default": "defaultdb"
+        },
+        "initdbargs": {
+          "description": "Arguments to send to postgres initdb. The value is a space separated string of arguments as postgres initdb would expect them.",
+          "type": "string"
+        },
+        "uri": {
+          "description": "Sql files could be on an archive root",
+          "title": "Initialisation script Url",
+          "type": "string"
+        }
+      }
+    }
+  }
+}
