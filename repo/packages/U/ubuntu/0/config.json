@@ -42,6 +42,17 @@
           }
         }
       },
+      "script": {
+        "type": "object",
+        "description": "scripts",
+        "properties": {
+          "uri": {
+            "type": "string",
+            "description": "uri of a .sh file that will be executed at runtime",
+            "default": ""
+          }
+        }
+      },
       "networking": {
         "description": "Networking-related configuration properties for ubuntu on DC/OS.",
         "type": "object",
@@ -83,17 +94,6 @@
           }
         },
         "required": ["virtual-host", "https-redirect"]
-      }
-    },
-    "script": {
-      "type": "object",
-      "description": "scripts",
-      "properties": {
-        "uri": {
-          "type": "string",
-          "description": "uri of a .sh file that will be executed at runtime",
-          "default": ""
-        }
       }
     },
     "required": ["service", "ubuntu", "networking"]
