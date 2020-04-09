@@ -2,7 +2,7 @@
   "id": "{{service.name}}",
   "cpus": {{service.cpus}},
   "mem": {{service.mem}},
-  "cmd": "/dockerstartup/vnc_startup.sh --wait",
+  "cmd": "{{#script.uri}} sh /mnt/mesos/sandbox/*.sh && {{/script.uri}} /dockerstartup/vnc_startup.sh --wait",
   "instances": 1,
   "env": {
     {{#ubuntu.password}}
@@ -44,6 +44,16 @@
     {{/networking.whitelist.enable}}
     "MARATHON_SINGLE_INSTANCE_APP": "true"
   },
+  "fetch": [
+    {{#script.uri}}
+    {
+      "uri": "{{script.uri}}",
+      "extract": false,
+      "executable": true,
+      "cache": false
+  }
+  {{/script.uri}}
+  ],
   "upgradeStrategy":{
     "minimumHealthCapacity": 0,
     "maximumOverCapacity": 0
