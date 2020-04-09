@@ -3,7 +3,7 @@
   "cpus": {{service.cpus}},
   "mem": {{service.mem}},
   "instances": 1,
-  "cmd": "echo \"AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID\\nAWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY\\nAWS_SESSION_TOKEN=$AWS_SESSION_TOKEN\\nAWS_DEFAULT_REGION=$AWS_DEFAULT_REGION\\nAWS_S3_ENDPOINT=$AWS_S3_ENDPOINT\\nAWS_EXPIRATION=$AWS_EXPIRATION\" >> /usr/local/lib/R/etc/Renviron.site && /init",
+  "cmd": "echo \"AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID\\nAWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY\\nAWS_SESSION_TOKEN=$AWS_SESSION_TOKEN\\nAWS_DEFAULT_REGION=$AWS_DEFAULT_REGION\\nAWS_S3_ENDPOINT=$AWS_S3_ENDPOINT\\nAWS_EXPIRATION=$AWS_EXPIRATION\" >> /usr/local/lib/R/etc/Renviron.site && {{#script_demarrage.URI}} runuser -m -l rstudio -c 'sh /mnt/mesos/sandbox/*.sh' && {{/script_demarrage.URI}} /init",
   "env": {
     "AWS_ACCESS_KEY_ID" : "{{s3.accessKeyId}}",
     "AWS_S3_ENDPOINT" : "{{s3.endpoint}}",
@@ -51,6 +51,16 @@
     {{/networking.whitelist.enable}}    
     "MARATHON_SINGLE_INSTANCE_APP": "true"
   },
+  "fetch": [
+    {{#script.uri}}
+    {
+      "uri": "{{script.uri}}",
+      "extract": false,
+      "executable": true,
+      "cache": false
+  }
+  {{/script.uri}}
+  ],
   "upgradeStrategy":{
     "minimumHealthCapacity": 0,
     "maximumOverCapacity": 0
