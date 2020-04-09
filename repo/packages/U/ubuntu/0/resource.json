@@ -7,7 +7,7 @@
     "assets": {
       "container": {
         "docker": {
-          "image": "dorowu/ubuntu-desktop-lxde-vnc"
+          "image": "inseefrlab/ubuntu-vnc-dind"
         }
       }
     }

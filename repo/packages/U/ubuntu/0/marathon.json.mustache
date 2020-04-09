@@ -2,10 +2,11 @@
   "id": "{{service.name}}",
   "cpus": {{service.cpus}},
   "mem": {{service.mem}},
+  "cmd": "/dockerstartup/vnc_startup.sh --wait",
   "instances": 1,
   "env": {
     {{#ubuntu.password}}
-      "VNC_PASSWORD": "{{ubuntu.password}}"
+      "VNC_PW": "{{ubuntu.password}}"
     {{/ubuntu.password}}
     {{^ubuntu.password}}
     {{/ubuntu.password}}
@@ -16,15 +17,14 @@
            "image": "{{resource.assets.container.docker.image}}",
            "network": "BRIDGE",
            "portMappings": [
-              { "containerPort": 80, "hostPort": 0 }
+              { "containerPort": 6901, "hostPort": 0 }
           ]
        }
    },
    "healthChecks": [
     {
-      "path": "/",
       "portIndex": 0,
-      "protocol": "HTTP",
+      "protocol": "MESOS_TCP",
       "gracePeriodSeconds": 30,
       "intervalSeconds": 60,
       "timeoutSeconds": 20,
