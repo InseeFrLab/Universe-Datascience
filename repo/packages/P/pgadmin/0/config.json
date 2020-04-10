@@ -18,13 +18,14 @@
         "cpus": {
           "description": "CPU shares to allocate to this pdAdmin instance.",
           "type": "number",
-          "default": 0.2,
+          "default": 0.1,
           "minimum": 0.1
         },
         "mem": {
           "description": "Memory (in MB) to allocate to this pdAdmin instance.",
           "type": "number",
-          "default": 512
+          "default": 512,
+          "minimum": 512
         }
       },
       "uri": {
@@ -34,7 +35,6 @@
     },
     "pgadmin": {
       "description": "PgAdmin specific configuration",
-      "required": ["password"],
       "type": "object",
       "properties": {
         "password": {
@@ -43,6 +43,14 @@
           "default": "changeme",
           "x-form": {
             "value": "{{user.password}}"
+          }
+        },
+        "email": {
+          "type": "string",
+          "description": "email for login into pgadmin",
+          "default": "changeme",
+          "x-form": {
+            "value": "{{user.email}}"
           }
         }
       }

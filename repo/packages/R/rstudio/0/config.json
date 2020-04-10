@@ -16,14 +16,14 @@
         "cpus": {
           "description": "CPU shares to allocate to this RStudio instance.",
           "type": "number",
-          "default": 0.5,
+          "default": 0.1,
           "minimum": 0.1
         },
         "mem": {
           "description": "Memory (in MB) to allocate to this RStudio instance.",
           "type": "number",
           "default": 2048,
-          "minimum": 256
+          "minimum": 1024
         }
       },
       "required": ["name", "cpus", "mem"]

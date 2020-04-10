@@ -23,7 +23,7 @@
           "description": "Memory (in MB) to allocate to this marathon instance.",
           "type": "number",
           "default": 2048,
-          "minimum": 256
+          "minimum": 1024
         }
       },
       "required": ["name", "cpus", "mem"]
