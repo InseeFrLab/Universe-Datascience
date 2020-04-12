@@ -3,11 +3,11 @@
     "cpus": {{service.cpus}},
     "mem":  {{service.mem}},
     "instances":1,
-    "cmd": "{{#advanced.jupyter_lab}} start.sh jupyter-lab {{/advanced.jupyter_lab}} {{^advanced.jupyter_lab}} start-notebook.sh {{/advanced.jupyter_lab}} {{#advanced.security_token.enable}} --NotebookApp.token='{{advanced.security_token.password}}'{{/advanced.security_token.enable}} {{^advanced.security_token.enable}} --NotebookApp.token=''{{/advanced.security_token.enable}}",
+    "cmd": "start.sh jupyter-lab --NotebookApp.token='{{jupyter.password}}'",
     "container": {
         "type": "DOCKER",
         "docker": {
-            "image": "{{resource.assets.container.docker.jupyter}}",
+            "image": "{{jupyter.image}}",
             "portMappings": [
                 { "containerPort": 8888 , "name": "jupyter"}
             ]

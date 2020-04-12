@@ -28,40 +28,30 @@
       },
       "required": ["name", "cpus", "mem"]
     },
-    "advanced": {
+    "jupyter": {
       "type": "object",
       "description": "Configure advanced parameters",
       "properties": {
-        "jupyter_lab": {
-          "type": "boolean",
-          "title": "Activate jupyterlab ihm",
-          "description": "JupyterLab is based on the Jupyter architecture and offers a redesigned user interface divided into the following components",
-          "default": true
+       "password": {
+          "type": "string",
+          "title": "Password",
+          "description": "token",
+          "default": "changeme",
+          "x-form": {
+            "value": "{{user.password}}"
+          }
         },
-        "security_token": {
-          "type": "object",
-          "description": "Configure advanced parameters",
-          "properties": {
-            "enable": {
-              "type": "boolean",
-              "title": "Set an access token",
-              "description": "Allows secure access to the notebook via token. Default: no access control",
-              "default": true
-            },
-            "password": {
-              "type": "string",
-              "title": "Password",
-              "description": "token",
-              "default": "changeme",
-              "x-form": {
-                "value": "{{user.password}}"
-              }
-            }
-          },
-          "required": ["enable", "token"]
+        "image": {
+            "type": "string",
+            "description": "Version of vscode to use",
+            "default": "jupyter/datascience-notebook",
+            "enum": [
+              "jupyter/datascience-notebook", 
+              "jupyter/all-spark-notebook", 
+              "jupyter/tensorflow-notebook"
+            ]
         }
-      },
-      "required": ["jupyter_lab", "security_token"]
+      }
     },
     "networking": {
       "description": "Networking-related configuration properties for jupyter on DC/OS.",
