@@ -48,7 +48,8 @@
             "enum": [
               "jupyter/datascience-notebook", 
               "jupyter/all-spark-notebook", 
-              "jupyter/tensorflow-notebook"
+              "jupyter/tensorflow-notebook",
+              "inseefrlab/jupyter-datascience"
             ]
         }
       }
