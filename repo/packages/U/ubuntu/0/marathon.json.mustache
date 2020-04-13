@@ -15,6 +15,7 @@
        "type": "DOCKER",
        "docker": {
            "image": "{{resource.assets.container.docker.image}}",
+           "privileged": true,
            "network": "BRIDGE",
            "portMappings": [
               { "containerPort": 6901, "hostPort": 0 }
