@@ -40,6 +40,14 @@
         "MARATHON_SINGLE_INSTANCE_APP": "true"
     },
     "fetch": [
+        {{#script.uri}}
+        {
+        "uri": "{{script.uri}}",
+        "extract": false,
+        "executable": true,
+        "cache": false
+    }
+    {{/script.uri}}
     ],
 
     "upgradeStrategy": {
