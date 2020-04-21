@@ -3,7 +3,7 @@
     "cpus": {{service.cpus}},
     "mem":  {{service.mem}},
     "instances":1,
-    "cmd": "{{#script.uri}} chown root:users $MESOS_SANDBOX && chmod 775 $MESOS_SANDBOX &&  runuser -l jovyan -c 'sh /mnt/mesos/sandbox/*.sh' && {{/script.uri}} start.sh jupyter-lab --NotebookApp.token='{{jupyter.password}}'",
+    "cmd": "{{#script.uri}} sh /mnt/mesos/sandbox/*.sh && {{/script.uri}} start.sh jupyter-lab --NotebookApp.token='{{jupyter.password}}'",
     "container": {
         "type": "DOCKER",
         "docker": {
