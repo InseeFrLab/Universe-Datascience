@@ -104,6 +104,30 @@
       },
       "required": ["virtual-host", "https-redirect"]
     },
+    "git": {
+      "description": "Git user configuration",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "user name for git",
+          "default": "",
+          "x-form": {
+            "value": "{{git.name}}",
+            "readonly": true
+          }
+        },
+        "email": {
+          "type": "string",
+          "description": "user email for git",
+          "default": "",
+          "x-form": {
+            "value": "{{git.email}}",
+            "readonly": true
+          }
+        }
+      }
+    },
     "s3": {
       "description": "Configuration of temporary identity",
       "type": "object",
