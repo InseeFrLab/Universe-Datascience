@@ -124,7 +124,6 @@
               }
             }
           }
-        }
       },
       "networking": {
         "description": "Networking-related configuration properties for ubuntu on DC/OS.",
