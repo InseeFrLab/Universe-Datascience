@@ -49,7 +49,14 @@
     }
     {{/script.uri}}
     ],
-
+    "env": {
+        "AWS_ACCESS_KEY_ID": "{{s3.accessKeyId}}",
+        "AWS_SECRET_ACCESS_KEY": "{{s3.secretAccessKey}}",
+        "AWS_SESSION_TOKEN": "{{s3.sessionToken}}",
+        "AWS_DEFAULT_REGION": "{{s3.defaultRegion}}",
+        "AWS_S3_ENDPOINT": "{{s3.endpoint}}",
+        "AWS_EXPIRATION": "{{s3.expiration}}"
+    },
     "upgradeStrategy": {
        "maximumOverCapacity": 0,
        "minimumHealthCapacity": 0
