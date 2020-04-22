@@ -53,6 +53,30 @@
           }
         }
       },
+      "git": {
+      "description": "Git user configuration",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "user name for git",
+          "default": "",
+          "x-form": {
+            "value": "{{git.name}}",
+            "readonly": true
+          }
+        },
+        "email": {
+          "type": "string",
+          "description": "user email for git",
+          "default": "",
+          "x-form": {
+            "value": "{{git.email}}",
+            "readonly": true
+          }
+        }
+      }
+    },
       "networking": {
         "description": "Networking-related configuration properties for ubuntu on DC/OS.",
         "type": "object",
