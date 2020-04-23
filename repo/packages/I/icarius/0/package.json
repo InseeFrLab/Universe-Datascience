@@ -1,0 +1,22 @@
+{
+    "packagingVersion": "3.0",
+    "name": "icarius",
+    "version": "1.0",
+    "minDcosReleaseVersion": "1.8",
+    "scm": "https://git.lab.sspcloud.fr/lxwgkb/ubuntu-solarus",
+    "maintainer": "https://github.com/inseefrlab",
+    "website": "https://git.lab.sspcloud.fr/lxwgkb/ubuntu-solarus",
+    "framework": false,
+    "description": "Icarius game",
+    "tags": [
+      "icarius",
+      "game",
+      "serious game"
+    ],
+    "preInstallNotes": "Let's play !",
+    "postInstallNotes": "Enjoy :)",
+    "postUninstallNotes": "Game over",
+    "selected": false,
+    "lastUpdated": 1587653197
+  }
+  
