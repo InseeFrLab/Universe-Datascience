@@ -3,7 +3,7 @@
     "cpus": {{service.cpus}},
     "mem":  {{service.mem}},
     "instances":1,
-    "cmd": "{{#script.uri}} sh /mnt/mesos/sandbox/*.sh && {{/script.uri}} start.sh jupyter-lab --NotebookApp.token='{{jupyter.password}}'",
+    "cmd": "bash /mnt/mesos/sandbox/onyxia-init.sh start.sh jupyter-lab --NotebookApp.token='{{jupyter.password}}'",
     "container": {
         "type": "DOCKER",
         "docker": {
@@ -40,7 +40,15 @@
         "MARATHON_SINGLE_INSTANCE_APP": "true"
     },
     "fetch": [
+        {
+          "uri": "https://git.lab.sspcloud.fr/innovation/plateforme-onyxia/services-ressources/-/raw/master/onyxia-init.sh",
+          "extract": false,
+          "executable": true,
+          "cache": false,
+          "destPath": "onyxia-init.sh"
+        }
         {{#script.uri}}
+        ,
         {
         "uri": "{{script.uri}}",
         "extract": false,
