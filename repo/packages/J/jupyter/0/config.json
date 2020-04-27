@@ -126,7 +126,7 @@
             "readonly": false
           }
         },
-        "cache ": {
+        "cache": {
           "type": "string",
           "description": "duration in seconds of the credentials cache duration",
           "default": "",
