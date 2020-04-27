@@ -55,15 +55,24 @@
     "MARATHON_SINGLE_INSTANCE_APP": "true"
   },
   "fetch": [
-    {{#script.uri}}
-    {
-      "uri": "{{script.uri}}",
-      "extract": false,
-      "executable": true,
-      "cache": false
-  }
-  {{/script.uri}}
-  ],
+        {
+          "uri": "https://git.lab.sspcloud.fr/innovation/plateforme-onyxia/services-ressources/-/raw/master/onyxia-init.sh",
+          "extract": false,
+          "executable": true,
+          "cache": false,
+          "destPath": "onyxia-init.sh"
+        }
+        {{#script.uri}}
+        ,
+        {
+        "uri": "{{script.uri}}",
+        "extract": false,
+        "executable": true,
+        "cache": false,
+        "destPath": "init-user.sh"
+    }
+    {{/script.uri}}
+    ],
   "upgradeStrategy":{
     "minimumHealthCapacity": 0,
     "maximumOverCapacity": 0
