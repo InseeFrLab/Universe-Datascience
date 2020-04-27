@@ -125,7 +125,7 @@
             "value": "{{git.email}}",
             "readonly": false
           }
-        }
+        },
         "cache ": {
           "type": "string",
           "description": "user email for git",
