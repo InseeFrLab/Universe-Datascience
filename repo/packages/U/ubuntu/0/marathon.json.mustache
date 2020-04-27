@@ -5,6 +5,9 @@
   "cmd": "{{#script.uri}} sh /mnt/mesos/sandbox/*.sh && {{/script.uri}} /dockerstartup/vnc_startup.sh --wait",
   "instances": 1,
   "env": {
+    {{#ubuntu.password}}
+      "VNC_PW": "{{ubuntu.password}}",
+    {{/ubuntu.password}}
     "AWS_ACCESS_KEY_ID": "{{s3.accessKeyId}}",
     "AWS_SECRET_ACCESS_KEY": "{{s3.secretAccessKey}}",
     "AWS_SESSION_TOKEN": "{{s3.sessionToken}}",
@@ -13,12 +16,9 @@
     "AWS_EXPIRATION": "{{s3.expiration}}",
     "GIT_USER_NAME": "{{git.name}}",
     "GIT_USER_MAIL": "{{git.email}}",
+    "GIT_CREDENTIALS_CACHE_DURATION": "{{git.cache}}"
 
-    {{#ubuntu.password}}
-      "VNC_PW": "{{ubuntu.password}}"
-    {{/ubuntu.password}}
-    {{^ubuntu.password}}
-    {{/ubuntu.password}}
+
   },
   "container": {
        "type": "DOCKER",
