@@ -114,7 +114,7 @@
           "default": "",
           "x-form": {
             "value": "{{git.name}}",
-            "readonly": true
+            "readonly": false
           }
         },
         "email": {
@@ -123,7 +123,16 @@
           "default": "",
           "x-form": {
             "value": "{{git.email}}",
-            "readonly": true
+            "readonly": false
+          }
+        }
+        "cache ": {
+          "type": "string",
+          "description": "user email for git",
+          "default": "",
+          "x-form": {
+            "value": "{{git.credentials_cache_duration}}",
+            "readonly": false
           }
         }
       }
