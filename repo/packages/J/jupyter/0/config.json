@@ -128,7 +128,7 @@
         },
         "cache ": {
           "type": "string",
-          "description": "user email for git",
+          "description": "duration in seconds of the credentials cache duration",
           "default": "",
           "x-form": {
             "value": "{{git.credentials_cache_duration}}",
