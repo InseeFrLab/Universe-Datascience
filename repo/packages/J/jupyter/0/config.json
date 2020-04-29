@@ -51,6 +51,12 @@
               "jupyter/tensorflow-notebook",
               "inseefrlab/jupyter-datascience"
             ]
+        },
+        "spark-ui": {
+          "type": "boolean",
+          "title": "Enable spark-ui",
+          "description": "Enable access to the spark-ui driver ihm",
+          "default": false
         }
       }
     },
@@ -70,7 +76,14 @@
       "type": "object",
       "properties": {
         "virtual-host": {
-          "description": "The virtual host address to configure for integration with Marathon-lb.",
+          "description": "The virtual host address to configure for integration with Marathon-lb for port 0.",
+          "type": "string",
+          "x-form": {
+            "hidden": true
+          }
+        },
+        "virtual-host-1": {
+          "description": "The virtual host address to configure for integration with Marathon-lb for port 1.",
           "type": "string",
           "x-form": {
             "hidden": true
