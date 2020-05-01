@@ -1,9 +1,9 @@
 
 {
-  "id": "{{service.name}}",
+  "id": "{{service.group}}",
   "apps": [
     {
-      "id": "elastic",
+      "id": "{{service.name}}",
       "cpus": {{elastic.cpus}},
       "mem":  {{elastic.mem}},
       {{#elastic.cluster}}
@@ -68,7 +68,7 @@
       }
     },
      {
-      "id": "kibana",
+      "id": "{{kibana.name}}",
       "cpus": {{kibana.cpus}},
       "mem":  {{kibana.mem}},
       "instances": 1,
