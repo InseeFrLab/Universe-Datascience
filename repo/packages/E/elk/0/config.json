@@ -5,12 +5,27 @@
         "description": "Configuration properties for the elk service for DC/OS.",
         "type": "object",
         "properties": {
+          "group": {
+            "description": "The name of the service to display in the DC/OS dashboard.",
+            "type": "string",
+            "default": "elk",
+            "x-form": {
+              "hidden": true
+            },
+            "x-generated": {
+              "type": "groupID"
+            }
+          },
           "name": {
             "description": "The name of the service to display in the DC/OS dashboard.",
             "type": "string",
             "default": "elk",
             "x-form": {
               "hidden": true
+            },
+            "x-generated": {
+              "type": "appID",
+              "scope": "elastic"
             }
           },
           "version": {
@@ -88,13 +103,16 @@
           },
           "endpoint": {
             "description":"Label pour private endpoint",
-                "type":"string",
-                "default": "http://changeme.org:9200/",
-                "x-form": {
-                  "value": "{{this.privatedns}}",
-                  "hidden": true
-                }
+            "type":"string",
+            "default": "http://changeme.org:9200/",
+            "x-form": {
+              "hidden": true
+            },
+            "x-generated": {
+              "type": "internalDNS",
+              "scope": "elastic"
             }
+          }
         }
       },
       "kibana": {
@@ -104,6 +122,19 @@
                 "type":"boolean",
                 "description": "Enable Kibana",
                 "default": true
+              },
+              "name": {
+                "description": "The name of the kibana to display in the DC/OS dashboard.",
+                "type": "string",
+                "default": "kibana",
+                "x-form": {
+                  "hidden": true
+                },
+                "x-generated": {
+                  "type": "appID",
+                  "scope": "kibana"
+                }
+    
               },
               "cpus": {
                 "description": "CPU shares to allocate to this elastic instance.",
@@ -128,13 +159,24 @@
             "type": "string",
             "x-form": {
                 "hidden": true
+            },
+            "x-generated": {
+              "type": "external-DNS",
+              "scope": "elastic",
+              "name": "api"
             }
+            
           },
           "virtual-host-kibana": {
             "description": "The virtual host address to configure for integration with Marathon-lb.",
             "type": "string",
             "x-form": {
                 "hidden": true
+            },
+            "x-generated": {
+              "type": "external-DNS",
+              "scope": "kibana",
+              "name": "ui"
             }
           },
           "https-redirect": {
