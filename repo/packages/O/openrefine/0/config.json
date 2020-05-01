@@ -44,7 +44,7 @@
             },
             "x-generated": {
               "type": "external-DNS",
-              "scope": "elastic",
+              "scope": "openrefine",
               "name": "ihm"
             }
           },
