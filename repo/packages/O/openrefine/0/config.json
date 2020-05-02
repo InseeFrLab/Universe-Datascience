@@ -11,19 +11,23 @@
             "default": "openrefine",
             "x-form": {
               "hidden": true
+            },
+            "x-generated": {
+              "type": "appID",
+              "scope": "openrefine"
             }
           },
           "cpus": {
             "description": "CPU shares to allocate to this openrefine instance.",
             "type": "number",
-            "default": 0.1,
+            "default": 0.5,
             "minimum": 0.1
           },
           "mem": {
             "description": "Memory (in MB) to allocate to this openrefine instance.",
             "type": "number",
             "default": 2048,
-            "minimum": 1024
+            "minimum": 2048
           }
         },
         "required": ["name", "cpus", "mem"]
@@ -37,6 +41,11 @@
             "type": "string",
             "x-form": {
                 "hidden": true
+            },
+            "x-generated": {
+              "type": "external-DNS",
+              "scope": "openrefine",
+              "name": "ihm"
             }
           },
           "https-redirect": {
