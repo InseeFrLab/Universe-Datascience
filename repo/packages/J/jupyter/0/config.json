@@ -86,7 +86,7 @@
             "hidden": true
           },
           "x-generated": {
-            "type": "external-DNS",
+            "type": "externalDNS",
             "scope": "jupyter",
             "name": "ihm"
           }
@@ -98,7 +98,7 @@
             "hidden": true
           },
           "x-generated": {
-            "type": "external-DNS",
+            "type": "externalDNS",
             "scope": "jupyter",
             "name": "spark-ui"
           }

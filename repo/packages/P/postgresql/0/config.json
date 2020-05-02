@@ -87,7 +87,7 @@
             "hidden": true
           },
           "x-generated": {
-            "type": "internal-DNS",
+            "type": "internalDNS",
             "scope": "postgres"
           }
         }

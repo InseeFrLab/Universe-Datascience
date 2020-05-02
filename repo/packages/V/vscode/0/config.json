@@ -63,7 +63,7 @@
             "hidden": true
           },
           "x-generated": {
-            "type": "external-DNS",
+            "type": "externalDNS",
             "scope": "vscode",
             "name": "ihm"
           }

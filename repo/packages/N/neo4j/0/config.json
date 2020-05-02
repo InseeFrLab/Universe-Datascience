@@ -69,7 +69,7 @@
                 "hidden": true
             },
             "x-generated": {
-              "type": "external-DNS",
+              "type": "externalDNS",
               "scope": "neo4j",
               "name": "ihm"
             }
@@ -81,7 +81,7 @@
                 "hidden": true
             },
             "x-generated": {
-              "type": "external-DNS",
+              "type": "externalDNS",
               "scope": "neo4j",
               "name": "bolt"
             }
