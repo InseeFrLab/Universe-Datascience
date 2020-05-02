@@ -1,0 +1,216 @@
+{
+    "type": "object",
+    "properties": {
+      "service": {
+        "description": "Configuration properties for the elk service for DC/OS.",
+        "type": "object",
+        "properties": {
+          "group": {
+            "description": "The name of the service to display in the DC/OS dashboard.",
+            "type": "string",
+            "default": "elk",
+            "x-form": {
+              "hidden": true
+            },
+            "x-generated": {
+              "type": "groupID"
+            }
+          },
+          "name": {
+            "description": "The name of the service to display in the DC/OS dashboard.",
+            "type": "string",
+            "default": "elk",
+            "x-form": {
+              "hidden": true
+            },
+            "x-generated": {
+              "type": "appID",
+              "scope": "elastic"
+            }
+          },
+          "version": {
+            "description": "Tag of the docker image :  https://www.docker.elastic.co/",
+            "type": "string",
+            "enum": [
+                "7.6.2",
+                "7.5.2",
+                "7.4.2",
+                "7.3.2",
+                "7.2.1",
+                "7.1.1",
+                "7.0.1",
+                "6.8.8",
+                "6.7.2",
+                "6.6.2",
+                "6.5.4",
+                "6.4.3",
+                "6.3.2",
+                "6.2.4",
+                "6.1.4",
+                "6.0.1"
+            ],
+            "default": "6.8.8"
+          }          
+        },
+        "required": ["name","version"]
+      },
+      "elastic": {
+        "description": "elk specific configuration",
+        "type": "object",
+        "properties": {
+          "cpus": {
+            "description": "CPU shares to allocate to this elastic instance.",
+            "type": "number",
+            "default": 0.1,
+            "minimum": 0.1
+          },
+          "mem": {
+            "description": "Memory (in MB) to allocate to this elastic instance.",
+            "type": "number",
+            "default": 2048,
+            "minimum": 2048
+          },
+          "jvm": {
+            "description":  "Modify JVM options : you could set half the memory of the container",
+            "type": "string",
+            "default": "-Xms1g -Xmx1g"
+          },      
+          "cluster": {
+            "type":"boolean",
+            "description": "Cluster mode : (not working with version 7.x)",
+            "default": false
+          },
+          "cluster_name": {
+            "description": "name of the elastic cluster",
+            "type": "string",
+            "default": "test elk",
+            "x-form": {
+              "value": "{{user.idep}}-elk-{{this.uuid}}",
+              "hidden": true
+            }
+          },
+          "instances": {
+              "description": "Number of instances",
+              "type": "number",
+              "default": 3,
+              "minimum": 1
+          },
+          "coherence": {
+              "description": "Value of discovery.zen.minimum_master_nodes",
+              "type": "number",
+              "default": 2,
+              "minimum": 1
+          },
+          "endpoint": {
+            "description":"Label pour private endpoint",
+            "type":"string",
+            "default": "http://changeme.org:9200/",
+            "x-form": {
+              "hidden": true
+            },
+            "x-generated": {
+              "type": "internalDNS",
+              "scope": "elastic"
+            }
+          }
+        }
+      },
+      "kibana": {
+          "type": "object",
+          "properties": {
+              "enable": {
+                "type":"boolean",
+                "description": "Enable Kibana",
+                "default": true
+              },
+              "name": {
+                "description": "The name of the kibana to display in the DC/OS dashboard.",
+                "type": "string",
+                "default": "kibana",
+                "x-form": {
+                  "hidden": true
+                },
+                "x-generated": {
+                  "type": "appID",
+                  "scope": "kibana"
+                }
+    
+              },
+              "cpus": {
+                "description": "CPU shares to allocate to this elastic instance.",
+                "type": "number",
+                "default": 0.1,
+                "minimum": 0.1
+              },
+              "mem": {
+                "description": "Memory (in MB) to allocate to this elastic instance.",
+                "type": "number",
+                "default": 2048,
+                "minimum": 2048
+              }
+          }
+      },
+      "networking": {
+        "description": "Networking-related configuration properties for elk on DC/OS.",
+        "type": "object",
+        "properties": {
+          "virtual-host-elastic": {
+            "description": "The virtual host address to configure for integration with Marathon-lb.",
+            "type": "string",
+            "x-form": {
+                "hidden": true
+            },
+            "x-generated": {
+              "type": "external-DNS",
+              "scope": "elastic",
+              "name": "api"
+            }
+            
+          },
+          "virtual-host-kibana": {
+            "description": "The virtual host address to configure for integration with Marathon-lb.",
+            "type": "string",
+            "x-form": {
+                "hidden": true
+            },
+            "x-generated": {
+              "type": "external-DNS",
+              "scope": "kibana",
+              "name": "ui"
+            }
+          },
+          "https-redirect": {
+            "description": "Whether Marathon-lb should redirect HTTP traffic to HTTPS. This requires 'virtual-host' to be set. By default, this is false.",
+            "type": "boolean",
+            "default": true,
+            "x-form": {
+                "hidden": true
+            }
+          },
+          "whitelist": {
+            "type": "object",
+            "description": "IP protection",
+            "properties": {
+              "enable": {
+                "type": "boolean",
+                "title": "Enable IP protection",
+                "description": "Only the configured set of IPs will be able to reach the service",
+                "default": true
+              },
+              "ip": {
+                "type": "string",
+                "description": "the white list of IP is whitespace",
+                "title": "Whitelist of IP",
+                "x-form": {
+                  "value": "{{user.ip}}"
+                }
+              }
+            }
+          }
+        },
+        "required": ["virtual-host", "https-redirect"]
+      }
+    },
+    "required": ["service", "elastic", "networking"]
+  }
+  
