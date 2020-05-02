@@ -11,6 +11,10 @@
           "default": "vscode",
           "x-form": {
             "hidden": true
+          },
+          "x-generated": {
+            "type": "appID",
+            "scope": "vscode"
           }
         },
         "cpus": {
@@ -23,7 +27,7 @@
           "description": "Memory (in MB) to allocate to this VSCode instance.",
           "type": "number",
           "default": 2048,
-          "minimum": 256
+          "minimum": 1024
         }
       },
       "required": ["name", "cpus", "mem"]
@@ -57,6 +61,11 @@
           "description": "Virtual host to expose VSCode on",
           "x-form": {
             "hidden": true
+          },
+          "x-generated": {
+            "type": "external-DNS",
+            "scope": "vscode",
+            "name": "ihm"
           }
         },
         "whitelist": {
@@ -88,20 +97,29 @@
       "properties": {
         "name": {
           "type": "string",
-          "description": "user name",
+          "description": "user name for git",
           "default": "",
           "x-form": {
-            "value": "{{user.name}}",
+            "value": "{{git.name}}",
             "readonly": true
           }
         },
         "email": {
           "type": "string",
-          "description": "user email",
+          "description": "user email for git",
           "default": "",
           "x-form": {
-            "value": "{{user.email}}",
+            "value": "{{git.email}}",
             "readonly": true
+          }
+        },
+        "cache": {
+          "type": "string",
+          "description": "duration in seconds of the credentials cache duration",
+          "default": "",
+          "x-form": {
+            "value": "{{git.credentials_cache_duration}}",
+            "readonly": false
           }
         }
       }

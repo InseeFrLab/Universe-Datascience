@@ -11,19 +11,23 @@
           "default": "rstudio",
           "x-form": {
             "hidden": true
+          },
+          "x-generated": {
+            "type": "appID",
+            "scope": "rstudio"
           }
         },
         "cpus": {
           "description": "CPU shares to allocate to this RStudio instance.",
           "type": "number",
-          "default": 0.5,
+          "default": 0.1,
           "minimum": 0.1
         },
         "mem": {
           "description": "Memory (in MB) to allocate to this RStudio instance.",
           "type": "number",
           "default": 2048,
-          "minimum": 256
+          "minimum": 1024
         }
       },
       "required": ["name", "cpus", "mem"]
@@ -42,6 +46,17 @@
         }
       }
     },
+    "script": {
+      "type": "object",
+      "description": "scripts",
+      "properties": {
+        "uri": {
+          "type": "string",
+          "description": "uri of a .sh file that will be executed at runtime",
+          "default": ""
+        }
+      }
+    },
     "networking": {
       "description": "Networking-related configuration properties for RStudio on DC/OS.",
       "type": "object",
@@ -51,6 +66,11 @@
           "type": "string",
           "x-form": {
             "hidden": true
+          },
+          "x-generated": {
+            "type": "external-DNS",
+            "scope": "rstudio",
+            "name": "ihm"
           }
         },
         "https-redirect": {
@@ -80,6 +100,39 @@
         }
       },
       "required": ["virtual-host", "https-redirect"]
+    },
+    "git": {
+      "description": "Git user configuration",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "user name for git",
+          "default": "",
+          "x-form": {
+            "value": "{{git.name}}",
+            "readonly": true
+          }
+        },
+        "email": {
+          "type": "string",
+          "description": "user email for git",
+          "default": "",
+          "x-form": {
+            "value": "{{git.email}}",
+            "readonly": true
+          }
+        },
+        "cache": {
+          "type": "string",
+          "description": "duration in seconds of the credentials cache duration",
+          "default": "",
+          "x-form": {
+            "value": "{{git.credentials_cache_duration}}",
+            "readonly": false
+          }
+        }
+      }
     },
     "s3": {
       "description": "Configuration of temporary identity",

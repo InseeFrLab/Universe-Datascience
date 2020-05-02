@@ -13,18 +13,23 @@
           "default": "pgadmin",
           "x-form": {
             "hidden": true
+          },
+          "x-generated": {
+            "type": "appID",
+            "scope": "pgadmin"
           }
         },
         "cpus": {
           "description": "CPU shares to allocate to this pdAdmin instance.",
           "type": "number",
-          "default": 0.2,
+          "default": 0.1,
           "minimum": 0.1
         },
         "mem": {
           "description": "Memory (in MB) to allocate to this pdAdmin instance.",
           "type": "number",
-          "default": 512
+          "default": 512,
+          "minimum": 512
         }
       },
       "uri": {
@@ -34,7 +39,6 @@
     },
     "pgadmin": {
       "description": "PgAdmin specific configuration",
-      "required": ["password"],
       "type": "object",
       "properties": {
         "password": {
@@ -44,19 +48,31 @@
           "x-form": {
             "value": "{{user.password}}"
           }
+        },
+        "email": {
+          "type": "string",
+          "description": "email for login into pgadmin",
+          "default": "changeme",
+          "x-form": {
+            "value": "{{user.email}}"
+          }
         }
       }
     },
     "networking": {
       "description": "Networking-related configuration properties for pgAdmin on DC/OS.",
       "type": "object",
-      "required": ["ip"],
       "properties": {
         "virtual-host": {
           "description": "The virtual host address to configure for integration with Marathon-lb.",
           "type": "string",
           "x-form": {
             "hidden": true
+          },
+          "x-generated": {
+            "type": "external-DNS",
+            "scope": "pgadmin",
+            "name": "ihm"
           }
         },
         "https-redirect": {

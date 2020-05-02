@@ -2,29 +2,39 @@
   "id": "{{service.name}}",
   "cpus": {{service.cpus}},
   "mem": {{service.mem}},
+  "cmd": "bash /mnt/mesos/sandbox/onyxia-init.sh /dockerstartup/vnc_startup.sh --wait",
   "instances": 1,
   "env": {
     {{#ubuntu.password}}
-      "VNC_PASSWORD": "{{ubuntu.password}}"
+      "VNC_PW": "{{ubuntu.password}}",
     {{/ubuntu.password}}
-    {{^ubuntu.password}}
-    {{/ubuntu.password}}
+    "AWS_ACCESS_KEY_ID": "{{s3.accessKeyId}}",
+    "AWS_SECRET_ACCESS_KEY": "{{s3.secretAccessKey}}",
+    "AWS_SESSION_TOKEN": "{{s3.sessionToken}}",
+    "AWS_DEFAULT_REGION": "{{s3.defaultRegion}}",
+    "AWS_S3_ENDPOINT": "{{s3.endpoint}}",
+    "AWS_EXPIRATION": "{{s3.expiration}}",
+    "GIT_USER_NAME": "{{git.name}}",
+    "GIT_USER_MAIL": "{{git.email}}",
+    "GIT_CREDENTIALS_CACHE_DURATION": "{{git.cache}}"
+
+
   },
   "container": {
        "type": "DOCKER",
        "docker": {
            "image": "{{resource.assets.container.docker.image}}",
+           "privileged": true,
            "network": "BRIDGE",
            "portMappings": [
-              { "containerPort": 80, "hostPort": 0 }
+              { "containerPort": 6901, "hostPort": 0 }
           ]
        }
    },
    "healthChecks": [
     {
-      "path": "/",
       "portIndex": 0,
-      "protocol": "HTTP",
+      "protocol": "MESOS_TCP",
       "gracePeriodSeconds": 30,
       "intervalSeconds": 60,
       "timeoutSeconds": 20,
@@ -38,11 +48,31 @@
     "HAPROXY_0_ENABLED":"true",
     "HAPROXY_0_FRONTEND_HEAD":"",
     "HAPROXY_0_FRONTEND_BACKEND_GLUE":"",
+    "ONYXIA_URL": "https://{{context.externaldns-0}}/vnc.html",
     {{#networking.whitelist.enable}}
     "HAPROXY_0_BACKEND_NETWORK_ALLOWED_ACL": "{{networking.whitelist.ip}}",
     {{/networking.whitelist.enable}}
     "MARATHON_SINGLE_INSTANCE_APP": "true"
   },
+  "fetch": [
+        {
+          "uri": "https://git.lab.sspcloud.fr/innovation/plateforme-onyxia/services-ressources/-/raw/master/onyxia-init.sh",
+          "extract": false,
+          "executable": true,
+          "cache": false,
+          "destPath": "onyxia-init.sh"
+        }
+        {{#script.uri}}
+        ,
+        {
+        "uri": "{{script.uri}}",
+        "extract": false,
+        "executable": true,
+        "cache": false,
+        "destPath": "init-user.sh"
+    }
+    {{/script.uri}}
+    ],
   "upgradeStrategy":{
     "minimumHealthCapacity": 0,
     "maximumOverCapacity": 0

@@ -3,21 +3,15 @@
     "cpus": {{service.cpus}},
     "mem":  {{service.mem}},
     "instances":1,
-    "cmd": "{{#advanced.jupyter_lab}} start.sh jupyter-lab {{/advanced.jupyter_lab}} {{^advanced.jupyter_lab}} start-notebook.sh {{/advanced.jupyter_lab}} {{#advanced.security_token.enable}} --NotebookApp.token='{{advanced.security_token.password}}'{{/advanced.security_token.enable}} {{^advanced.security_token.enable}} --NotebookApp.token=''{{/advanced.security_token.enable}}",
-    "env": {
-        "AWS_ACCESS_KEY_ID" : "{{s3.accessKeyId}}",
-        "AWS_S3_ENDPOINT" : "{{s3.endpoint}}",
-        "AWS_DEFAULT_REGION" : "{{s3.defaultRegion}}",
-        "AWS_SECRET_ACCESS_KEY" : "{{s3.secretAccessKey}}",
-        "AWS_SESSION_TOKEN" : "{{s3.sessionToken}}",
-        "AWS_EXPIRATION" : "{{s3.expiration}}"
-    },
+    "cmd": "bash /mnt/mesos/sandbox/onyxia-init.sh start.sh jupyter-lab --NotebookApp.token='{{jupyter.password}}'",
     "container": {
         "type": "DOCKER",
         "docker": {
-            "image": "{{resource.assets.container.docker.jupyter}}",
+            "image": "{{jupyter.image}}",
             "portMappings": [
-                { "containerPort": 8888 , "name": "jupyter"}
+                { "containerPort": 8888 , "name": "jupyter"},
+                { "containerPort": 4040,  "name": "sparkui"}
+ 
             ]
         }
     },
@@ -45,11 +39,49 @@
         {{#networking.whitelist.enable}}
         "HAPROXY_0_BACKEND_NETWORK_ALLOWED_ACL": "{{networking.whitelist.ip}}",
         {{/networking.whitelist.enable}}
+        {{#jupyter.spark-ui}}
+        "HAPROXY_1_VHOST": "{{networking.virtual-host-sparkui}}",
+        "HAPROXY_1_REDIRECT_TO_HTTPS": "{{networking.https-redirect}}",
+        "HAPROXY_1_FRONTEND_HEAD": "",
+        "HAPROXY_1_FRONTEND_BACKEND_GLUE": "",
+        "HAPROXY_1_ENABLED":"true",
+        {{/jupyter.spark-ui}}
+        {{#networking.whitelist.enable}}
+        "HAPROXY_0_BACKEND_NETWORK_ALLOWED_ACL": "{{networking.whitelist.ip}}",
+        {{/networking.whitelist.enable}}
         "MARATHON_SINGLE_INSTANCE_APP": "true"
     },
     "fetch": [
+        {
+          "uri": "https://git.lab.sspcloud.fr/innovation/plateforme-onyxia/services-ressources/-/raw/master/onyxia-init.sh",
+          "extract": false,
+          "executable": true,
+          "cache": false,
+          "destPath": "onyxia-init.sh"
+        }
+        {{#script.uri}}
+        ,
+        {
+        "uri": "{{script.uri}}",
+        "extract": false,
+        "executable": true,
+        "cache": false,
+        "destPath": "init-user.sh"
+    }
+    {{/script.uri}}
     ],
-
+    "env": {
+        "AWS_ACCESS_KEY_ID": "{{s3.accessKeyId}}",
+        "AWS_SECRET_ACCESS_KEY": "{{s3.secretAccessKey}}",
+        "AWS_SESSION_TOKEN": "{{s3.sessionToken}}",
+        "AWS_DEFAULT_REGION": "{{s3.defaultRegion}}",
+        "AWS_S3_ENDPOINT": "{{s3.endpoint}}",
+        "AWS_EXPIRATION": "{{s3.expiration}}",
+        "GIT_USER_NAME": "{{git.name}}",
+        "GIT_USER_MAIL": "{{git.email}}",
+        "GIT_CREDENTIALS_CACHE_DURATION": "{{git.cache}}",
+        "URL_INIT_SERVICE": "https://git.lab.sspcloud.fr/innovation/plateforme-onyxia/services-ressources/-/raw/master/onyxia-init-jupyter.sh"
+    },
     "upgradeStrategy": {
        "maximumOverCapacity": 0,
        "minimumHealthCapacity": 0

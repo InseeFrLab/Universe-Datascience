@@ -11,19 +11,23 @@
             "default": "neo4j",
             "x-form": {
               "hidden": true
+            },
+            "x-generated": {
+              "type": "appID",
+              "scope": "neo4j"
             }
           },
           "cpus": {
             "description": "CPU shares to allocate to this neo4j instance.",
             "type": "number",
-            "default": 0.5,
+            "default": 0.1,
             "minimum": 0.1
           },
           "mem": {
             "description": "Memory (in MB) to allocate to this neo4j instance.",
             "type": "number",
             "default": 2048,
-            "minimum": 256
+            "minimum": 1024
           }
         },
         "required": ["name", "cpus", "mem"]
@@ -63,6 +67,11 @@
             "type": "string",
             "x-form": {
                 "hidden": true
+            },
+            "x-generated": {
+              "type": "external-DNS",
+              "scope": "neo4j",
+              "name": "ihm"
             }
           },
           "virtual-host-bolt": {
@@ -70,6 +79,11 @@
             "type": "string",
             "x-form": {
                 "hidden": true
+            },
+            "x-generated": {
+              "type": "external-DNS",
+              "scope": "neo4j",
+              "name": "bolt"
             }
           },
           "https-redirect": {
