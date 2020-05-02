@@ -9,11 +9,9 @@
         "docker": {
             "image": "{{jupyter.image}}",
             "portMappings": [
-                { "containerPort": 8888 , "name": "jupyter"}
-                {{#jupyter.spark-ui}}
-                ,
+                { "containerPort": 8888 , "name": "jupyter"},
                 { "containerPort": 4040,  "name": "sparkui"}
-                {{/jupyter.spark-ui}}
+ 
             ]
         }
     },
@@ -41,11 +39,13 @@
         {{#networking.whitelist.enable}}
         "HAPROXY_0_BACKEND_NETWORK_ALLOWED_ACL": "{{networking.whitelist.ip}}",
         {{/networking.whitelist.enable}}
-        "HAPROXY_1_VHOST": "{{networking.virtual-host-1}}",
+        {{#jupyter.spark-ui}}
+        "HAPROXY_1_VHOST": "{{networking.virtual-host-sparkui}}",
         "HAPROXY_1_REDIRECT_TO_HTTPS": "{{networking.https-redirect}}",
         "HAPROXY_1_FRONTEND_HEAD": "",
         "HAPROXY_1_FRONTEND_BACKEND_GLUE": "",
         "HAPROXY_1_ENABLED":"true",
+        {{/jupyter.spark-ui}}
         {{#networking.whitelist.enable}}
         "HAPROXY_0_BACKEND_NETWORK_ALLOWED_ACL": "{{networking.whitelist.ip}}",
         {{/networking.whitelist.enable}}

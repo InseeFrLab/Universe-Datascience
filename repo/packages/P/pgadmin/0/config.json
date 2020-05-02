@@ -13,6 +13,10 @@
           "default": "pgadmin",
           "x-form": {
             "hidden": true
+          },
+          "x-generated": {
+            "type": "appID",
+            "scope": "pgadmin"
           }
         },
         "cpus": {
@@ -58,13 +62,17 @@
     "networking": {
       "description": "Networking-related configuration properties for pgAdmin on DC/OS.",
       "type": "object",
-      "required": ["ip"],
       "properties": {
         "virtual-host": {
           "description": "The virtual host address to configure for integration with Marathon-lb.",
           "type": "string",
           "x-form": {
             "hidden": true
+          },
+          "x-generated": {
+            "type": "external-DNS",
+            "scope": "pgadmin",
+            "name": "ihm"
           }
         },
         "https-redirect": {

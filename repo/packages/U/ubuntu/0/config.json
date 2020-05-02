@@ -11,6 +11,10 @@
             "default": "ubuntu",
             "x-form": {
               "hidden": true
+            },
+            "x-generated": {
+              "type": "appID",
+              "scope": "ubuntu"
             }
           },
           "cpus": {
@@ -143,6 +147,11 @@
             "type": "string",
             "x-form": {
                 "hidden": true
+            },
+            "x-generated": {
+              "type": "external-DNS",
+              "scope": "ubuntu",
+              "name": "ihm"
             }
           },
           "https-redirect": {

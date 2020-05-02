@@ -10,7 +10,7 @@
     {{^neo4j.password}}
     "NEO4J_AUTH": "none",
     {{/neo4j.password}}
-    "NEO4J_dbms_connector_bolt_advertised__address": "{{context.externaldns-1}}:443"
+    "NEO4J_dbms_connector_bolt_advertised__address": "{{networking.virtual-host-bolt}}:443"
   },
   "container": {
        "type": "DOCKER",

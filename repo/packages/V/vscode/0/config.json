@@ -11,6 +11,10 @@
           "default": "vscode",
           "x-form": {
             "hidden": true
+          },
+          "x-generated": {
+            "type": "appID",
+            "scope": "vscode"
           }
         },
         "cpus": {
@@ -57,6 +61,11 @@
           "description": "Virtual host to expose VSCode on",
           "x-form": {
             "hidden": true
+          },
+          "x-generated": {
+            "type": "external-DNS",
+            "scope": "vscode",
+            "name": "ihm"
           }
         },
         "whitelist": {
