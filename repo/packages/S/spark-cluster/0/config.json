@@ -2,7 +2,7 @@
     "type": "object",
     "properties": {
       "service": {
-        "description": "Configuration properties for the elk service for DC/OS.",
+        "description": "Configuration properties for the spark cluster service for DC/OS.",
         "type": "object",
         "properties": {
           "group": {
@@ -36,19 +36,19 @@
         "type": "object",
         "properties": {
           "cpus": {
-            "description": "CPU shares to allocate to this elastic instance.",
+            "description": "CPU shares to allocate to the master instance.",
             "type": "number",
             "default": 0.1,
             "minimum": 0.1
           },
           "mem": {
-            "description": "Memory (in MB) to allocate to this elastic instance.",
+            "description": "Memory (in MB) to allocate to the master instance.",
             "type": "number",
             "default": 2048,
             "minimum": 2048
           },
           "endpoint": {
-            "description":"Label pour private endpoint",
+            "description":"internal dns name of this master instance",
             "type":"string",
             "default": "changeme.org",
             "x-form": {
@@ -65,9 +65,9 @@
           "type": "object",
           "properties": {
               "name": {
-                "description": "The name of the kibana to display in the DC/OS dashboard.",
+                "description": "The name of the worker to display in the DC/OS dashboard.",
                 "type": "string",
-                "default": "kibana",
+                "default": "worker",
                 "x-form": {
                   "hidden": true
                 },
@@ -83,13 +83,13 @@
                 "minimum": 1
               },
               "cpus": {
-                "description": "CPU shares to allocate to this elastic instance.",
+                "description": "CPU shares to allocate to a worker instance.",
                 "type": "number",
                 "default": 0.1,
                 "minimum": 0.1
               },
               "mem": {
-                "description": "Memory (in MB) to allocate to this elastic instance.",
+                "description": "Memory (in MB) to allocate to a worker instance.",
                 "type": "number",
                 "default": 2048,
                 "minimum": 2048
@@ -146,5 +146,5 @@
       }
     },
     "required": ["service", "master", "networking"]
-  }
+}
   
