@@ -21,8 +21,7 @@
               { "protocol": "tcp", "hostPort": 0, "containerPort": 7077 }
           ],
           "docker": {
-              "image": "{{resource.assets.container.docker.spark}}",
-              "forcePullImage": false
+              "image": "{{resource.assets.container.docker.spark}}"
           }
       },
       "healthChecks": [
@@ -71,8 +70,7 @@
               { "protocol": "tcp", "hostPort": 0, "containerPort": 8081 }
           ],
           "docker": {
-              "image": "{{resource.assets.container.docker.spark}}",
-              "network": "BRIDGE",
+              "image": "{{resource.assets.container.docker.spark}}"
           }
       },
       "healthChecks": [
