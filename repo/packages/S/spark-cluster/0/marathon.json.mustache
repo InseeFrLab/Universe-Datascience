@@ -1,0 +1,90 @@
+
+{
+  "id": "{{service.group}}",
+  "apps": [
+    {
+      "id": "{{service.name}}",
+      "cpus": {{master.cpus}},
+      "mem":  {{master.mem}},
+      "instances": 1,
+      "cmd": " /opt/spark/bin/spark-class org.apache.spark.deploy.master.Master",
+      "networks": [
+          {
+          "mode": "container",
+          "name": "dcos"
+          }
+      ], 
+      "container": {
+          "type": "DOCKER",
+          "portMappings": [
+              { "protocol": "tcp", "hostPort": 0, "containerPort": 8080 },
+              { "protocol": "tcp", "hostPort": 0, "containerPort": 7077 }
+          ],
+          "docker": {
+              "image": "{{resource.assets.container.docker.spark}}",
+              "forcePullImage": false
+          }
+      },
+      "healthChecks": [
+        {
+          "portIndex": 0,
+          "protocol": "MESOS_TCP",
+          "gracePeriodSeconds": 30,
+          "intervalSeconds": 60,
+          "timeoutSeconds": 20,
+          "maxConsecutiveFailures": 3
+        }
+      ],
+      "labels": {
+        "HAPROXY_GROUP":"external",
+        "HAPROXY_0_VHOST":"{{networking.virtual-host}}",
+        "HAPROXY_0_REDIRECT_TO_HTTPS": "{{networking.https-redirect}}",
+        "HAPROXY_0_ENABLED":"true",
+        "HAPROXY_0_FRONTEND_HEAD":"",
+        "HAPROXY_0_FRONTEND_BACKEND_GLUE":"",
+        {{#networking.whitelist.enable}}
+        "HAPROXY_0_BACKEND_NETWORK_ALLOWED_ACL": "{{networking.whitelist.ip}}",
+        {{/networking.whitelist.enable}}
+        "ONYXIA_PRIVATE_ENDPOINT": "spark://{{master.endpoint}}:7077",
+        "MARATHON_SINGLE_INSTANCE_APP": "true"
+      },
+      "upgradeStrategy":{
+        "minimumHealthCapacity": 0,
+        "maximumOverCapacity": 0
+      }
+    },
+    {
+      "id": "{{worker.name}}",
+      "cpus": {{worker.cpus}},
+      "mem":  {{worker.mem}},
+      "instances": {{worker.instances}},
+      "cmd": "/opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker {{master.endpoint}}:7077",
+      "networks": [
+          {
+          "mode": "container",
+          "name": "dcos"
+          }
+      ], 
+      "container": {
+          "type": "DOCKER",
+          "portMappings": [
+              { "protocol": "tcp", "hostPort": 0, "containerPort": 8081 }
+          ],
+          "docker": {
+              "image": "{{resource.assets.container.docker.spark}}",
+              "network": "BRIDGE",
+          }
+      },
+      "healthChecks": [
+        {
+          "portIndex": 0,
+          "protocol": "MESOS_TCP",
+          "gracePeriodSeconds": 30,
+          "intervalSeconds": 60,
+          "timeoutSeconds": 20,
+          "maxConsecutiveFailures": 3
+        }
+      ]
+    }
+  ]
+}
