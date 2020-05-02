@@ -68,7 +68,7 @@
             "hidden": true
           },
           "x-generated": {
-            "type": "external-DNS",
+            "type": "externalDNS",
             "scope": "rstudio",
             "name": "ihm"
           }

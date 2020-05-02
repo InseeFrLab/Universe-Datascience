@@ -70,7 +70,7 @@
             "hidden": true
           },
           "x-generated": {
-            "type": "external-DNS",
+            "type": "externalDNS",
             "scope": "pgadmin",
             "name": "ihm"
           }

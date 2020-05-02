@@ -149,7 +149,7 @@
                 "hidden": true
             },
             "x-generated": {
-              "type": "external-DNS",
+              "type": "externalDNS",
               "scope": "ubuntu",
               "name": "ihm"
             }

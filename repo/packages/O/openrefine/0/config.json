@@ -43,7 +43,7 @@
                 "hidden": true
             },
             "x-generated": {
-              "type": "external-DNS",
+              "type": "externalDNS",
               "scope": "openrefine",
               "name": "ihm"
             }

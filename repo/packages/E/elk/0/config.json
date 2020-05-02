@@ -161,7 +161,7 @@
                 "hidden": true
             },
             "x-generated": {
-              "type": "external-DNS",
+              "type": "externalDNS",
               "scope": "elastic",
               "name": "api"
             }
@@ -174,7 +174,7 @@
                 "hidden": true
             },
             "x-generated": {
-              "type": "external-DNS",
+              "type": "externalDNS",
               "scope": "kibana",
               "name": "ui"
             }
