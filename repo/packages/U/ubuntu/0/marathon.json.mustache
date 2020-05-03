@@ -48,7 +48,7 @@
     "HAPROXY_0_ENABLED":"true",
     "HAPROXY_0_FRONTEND_HEAD":"",
     "HAPROXY_0_FRONTEND_BACKEND_GLUE":"",
-    "ONYXIA_URL": "https://{{context.externaldns-0}}/vnc.html",
+    "ONYXIA_URL": "https://{{networking.virtual-host}}/vnc.html",
     {{#networking.whitelist.enable}}
     "HAPROXY_0_BACKEND_NETWORK_ALLOWED_ACL": "{{networking.whitelist.ip}}",
     {{/networking.whitelist.enable}}
