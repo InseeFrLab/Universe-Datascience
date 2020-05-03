@@ -34,6 +34,10 @@
           "maxConsecutiveFailures": 3
         }
       ],
+      "upgradeStrategy":{
+        "minimumHealthCapacity": 0,
+        "maximumOverCapacity": 0
+      },
       "labels": {
         "HAPROXY_GROUP":"external",
         "HAPROXY_0_VHOST":"{{networking.virtual-host}}",
