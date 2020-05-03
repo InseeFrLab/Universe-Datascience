@@ -1,0 +1,96 @@
+
+{
+  "id": "{{service.group}}",
+  "apps": [
+    {
+      "id": "{{service.name}}",
+      "cpus": {{scheduler.cpus}},
+      "mem":  {{scheduler.mem}},
+      "instances": 1,
+      "cmd": "bash /mnt/mesos/sandbox/onyxia-init.sh dask-scheduler",
+      "networks": [
+          {
+          "mode": "container",
+          "name": "dcos"
+          }
+      ], 
+      "container": {
+          "type": "DOCKER",
+          "portMappings": [
+              { "protocol": "tcp", "hostPort": 0, "containerPort": 8787 },
+              { "protocol": "tcp", "hostPort": 0, "containerPort": 8786 }
+          ],
+          "docker": {
+              "image": "{{resource.assets.container.docker.dask}}"
+          }
+      },
+      "healthChecks": [
+        {
+          "portIndex": 0,
+          "protocol": "MESOS_TCP",
+          "gracePeriodSeconds": 30,
+          "intervalSeconds": 60,
+          "timeoutSeconds": 20,
+          "maxConsecutiveFailures": 3
+        }
+      ],
+      "labels": {
+        "HAPROXY_GROUP":"external",
+        "HAPROXY_0_VHOST":"{{networking.virtual-host}}",
+        "HAPROXY_0_REDIRECT_TO_HTTPS": "{{networking.https-redirect}}",
+        "HAPROXY_0_ENABLED":"true",
+        "HAPROXY_0_FRONTEND_HEAD":"",
+        "HAPROXY_0_FRONTEND_BACKEND_GLUE":"",
+        {{#networking.whitelist.enable}}
+        "HAPROXY_0_BACKEND_NETWORK_ALLOWED_ACL": "{{networking.whitelist.ip}}",
+        {{/networking.whitelist.enable}}
+        "ONYXIA_PRIVATE_ENDPOINT": "tcp://{{scheduler.endpoint}}:8786",
+        "MARATHON_SINGLE_INSTANCE_APP": "true"
+      },
+      "env": {
+        "EXTRA_APT_PACKAGES": "{{packages.EXTRA_APT_PACKAGES}}",
+        "EXTRA_CONDA_PACKAGES":"{{packages.EXTRA_CONDA_PACKAGES}}",
+        "EXTRA_PIP_PACKAGES":"{{packages.EXTRA_PIP_PACKAGES}}"
+      }
+    },
+    {
+      "id": "{{worker.name}}",
+      "cpus": {{worker.cpus}},
+      "mem":  {{worker.mem}},
+      "instances": {{worker.instances}},
+      "cmd": "bash /mnt/mesos/sandbox/onyxia-init.sh dask-worker tcp://{{scheduler.endpoint}}:8786 --nprocs  $NB_PROCS --nthreads $NB_THREADS",
+      "networks": [
+          {
+          "mode": "container",
+          "name": "dcos"
+          }
+      ], 
+      "container": {
+          "type": "DOCKER",
+          "docker": {
+              "image": "{{resource.assets.container.docker.dask}}"
+          }
+      },
+      "labels": {
+        "ONYXIA_INSTANCE_EDITABLE": "true"
+      },
+      "env": {
+        "EXTRA_APT_PACKAGES": "{{packages.EXTRA_APT_PACKAGES}}",
+        "EXTRA_CONDA_PACKAGES":"{{packages.EXTRA_CONDA_PACKAGES}}",
+        "EXTRA_PIP_PACKAGES":"{{packages.EXTRA_PIP_PACKAGES}}",
+        "NB_PROCS": "{{workers.processus}}",
+        "NB_THREADS":"{{workers.threads}}"
+      }
+      "healthChecks": [
+        {
+          "portIndex": 0,
+          "protocol": "MESOS_TCP",
+          "gracePeriodSeconds": 30,
+          "intervalSeconds": 60,
+          "timeoutSeconds": 20,
+          "maxConsecutiveFailures": 3
+        }
+      ]
+    }
+  ]
+}
