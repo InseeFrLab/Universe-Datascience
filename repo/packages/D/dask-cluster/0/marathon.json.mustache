@@ -81,16 +81,6 @@
         "NB_PROCS": "{{workers.processus}}",
         "NB_THREADS":"{{workers.threads}}"
       }
-      "healthChecks": [
-        {
-          "portIndex": 0,
-          "protocol": "MESOS_TCP",
-          "gracePeriodSeconds": 30,
-          "intervalSeconds": 60,
-          "timeoutSeconds": 20,
-          "maxConsecutiveFailures": 3
-        }
-      ]
     }
   ]
 }
