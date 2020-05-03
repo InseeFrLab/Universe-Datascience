@@ -107,6 +107,12 @@
                 "type": "number",
                 "default": 1,
                 "minimum": 1
+              },
+              "memory_limit": {
+                "description": "value of --memory-limit parameter",
+                "title": "Memory limit",
+                "type": "string",
+                "default": 0
               }
           }
       },

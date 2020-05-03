@@ -72,7 +72,7 @@
       "cpus": {{worker.cpus}},
       "mem":  {{worker.mem}},
       "instances": {{worker.instances}},
-      "cmd": "bash /mnt/mesos/sandbox/onyxia-init.sh dask-worker tcp://{{scheduler.endpoint}}:8786 --nprocs  $NB_PROCS --nthreads $NB_THREADS",
+      "cmd": "bash /mnt/mesos/sandbox/onyxia-init.sh dask-worker tcp://{{scheduler.endpoint}}:8786 --nprocs  $NB_PROCS --nthreads $NB_THREADS --memory-limit=$MEMORY_LIMIT",
       "networks": [
           {
           "mode": "container",
@@ -94,7 +94,8 @@
         "EXTRA_CONDA_PACKAGES":"{{packages.EXTRA_CONDA_PACKAGES}}",
         "EXTRA_PIP_PACKAGES":"{{packages.EXTRA_PIP_PACKAGES}}",
         "NB_PROCS": "{{worker.processus}}",
-        "NB_THREADS":"{{worker.threads}}"
+        "NB_THREADS":"{{worker.threads}}",
+        "MEMORY_LIMIT":"{{worker.memory_limit}}"
       },
       "fetch": [
         {
