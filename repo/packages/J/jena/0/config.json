@@ -11,6 +11,10 @@
             "default": "jena",
             "x-form": {
               "hidden": true
+            },
+            "x-generated": {
+              "type": "appID",
+              "scope": "jena"
             }
           },
           "cpus": {
@@ -51,6 +55,11 @@
             "type": "string",
             "x-form": {
                 "hidden": true
+            },
+            "x-generated": {
+              "type": "externalDNS",
+              "scope": "jena",
+              "name": "ihm"
             }
           },
           "https-redirect": {
