@@ -4,8 +4,8 @@
     "mem": {{service.mem}},
     "instances": 1,
     "env": {
-      "MONGO_INITDB_ROOT_PASSWORD": "{{postgresql.password}}",
-      "MONGO_INITDB_ROOT_USERNAME": "{{postgresql.username}}"
+      "MONGO_INITDB_ROOT_PASSWORD": "{{mongo.password}}",
+      "MONGO_INITDB_ROOT_USERNAME": "{{mongo.username}}"
     },
   "container": {
     "type": "DOCKER",
@@ -32,7 +32,7 @@
     "labels": {
       "HAPROXY_0_ENABLED":"true",
       "MARATHON_SINGLE_INSTANCE_APP": "true",
-      "ONYXIA_PRIVATE_ENDPOINT":"mongodb://{{context.internaluri}}:27017"
+      "ONYXIA_PRIVATE_ENDPOINT":"mongodb://{{networking.internal-host}}:27017"
     },
   "healthChecks": [{
     "protocol": "MESOS_TCP",
