@@ -52,10 +52,20 @@
         "MARATHON_SINGLE_INSTANCE_APP": "true"
       },
       "env": {
+        "URL_INIT_SERVICE": "https://git.lab.sspcloud.fr/innovation/plateforme-onyxia/services-ressources/-/raw/master/onyxia-init-jupyter.sh",
         "EXTRA_APT_PACKAGES": "{{packages.EXTRA_APT_PACKAGES}}",
         "EXTRA_CONDA_PACKAGES":"{{packages.EXTRA_CONDA_PACKAGES}}",
         "EXTRA_PIP_PACKAGES":"{{packages.EXTRA_PIP_PACKAGES}}"
-      }
+      },
+      "fetch": [
+        {
+          "uri": "https://git.lab.sspcloud.fr/innovation/plateforme-onyxia/services-ressources/-/raw/master/onyxia-init.sh",
+          "extract": false,
+          "executable": true,
+          "cache": false,
+          "destPath": "onyxia-init.sh"
+        }
+      ]
     },
     {
       "id": "{{worker.name}}",
@@ -79,12 +89,22 @@
         "ONYXIA_INSTANCE_EDITABLE": "true"
       },
       "env": {
+        "URL_INIT_SERVICE": "https://git.lab.sspcloud.fr/innovation/plateforme-onyxia/services-ressources/-/raw/master/onyxia-init-jupyter.sh", 
         "EXTRA_APT_PACKAGES": "{{packages.EXTRA_APT_PACKAGES}}",
         "EXTRA_CONDA_PACKAGES":"{{packages.EXTRA_CONDA_PACKAGES}}",
         "EXTRA_PIP_PACKAGES":"{{packages.EXTRA_PIP_PACKAGES}}",
         "NB_PROCS": "{{worker.processus}}",
         "NB_THREADS":"{{worker.threads}}"
-      }
+      },
+      "fetch": [
+        {
+          "uri": "https://git.lab.sspcloud.fr/innovation/plateforme-onyxia/services-ressources/-/raw/master/onyxia-init.sh",
+          "extract": false,
+          "executable": true,
+          "cache": false,
+          "destPath": "onyxia-init.sh"
+        }
+      ]
     }
   ]
 }
