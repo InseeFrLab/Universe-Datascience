@@ -1,0 +1,14 @@
+{
+  "images": {
+    "icon-small": "https://humancoders-formations.s3.amazonaws.com/uploads/course/logo/22/formation-mongodb.png",
+    "icon-medium": "https://humancoders-formations.s3.amazonaws.com/uploads/course/logo/22/formation-mongodb.png",
+    "icon-large": "https://humancoders-formations.s3.amazonaws.com/uploads/course/logo/22/formation-mongodb.png"
+  },
+  "assets": {
+    "container": {
+      "docker": {
+        "image": "mongo"
+      }
+    }
+  }
+}

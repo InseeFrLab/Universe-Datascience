@@ -1,0 +1,84 @@
+{
+  "type": "object",
+  "required": ["service", "mongo"],
+  "properties": {
+    "service": {
+      "type": "object",
+      "required": ["name", "cpu", "mem"],
+      "description": "Configuration properties for the mongo service for DC/OS.",
+      "properties": {
+        "name": {
+          "description": "The name of the service to display in the DC/OS dashboard.",
+          "type": "string",
+          "default": "mongo",
+          "x-form": {
+            "hidden": true
+          },
+          "x-generated": {
+            "type": "appID",
+            "scope": "mongo"
+          }
+        },
+        "cpus": {
+          "description": "CPU shares to allocate to this Mongo instance.",
+          "type": "number",
+          "default": 0.1,
+          "minimum": 0.1
+        },
+        "mem": {
+          "description": "Memory to allocate to this Mongo instance.",
+          "type": "number",
+          "default": 1024.0,
+          "minimum": 1024.0
+        }
+      }
+    },
+    "mongo": {
+      "type": "object",
+      "required": ["version", "username", "password"],
+      "description": "Mongo database configuration properties",
+      "properties": {
+        "version": {
+          "description": "mongo major version",
+          "type": "string",
+          "enum": ["3.4", "3.6", "4.0", "4.2"],
+          "default": "4.2"
+        },
+        "username": {
+          "description": "Mongo user name.",
+          "type": "string",
+          "default": "admin",
+          "x-form": {
+            "value": "{{user.idep}}"
+          }
+        },
+        "password": {
+          "description": "Mongo password.",
+          "type": "string",
+          "default": "changeme",
+          "x-form": {
+            "value": "{{user.password}}"
+          }
+        }
+
+      }
+    },
+    "networking": {
+      "description": "Networking-related configuration properties for pgAdmin on DC/OS.",
+      "type": "object",
+      "properties": {
+        "internal-host": {
+          "description": "The virtual host address to configure for integration with Marathon-lb.",
+          "type": "string",
+          "x-form": {
+            "hidden": true
+          },
+          "x-generated": {
+            "type": "internalDNS",
+            "scope": "mongo"
+          }
+        }
+      }
+    }
+  }
+}
