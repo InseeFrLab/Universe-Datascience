@@ -53,6 +53,7 @@
               "jupyter/datascience-notebook", 
               "jupyter/all-spark-notebook", 
               "jupyter/tensorflow-notebook",
+              "daskdev/dask-notebook",
               "inseefrlab/jupyter-datascience"
             ]
         },
