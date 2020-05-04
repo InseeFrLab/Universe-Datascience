@@ -112,7 +112,7 @@
                 "description": "Value of parameter --memory-limit",
                 "title": "Memory limit",
                 "type": "string",
-                "default": 0
+                "default": "0"
               }
           }
       },
