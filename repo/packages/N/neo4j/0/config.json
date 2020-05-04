@@ -11,6 +11,10 @@
             "default": "neo4j",
             "x-form": {
               "hidden": true
+            },
+            "x-generated": {
+              "type": "appID",
+              "scope": "neo4j"
             }
           },
           "cpus": {
@@ -63,6 +67,11 @@
             "type": "string",
             "x-form": {
                 "hidden": true
+            },
+            "x-generated": {
+              "type": "externalDNS",
+              "scope": "neo4j",
+              "name": "ihm"
             }
           },
           "virtual-host-bolt": {
@@ -70,6 +79,11 @@
             "type": "string",
             "x-form": {
                 "hidden": true
+            },
+            "x-generated": {
+              "type": "externalDNS",
+              "scope": "neo4j",
+              "name": "bolt"
             }
           },
           "https-redirect": {

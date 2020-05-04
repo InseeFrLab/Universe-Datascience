@@ -1,0 +1,20 @@
+{
+    "packagingVersion": "3.0",
+    "name": "dask-cluster",
+    "version": "1.0",
+    "minDcosReleaseVersion": "1.8",
+    "scm": "https://github.com/dask/dask-docker",
+    "maintainer": "https://github.com/dask/",
+    "website": "https://dask.org/",
+    "framework": false,
+    "description": "This package deploy a dask cluster composed of a scheduler and n workers. This is easy to use it inside jupyter notebook : daskdev/dask-notebook",
+    "tags": [
+      "spark",
+      "distributed"
+    ],
+    "preInstallNotes": "Warning : data are not stored on this service. This service may reserve a lot of cpu and memory. Remove it asap",
+    "postInstallNotes": "dask cluster has been installed.",
+    "postUninstallNotes": "dask cluster has been uninstalled.",
+    "selected": false,
+    "lastUpdated": 1585220308
+}  

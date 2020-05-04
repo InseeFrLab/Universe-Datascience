@@ -11,6 +11,10 @@
           "default": "jupyter-datascience",
           "x-form": {
             "hidden": true
+          },
+          "x-generated": {
+            "type": "appID",
+            "scope": "jupyter"
           }
         },
         "cpus": {
@@ -44,11 +48,12 @@
         "image": {
             "type": "string",
             "description": "Version of vscode to use",
-            "default": "jupyter/datascience-notebook",
+            "default": "inseefrlab/jupyter-datascience",
             "enum": [
               "jupyter/datascience-notebook", 
               "jupyter/all-spark-notebook", 
               "jupyter/tensorflow-notebook",
+              "daskdev/dask-notebook",
               "inseefrlab/jupyter-datascience"
             ]
         },
@@ -80,13 +85,23 @@
           "type": "string",
           "x-form": {
             "hidden": true
+          },
+          "x-generated": {
+            "type": "externalDNS",
+            "scope": "jupyter",
+            "name": "ihm"
           }
         },
-        "virtual-host-1": {
+        "virtual-host-sparkui": {
           "description": "The virtual host address to configure for integration with Marathon-lb for port 1.",
           "type": "string",
           "x-form": {
             "hidden": true
+          },
+          "x-generated": {
+            "type": "externalDNS",
+            "scope": "jupyter",
+            "name": "spark-ui"
           }
         },
         "https-redirect": {

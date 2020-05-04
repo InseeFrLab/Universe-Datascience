@@ -1,0 +1,20 @@
+{
+    "packagingVersion": "3.0",
+    "name": "spark-cluster",
+    "version": "1.0",
+    "minDcosReleaseVersion": "1.8",
+    "scm": "https://github.com/inseefrlab/jupyter-datascience",
+    "maintainer": "https://github.com/inseefrlab",
+    "website": "https://spark.apache.org/docs/latest/spark-standalone.html",
+    "framework": false,
+    "description": "This package deploy a spark standalone cluster composed of a master and n workers. This is easy to use it inside jupyter notebook for example.",
+    "tags": [
+      "spark",
+      "distributed"
+    ],
+    "preInstallNotes": "Warning : data are not stored on this service. This service may reserve a lot of cpu and memory. Remove it asap",
+    "postInstallNotes": "spark cluster has been installed.",
+    "postUninstallNotes": "spark cluster has been uninstalled.",
+    "selected": false,
+    "lastUpdated": 1585220308
+}  

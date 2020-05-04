@@ -1,0 +1,23 @@
+{
+  "packagingVersion": "3.0",
+  "name": "mongo",
+  "version": "1.0",
+  "minDcosReleaseVersion": "1.8",
+  "scm": "https://git.stable.innovation.insee.eu/innovation/universe",
+  "maintainer": "MongoDB",
+  "website": "https://hub.docker.com/_/postgres",
+  "framework": false,
+  "description": "MongoDB is a free and open-source cross-platform document-oriented database program",
+  "tags": [
+    "NoSQL",
+    "datascience",
+    "database",
+    "json",
+    "document",
+    "data"
+  ],
+  "preInstallNotes": "Warning : data are not stored on this service. Use GIT to save your code.",
+  "postInstallNotes": "Mongo has been installed.",
+  "selected": false,
+  "lastUpdated": 1585220308
+}

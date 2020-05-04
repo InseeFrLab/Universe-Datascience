@@ -11,6 +11,10 @@
           "default": "rstudio",
           "x-form": {
             "hidden": true
+          },
+          "x-generated": {
+            "type": "appID",
+            "scope": "rstudio"
           }
         },
         "cpus": {
@@ -62,6 +66,11 @@
           "type": "string",
           "x-form": {
             "hidden": true
+          },
+          "x-generated": {
+            "type": "externalDNS",
+            "scope": "rstudio",
+            "name": "ihm"
           }
         },
         "https-redirect": {

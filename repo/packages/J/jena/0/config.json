@@ -2,38 +2,52 @@
     "type": "object",
     "properties": {
       "service": {
-        "description": "Configuration properties for the openrefine service for DC/OS.",
+        "description": "Configuration properties for the jena service for DC/OS.",
         "type": "object",
         "properties": {
           "name": {
-            "description": "The name of the service to display",
+            "description": "The name of the service to display in the DC/OS dashboard.",
             "type": "string",
-            "default": "openrefine",
+            "default": "jena",
             "x-form": {
               "hidden": true
             },
             "x-generated": {
               "type": "appID",
-              "scope": "openrefine"
+              "scope": "jena"
             }
           },
           "cpus": {
-            "description": "CPU shares to allocate to this openrefine instance.",
+            "description": "CPU shares to allocate to this jena instance.",
             "type": "number",
-            "default": 0.5,
+            "default": 0.1,
             "minimum": 0.1
           },
           "mem": {
-            "description": "Memory (in MB) to allocate to this openrefine instance.",
+            "description": "Memory (in MB) to allocate to this jena instance.",
             "type": "number",
             "default": 2048,
-            "minimum": 2048
+            "minimum": 256
           }
         },
         "required": ["name", "cpus", "mem"]
       },
+      "jena": {
+        "description": "jena specific configuration",
+        "type": "object",
+        "properties": {
+          "password": {
+            "type": "string",
+            "description": "Password of the admin account",
+            "default": "changeme",
+            "x-form": {
+              "value": "{{user.password}}"
+            }
+          }
+        }
+      },
       "networking": {
-        "description": "Networking-related configuration properties for openrefine on DC/OS.",
+        "description": "Networking-related configuration properties for jena on DC/OS.",
         "type": "object",
         "properties": {
           "virtual-host": {
@@ -44,7 +58,7 @@
             },
             "x-generated": {
               "type": "externalDNS",
-              "scope": "openrefine",
+              "scope": "jena",
               "name": "ihm"
             }
           },
@@ -80,6 +94,6 @@
         "required": ["virtual-host", "https-redirect"]
       }
     },
-    "required": ["service", "openrefine", "networking"]
+    "required": ["service", "jena", "networking"]
   }
   

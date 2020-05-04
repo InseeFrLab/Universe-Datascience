@@ -1,0 +1,15 @@
+{
+    "images": {
+      "icon-small": "https://humancoders-formations.s3.amazonaws.com/uploads/course/logo/169/thumb_bigger_formation-machine-learning-avec-spark.png",
+      "icon-medium": "https://humancoders-formations.s3.amazonaws.com/uploads/course/logo/169/thumb_bigger_formation-machine-learning-avec-spark.png",
+      "icon-large": "https://humancoders-formations.s3.amazonaws.com/uploads/course/logo/169/thumb_bigger_formation-machine-learning-avec-spark.png"
+    },
+    "assets": {
+      "container": {
+        "docker": {
+          "spark": "inseefrlab/jupyter-datascience"
+        }
+      }
+    }
+  }
+  
