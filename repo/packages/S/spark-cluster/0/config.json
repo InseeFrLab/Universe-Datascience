@@ -93,6 +93,18 @@
                 "type": "number",
                 "default": 2048,
                 "minimum": 2048
+              },
+              "worker-cores":{
+                "description": "Total number of cores to allow Spark applications to use. Value of SPARK_WORKER_CORES.",
+                "type": "number",
+                "default": 2,
+                "minimum": 1
+              },
+              "worker-memory":{
+                "description": "Total amount of memory to allow Spark applications to use on the machine. Value of SPARK_WORKER_MEMORY.",
+                "type": "string",
+                "default": "1g"
+                
               }
           }
       },

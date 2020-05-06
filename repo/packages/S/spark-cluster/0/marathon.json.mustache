@@ -82,7 +82,11 @@
           "timeoutSeconds": 20,
           "maxConsecutiveFailures": 3
         }
-      ]
+      ],
+      "env": {
+        "SPARK_WORKER_CORES" : "{{worker.worker-cores}}",
+        "SPARK_WORKER_MEMORY" : "{{worker.worker-memory}}"
+      }
     }
   ]
 }
