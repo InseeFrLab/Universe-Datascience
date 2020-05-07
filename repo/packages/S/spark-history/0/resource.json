@@ -1,8 +1,8 @@
 {
   "images": {
-    "icon-small": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4-b_P-Dhd_yGiQ_lhW5TnUqUr_RSvqzRA9SFnUHgLqW38jqVrqMYeDw",
-    "icon-medium": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4-b_P-Dhd_yGiQ_lhW5TnUqUr_RSvqzRA9SFnUHgLqW38jqVrqMYeDw",
-    "icon-large": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4-b_P-Dhd_yGiQ_lhW5TnUqUr_RSvqzRA9SFnUHgLqW38jqVrqMYeDw"
+    "icon-small": "https://downloads.mesosphere.com/assets/universe/000/spark-history-icon-small.png",
+    "icon-medium": "https://downloads.mesosphere.com/assets/universe/000/spark-history-icon-medium.png",
+    "icon-large": "https://downloads.mesosphere.com/assets/universe/000/spark-history-icon-large.png"
   },
   "assets": {
     "container": {

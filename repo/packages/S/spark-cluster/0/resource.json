@@ -1,8 +1,8 @@
 {
     "images": {
-      "icon-small": "https://humancoders-formations.s3.amazonaws.com/uploads/course/logo/169/thumb_bigger_formation-machine-learning-avec-spark.png",
-      "icon-medium": "https://humancoders-formations.s3.amazonaws.com/uploads/course/logo/169/thumb_bigger_formation-machine-learning-avec-spark.png",
-      "icon-large": "https://humancoders-formations.s3.amazonaws.com/uploads/course/logo/169/thumb_bigger_formation-machine-learning-avec-spark.png"
+      "icon-small": "https://downloads.mesosphere.com/assets/universe/000/spark-history-icon-small.png",
+      "icon-medium": "https://downloads.mesosphere.com/assets/universe/000/spark-history-icon-medium.png",
+      "icon-large": "https://downloads.mesosphere.com/assets/universe/000/spark-history-icon-large.png"
     },
     "assets": {
       "container": {
