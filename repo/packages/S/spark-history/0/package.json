@@ -1,6 +1,6 @@
 {
     "packagingVersion": "3.0",
-    "name": "jupyter",
+    "name": "spark-history",
     "version": "1.0",
     "minDcosReleaseVersion": "1.8",
     "scm": "https://github.com/inseefrlab/jupyter-datascience",
