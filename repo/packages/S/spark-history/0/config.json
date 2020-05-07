@@ -28,20 +28,17 @@
           "type": "number",
           "default": 2048,
           "minimum": 1024
+        },
+        "directory": {
+          "description": "directory of access logs",
+          "type": "string",
+          "default": "file://tmp/spark-logs/",
+          "x-form": {
+            "value": "s3a://{{user.idep}}/spark-history"
+          }
         }
       },
       "required": ["name", "cpus", "mem"]
-    },
-    "script": {
-      "type": "object",
-      "description": "scripts",
-      "properties": {
-        "uri": {
-          "type": "string",
-          "description": "uri of a .sh file that will be executed at runtime",
-          "default": ""
-        }
-      }
     },
     "networking": {
       "description": "Networking-related configuration properties for jupyter on DC/OS.",

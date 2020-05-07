@@ -44,6 +44,7 @@
         }
     ],
     "env": {
+        "SPARK_HISTORY_OPTS": "-Dspark.history.fs.logDirectory={{service.directory}}",
         "AWS_ACCESS_KEY_ID": "{{s3.accessKeyId}}",
         "AWS_SECRET_ACCESS_KEY": "{{s3.secretAccessKey}}",
         "AWS_SESSION_TOKEN": "{{s3.sessionToken}}",
