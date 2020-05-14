@@ -1,8 +1,8 @@
 {
     "images": {
-      "icon-small": "https://cdn.icon-icons.com/icons2/1508/PNG/512/distributorlogoubuntu_103999.png",
-      "icon-medium": "https://cdn.icon-icons.com/icons2/1508/PNG/512/distributorlogoubuntu_103999.png",
-      "icon-large": "https://cdn.icon-icons.com/icons2/1508/PNG/512/distributorlogoubuntu_103999.png"
+      "icon-small": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e0/WPVG_icon_2016.svg/240px-WPVG_icon_2016.svg.png",
+      "icon-medium": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e0/WPVG_icon_2016.svg/480px-WPVG_icon_2016.svg.png",
+      "icon-large": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e0/WPVG_icon_2016.svg/600px-WPVG_icon_2016.svg.png"
     },
     "assets": {
       "container": {
