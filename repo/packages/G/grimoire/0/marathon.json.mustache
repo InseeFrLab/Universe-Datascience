@@ -1,0 +1,61 @@
+{
+  "id": "{{service.name}}",
+  "cpus": {{service.cpus}},
+  "mem": {{service.mem}},
+  "instances": 1,
+  "cmd": "dumb-init bash /mnt/mesos/sandbox/onyxia-init.sh fixuid -q /usr/local/bin/code-server --host 0.0.0.0 .",
+  "env": {
+    "GIT_USER_NAME": "{{git.name}}",
+    "GIT_USER_MAIL": "{{git.email}}",   
+    "GIT_CREDENTIALS_CACHE_DURATION": "{{git.cache}}",
+    "PASSWORD": "{{grimoire.password}}",
+    "PORT":"80"
+  },
+  "container": {
+       "type": "DOCKER",
+       "docker": {
+           "image": "{{grimoire.image}}",
+           "network": "BRIDGE",
+           "portMappings": [
+              { "containerPort": 80, "hostPort": 8085 }
+          ]
+       }
+   },
+   "healthChecks": [
+    {
+      "path": "/",
+      "portIndex": 0,
+      "protocol": "HTTP",
+      "gracePeriodSeconds": 30,
+      "intervalSeconds": 60,
+      "timeoutSeconds": 20,
+      "maxConsecutiveFailures": 3
+    }
+  ],
+  "labels": {
+    "HAPROXY_GROUP":"external",
+    "HAPROXY_0_VHOST":"{{networking.virtual-host}}",
+    "HAPROXY_0_REDIRECT_TO_HTTPS": "true",
+    "HAPROXY_0_ENABLED":"true",
+    "HAPROXY_0_FRONTEND_HEAD":"",
+    "HAPROXY_0_FRONTEND_BACKEND_GLUE":"",
+    {{#networking.whitelist.enable}}
+    "HAPROXY_0_BACKEND_NETWORK_ALLOWED_ACL": "{{networking.whitelist.ip}}",
+    {{/networking.whitelist.enable}}
+
+    "MARATHON_SINGLE_INSTANCE_APP": "true"
+  },
+  "fetch": [
+      {
+        "uri": "https://git.lab.sspcloud.fr/innovation/plateforme-onyxia/services-ressources/-/raw/master/onyxia-init.sh",
+        "extract": false,
+        "executable": true,
+        "cache": false,
+        "destPath": "onyxia-init.sh"
+      }
+  ],
+  "upgradeStrategy":{
+    "minimumHealthCapacity": 0,
+    "maximumOverCapacity": 0
+  }
+}

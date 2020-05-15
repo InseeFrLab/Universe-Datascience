@@ -1,0 +1,22 @@
+{
+  "packagingVersion": "3.0",
+  "name": "grimoire",
+  "version": "1.0",
+  "minDcosReleaseVersion": "1.8",
+  "scm": "https://git.lab.sspcloud.fr/lxwgkb/funcamp-r-grimoire",
+  "maintainer": "https://github.com/inseefrlab",
+  "website": "https://git.lab.sspcloud.fr/lxwgkb/funcamp-r-grimoire",
+  "framework": false,
+  "description": "FuncampR Grimoire",
+  "tags": [
+    "R",
+    "game",
+    "fun",
+    "learning"
+  ],
+  "preInstallNotes": "Let's learn !",
+  "postInstallNotes": "Enjoy :)",
+  "postUninstallNotes": "Game over",
+  "selected": false,
+  "lastUpdated": 1589542977	
+}
