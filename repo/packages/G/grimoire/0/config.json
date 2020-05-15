@@ -32,6 +32,18 @@
       },
       "required": ["name", "cpus", "mem"]
     },
+    "grimoire": {
+      "description": "Configuration du grimoire",
+      "type": "string",
+      "properties": {
+        "chapitre": {
+          "type": "string",
+          "description": "Chapitre",
+          "default": "chapitre2",
+          "enum": ["chapitre2", "chapitre6"]
+        }
+      }
+    },
     "networking": {
       "description": "Networking-related configuration",
       "type": "string",
