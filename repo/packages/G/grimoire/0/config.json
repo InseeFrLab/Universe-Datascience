@@ -48,7 +48,7 @@
           "type": "string",
           "description": "Version of grimoire to use",
           "default": "git-registry.lab.sspcloud.fr/lxwgkb/funcamp-r-grimoire",
-          "enum": ["git-registry.lab.sspcloud.fr/lxwgkb/funcamp-r-grimoire", "git-registry.lab.sspcloud.fr/lxwgkb/funcamp-r-grimoire"]
+          "enum": ["git-registry.lab.sspcloud.fr/lxwgkb/funcamp-r-grimoire", "InseeFrLab/funcampR"]
         }
       }
     },
