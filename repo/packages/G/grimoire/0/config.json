@@ -32,26 +32,6 @@
       },
       "required": ["name", "cpus", "mem"]
     },
-    "vscode": {
-      "description": "Grimoire specific configuration",
-      "type": "object",
-      "properties": {
-        "password": {
-          "type": "string",
-          "description": "Password",
-          "default": "changeme",
-          "x-form": {
-            "value": "{{user.password}}"
-          }
-        },
-        "image": {
-          "type": "string",
-          "description": "Version of grimoire to use",
-          "default": "git-registry.lab.sspcloud.fr/lxwgkb/funcamp-r-grimoire",
-          "enum": ["git-registry.lab.sspcloud.fr/lxwgkb/funcamp-r-grimoire", "InseeFrLab/funcampR"]
-        }
-      }
-    },
     "networking": {
       "description": "Networking-related configuration",
       "type": "string",
@@ -88,42 +68,8 @@
             }
           }
         }
-
-      }
-    },
-    "git": {
-      "description": "Git user configuration",
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string",
-          "description": "user name for git",
-          "default": "",
-          "x-form": {
-            "value": "{{git.name}}",
-            "readonly": true
-          }
-        },
-        "email": {
-          "type": "string",
-          "description": "user email for git",
-          "default": "",
-          "x-form": {
-            "value": "{{git.email}}",
-            "readonly": true
-          }
-        },
-        "cache": {
-          "type": "string",
-          "description": "duration in seconds of the credentials cache duration",
-          "default": "",
-          "x-form": {
-            "value": "{{git.credentials_cache_duration}}",
-            "readonly": false
-          }
-        }
       }
     }
   },
-  "required": ["service", "grimoire", "git"]
+  "required": ["service"]
 }
