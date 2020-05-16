@@ -40,7 +40,7 @@
           "type": "string",
           "description": "Chapitre",
           "default": "chapitre2",
-          "enum": ["chapitre2", "chapitre6"]
+          "enum": ["chapitre1","chapitre2","chapitre3","chapitre4","chapitre5","chapitre6"]
         }
       }
     },
