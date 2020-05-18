@@ -14,7 +14,6 @@
     "type": "DOCKER",
     "docker": {
       "image": "{{resource.assets.container.docker.image}}:{{postresql.version}}",
-      "network": "BRIDGE",
       "portMappings": 
       [
         {
@@ -27,6 +26,12 @@
       "forcePullImage": false
     }
   },
+  "networks": [
+      {
+        "name": "dcos",
+        "mode": "container"
+      }
+    ],
   "upgradeStrategy": 
   {
     "maximumOverCapacity": 0,
