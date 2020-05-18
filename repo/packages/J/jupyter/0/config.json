@@ -104,6 +104,17 @@
             "name": "spark-ui"
           }
         },
+        "internal-host": {
+          "description": "The internal dns name",
+          "type": "string",
+          "x-form": {
+            "hidden": true
+          },
+          "x-generated": {
+            "type": "internalDNS",
+            "scope": "jupyter"
+          }
+        },
         "https-redirect": {
           "description": "Whether Marathon-lb should redirect HTTP traffic to HTTPS. This requires 'virtual-host' to be set. By default, this is false.",
           "type": "boolean",
