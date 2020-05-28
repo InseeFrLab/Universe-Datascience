@@ -90,6 +90,26 @@
             }
           }
         },
+        "vault": {
+          "description": "Configuration of vault client",
+          "type": "object",
+          "properties": {
+            "token": {
+              "description": "token vault",
+              "type": "string",
+              "x-form": {
+                "value": "{{VAULT.VAULT_TOKEN}}"
+              }
+            },
+            "url": {
+              "description": "url of vault server",
+              "type": "string",
+              "x-form": {
+                "value": "{{VAULT_ADDR}}"
+              }
+            }
+          }
+      },
         "s3": {
           "description": "Configuration of temporary identity",
           "type": "object",
