@@ -98,14 +98,14 @@
               "description": "token vault",
               "type": "string",
               "x-form": {
-                "value": "{{VAULT.VAULT_TOKEN}}"
+                "value": "{{vault.VAULT_TOKEN}}"
               }
             },
             "url": {
               "description": "url of vault server",
               "type": "string",
               "x-form": {
-                "value": "{{VAULT.VAULT_ADDR}}"
+                "value": "{{vault.VAULT_ADDR}}"
               }
             }
           }
