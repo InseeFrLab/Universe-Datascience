@@ -39,8 +39,8 @@
         "chapitre": {
           "type": "string",
           "description": "Chapitre",
-          "default": "chapitre2",
-          "enum": ["chapitre1","chapitre2","chapitre3","chapitre4","chapitre5","chapitre6"]
+          "default": "chapitre1",
+          "enum": ["chapitre1","chapitre2","chapitre3","chapitre4","chapitre5","chapitre6","chapitre7","chapitre8","chapitre9"]
         }
       }
     },
