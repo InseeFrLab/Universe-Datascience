@@ -1,0 +1,15 @@
+{
+    "images": {
+      "icon-small": "https://www.dataiku.com/wp-content/uploads/2019/10/main-logo.svg",
+      "icon-medium": "https://www.dataiku.com/wp-content/uploads/2019/10/main-logo.svg",
+      "icon-large": "https://www.dataiku.com/wp-content/uploads/2019/10/main-logo.svg"
+    },
+    "assets": {
+      "container": {
+        "docker": {
+          "image": "dataiku/dss"
+        }
+      }
+    }
+  }
+  

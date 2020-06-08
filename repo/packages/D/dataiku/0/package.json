@@ -1,0 +1,19 @@
+{
+  "packagingVersion": "3.0",
+  "name": "dataiku",
+  "version": "1.0",
+  "minDcosReleaseVersion": "1.8",
+  "scm": "https://www.dataiku.com/",
+  "maintainer": "https://www.dataiku.com/",
+  "website": "https://www.dataiku.com/",
+  "framework": false,
+  "description": "Dataiku DSS is the collaborative data science software platform for teams of data scientists, data analysts, and engineers to explore, prototype, build, and deliver their own data products more efficiently.",
+  "tags": [
+    "Studio"
+  ],
+  "preInstallNotes": "Warning : data are not stored on this service.",
+  "postInstallNotes": "Dataiku has been installed.",
+  "postUninstallNotes": "Dataiku has been uninstalled.",
+  "selected": false,
+  "lastUpdated": 1585220308
+}
