@@ -73,8 +73,8 @@
       "mem":  {{kibana.mem}},
       "instances": 1,
       "env": {
-        "ELASTICSEARCH_URL": "https://{{networking.virtual-host-elastic}}:443",
-        "ELASTICSEARCH_HOSTS": "https://{{networking.virtual-host-elastic}}:443"
+        "ELASTICSEARCH_URL": "http://{{elastic.endpoint}}:80",
+        "ELASTICSEARCH_HOSTS": "http://{{elastic.endpoint}}:80"
       },
       "container": {
           "type": "DOCKER",
