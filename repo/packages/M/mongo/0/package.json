@@ -17,7 +17,7 @@
     "data"
   ],
   "preInstallNotes": "Warning : data are not stored on this service. Use GIT to save your code.",
-  "postInstallNotes": "Mongo has been installed.",
+  "postInstallNotes": "The account is your username and the password is your password for all services. You can get it inside Onyxia in your profil settings",
   "selected": false,
   "lastUpdated": 1585220308
 }

@@ -15,7 +15,7 @@
     "programming"
   ],
   "preInstallNotes": "Warning : data are not stored on this service. Use GIT to save your code.",
-  "postInstallNotes": "VSCode has been installed.",
+  "postInstallNotes": "The password is your password for all services. You can get it inside Onyxia in your profil settings",
   "postUninstallNotes": "VSCode has been uninstalled.",
   "selected": false,
   "lastUpdated": 1585220308

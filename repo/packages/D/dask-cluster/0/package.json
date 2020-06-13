@@ -13,7 +13,7 @@
       "distributed"
     ],
     "preInstallNotes": "Warning : data are not stored on this service. This service may reserve a lot of cpu and memory. Remove it asap",
-    "postInstallNotes": "dask cluster has been installed.",
+    "postInstallNotes": "Your python dask client must connect to the dask scheduler on port 8786. There is an UI available to monitor the activity of the cluster on the scheduler. There is nothing to see in workers",
     "postUninstallNotes": "dask cluster has been uninstalled.",
     "selected": false,
     "lastUpdated": 1585220308

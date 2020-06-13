@@ -14,7 +14,7 @@
         "python"
     ],
     "preInstallNotes": "Attention no data persistence is guaranteed. You must therefore make sure to save your notebooks on Gitlab or manually manage the downloading and uploading of your notebooks.",
-    "postInstallNotes": "Your notebook has installed! Report any problems",
+    "postInstallNotes": "The token is your password for all services. You can get it inside Onyxia in your profil settings",
     "selected": false,
     "lastUpdated": 1585220308
 }

@@ -13,7 +13,7 @@
       "distributed"
     ],
     "preInstallNotes": "Warning : data are not stored on this service. This service may reserve a lot of cpu and memory. Remove it asap",
-    "postInstallNotes": "spark cluster has been installed.",
+    "postInstallNotes": "Your spark client/driver must connect to the spark master at port 7077. And UI is available on the master to monitor your cluster. There is nothing to see in spark workers",
     "postUninstallNotes": "spark cluster has been uninstalled.",
     "selected": false,
     "lastUpdated": 1585220308

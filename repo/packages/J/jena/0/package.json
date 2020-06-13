@@ -14,7 +14,7 @@
     "Graph"
   ],
   "preInstallNotes": "Warning : data are not stored on this service.",
-  "postInstallNotes": "Jena has been installed.",
+  "postInstallNotes": "The account is admin and the password is your password for all services. You can get it inside Onyxia in your profil settings",
   "postUninstallNotes": "Jena has been uninstalled.",
   "selected": false,
   "lastUpdated": 1585220308

@@ -14,7 +14,7 @@
       "JSON"
     ],
     "preInstallNotes": "Warning : data are not stored on this service.",
-    "postInstallNotes": "elk has been installed.",
+    "postInstallNotes": "ELK is composed only of Elastic and Kibana. Kibana is accesible from outside the lab. Elastic is also accessible from outside but there is also an intra lab endpoint that listen on port 9200. There is not logstash to ingest data, you should do that yourself from outside the plateform or from an development environnement inside the lab.  ",
     "postUninstallNotes": "elk has been uninstalled.",
     "selected": false,
     "lastUpdated": 1585220308
