@@ -3,7 +3,7 @@
   "cpus": {{service.cpus}},
   "mem": {{service.mem}},
   "instances": 1,
-  "cmd": "echo \"AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID\\nAWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY\\nAWS_SESSION_TOKEN=$AWS_SESSION_TOKEN\\nAWS_DEFAULT_REGION=$AWS_DEFAULT_REGION\\nAWS_S3_ENDPOINT=$AWS_S3_ENDPOINT\\nAWS_EXPIRATION=$AWS_EXPIRATION\" >> /usr/local/lib/R/etc/Renviron.site && {{#script.uri}} runuser -m -l rstudio -c 'sh /mnt/mesos/sandbox/*.sh' && {{/script.uri}} /init",
+  "cmd": "bash /mnt/mesos/sandbox/onyxia-init.sh /init",
   "env": {
     "AWS_ACCESS_KEY_ID" : "{{s3.accessKeyId}}",
     "AWS_S3_ENDPOINT" : "{{s3.endpoint}}",
@@ -14,6 +14,7 @@
     "GIT_USER_NAME": "{{git.name}}",
     "GIT_USER_MAIL": "{{git.email}}",
     "GIT_CREDENTIALS_CACHE_DURATION": "{{git.cache}}",
+    "URL_INIT_SERVICE": "https://git.lab.sspcloud.fr/innovation/plateforme-onyxia/services-ressources/-/raw/master/onyxia-init-rstudio.sh",
     {{#rstudio.password}}
       "PASSWORD": "{{rstudio.password}}"
     {{/rstudio.password}}
@@ -33,9 +34,8 @@
    },
    "healthChecks": [
     {
-      "path": "/",
       "portIndex": 0,
-      "protocol": "HTTP",
+      "protocol": "MESOS_TCP",
       "gracePeriodSeconds": 30,
       "intervalSeconds": 60,
       "timeoutSeconds": 20,
@@ -55,7 +55,15 @@
     "MARATHON_SINGLE_INSTANCE_APP": "true"
   },
   "fetch": [
-    {{#script.uri}}
+       {
+          "uri": "https://git.lab.sspcloud.fr/innovation/plateforme-onyxia/services-ressources/-/raw/master/onyxia-init.sh",
+          "extract": false,
+          "executable": true,
+          "cache": false,
+          "destPath": "onyxia-init.sh"
+        }
+        {{#script.uri}}
+        ,
     {
       "uri": "{{script.uri}}",
       "extract": false,
