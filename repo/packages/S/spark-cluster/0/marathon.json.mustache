@@ -21,7 +21,7 @@
               { "protocol": "tcp", "hostPort": 0, "containerPort": 7077 }
           ],
           "docker": {
-              "image": "{{resource.assets.container.docker.spark}}"
+              "image": "{{service.image}}"
           }
       },
       "healthChecks": [
@@ -70,7 +70,7 @@
               { "protocol": "tcp", "hostPort": 0, "containerPort": 8081 }
           ],
           "docker": {
-              "image": "{{resource.assets.container.docker.spark}}"
+              "image": "{{service.image}}"
           }
       },
       "healthChecks": [
