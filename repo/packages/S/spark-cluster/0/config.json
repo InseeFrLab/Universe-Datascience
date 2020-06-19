@@ -36,7 +36,7 @@
               "inseefrlab/jupyter-datascience:v2.4.6-3.2.1",
               "inseefrlab/jupyter-datascience:v3.0.0-3.2.1"
             ]
-          },
+          }
         },
         "required": ["name"]
       },
