@@ -7,7 +7,7 @@
   "assets": {
     "container": {
       "docker": {
-        "spark": "git-registry.lab.sspcloud.fr/tm8enk/tensorflow"
+        "image": "git-registry.lab.sspcloud.fr/tm8enk/tensorflow"
       }
     }
   }
