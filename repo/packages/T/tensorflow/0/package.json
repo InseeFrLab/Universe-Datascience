@@ -1,0 +1,22 @@
+{
+    "packagingVersion": "3.0",
+    "name": "tensorflow",
+    "version": "1.0",
+    "minDcosReleaseVersion": "1.8",
+    "scm": "https://github.com/tensorflow/tensorflow",
+    "maintainer": "https://github.com/inseefrlab",
+    "website": "https://www.tensorflow.org/",
+    "framework": false,
+    "description": "TensorFlow is a free and open-source software library for dataflow and differentiable programming across a range of tasks. It is a symbolic math library, and is also used for machine learning applications such as neural networks. Jupyter is a notebook accessible through a web browser. It allows you to run multiple interpreters.",
+    "tags": [
+        "datascience",
+        "notebook",
+        "python",
+        "jupyter",
+        "GPU"
+    ],
+    "preInstallNotes": "This package can use GPUs. Attention no data persistence is guaranteed. You must therefore make sure to save your notebooks on Gitlab or manually manage the downloading and uploading of your notebooks.",
+    "postInstallNotes": "The token is your password for all services. You can get it inside Onyxia in your profil settings",
+    "selected": false,
+    "lastUpdated": 1585220308
+}
