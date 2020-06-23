@@ -1,6 +1,7 @@
 {
     "id": "{{service.name}}",
     "cpus": {{service.cpus}},
+    "gpus": {{service.gpus}},
     "mem":  {{service.mem}},
     "instances":1,
     "cmd": "bash /mnt/mesos/sandbox/onyxia-init.sh jupyter-lab --NotebookApp.token='{{jupyter.password}}'",
@@ -37,16 +38,6 @@
         {{#networking.whitelist.enable}}
         "HAPROXY_0_BACKEND_NETWORK_ALLOWED_ACL": "{{networking.whitelist.ip}}",
         {{/networking.whitelist.enable}}
-        {{#jupyter.spark-ui}}
-        "HAPROXY_1_VHOST": "{{networking.virtual-host-sparkui}}",
-        "HAPROXY_1_REDIRECT_TO_HTTPS": "{{networking.https-redirect}}",
-        "HAPROXY_1_FRONTEND_HEAD": "",
-        "HAPROXY_1_FRONTEND_BACKEND_GLUE": "",
-        "HAPROXY_1_ENABLED":"true",
-        {{#networking.whitelist.enable}}
-        "HAPROXY_1_BACKEND_NETWORK_ALLOWED_ACL": "{{networking.whitelist.ip}}",
-        {{/networking.whitelist.enable}}
-        {{/jupyter.spark-ui}}
         "MARATHON_SINGLE_INSTANCE_APP": "true"
     },
     "fetch": [
