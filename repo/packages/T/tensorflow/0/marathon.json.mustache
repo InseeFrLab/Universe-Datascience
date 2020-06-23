@@ -7,11 +7,12 @@
     "cmd": "bash /mnt/mesos/sandbox/onyxia-init.sh jupyter-lab --NotebookApp.token='{{jupyter.password}}'",
     "container": {
         "type": "MESOS",
+        "portMappings": [
+            { "containerPort": 8888 , "name": "jupyter"}
+        ]
         "docker": {
-            "image": "{{resource.assets.container.docker.image}}",
-            "portMappings": [
-                { "containerPort": 8888 , "name": "jupyter"}
-            ]
+            "image": "{{resource.assets.container.docker.image}}"
+
         }
     },
     "networks": [
