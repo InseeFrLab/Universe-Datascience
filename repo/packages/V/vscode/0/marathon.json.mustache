@@ -3,7 +3,7 @@
   "cpus": {{service.cpus}},
   "mem": {{service.mem}},
   "instances": 1,
-  "cmd": "dumb-init bash /mnt/mesos/sandbox/onyxia-init.sh fixuid -q /usr/local/bin/code-server --host 0.0.0.0 .",
+  "cmd": "dumb-init bash /mnt/mesos/sandbox/onyxia-init.sh fixuid -q /usr/bin/code-server --host 0.0.0.0 .",
   "env": {
     "GIT_USER_NAME": "{{git.name}}",
     "GIT_USER_MAIL": "{{git.email}}",   
