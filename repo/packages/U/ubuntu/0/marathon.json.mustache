@@ -24,6 +24,7 @@
        "type": "DOCKER",
        "docker": {
            "image": "{{resource.assets.container.docker.image}}",
+           "forcePullImage": true,
            "privileged": true,
            "network": "BRIDGE",
            "portMappings": [
