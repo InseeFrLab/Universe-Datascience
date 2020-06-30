@@ -3,11 +3,11 @@
   "name": "grimoire",
   "version": "1.0",
   "minDcosReleaseVersion": "1.8",
-  "scm": "https://git.lab.sspcloud.fr/lxwgkb/funcamp-r-grimoire",
+  "scm": "https://git.lab.sspcloud.fr/funcamp-r/funcamp-r-grimoire",
   "maintainer": "https://github.com/inseefrlab",
-  "website": "https://git.lab.sspcloud.fr/lxwgkb/funcamp-r-grimoire",
+  "website": "https://git.lab.sspcloud.fr/funcamp-r/funcamp-r-grimoire",
   "framework": false,
-  "description": "FuncampR Grimoire",
+  "description": "FuncampR Grimoire. A collection of R tutorials for beginners, with enigmas related to icaRius game.",
   "tags": [
     "R",
     "game",
@@ -18,5 +18,5 @@
   "postInstallNotes": "Enjoy :)",
   "postUninstallNotes": "Game over",
   "selected": false,
-  "lastUpdated": 1589542977	
+  "lastUpdated": 1593557804	
 }
