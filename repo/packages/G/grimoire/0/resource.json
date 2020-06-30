@@ -7,7 +7,7 @@
   "assets": {
     "container": {
       "docker": {
-        "image": "git-registry.lab.sspcloud.fr/lxwgkb/funcamp-r-grimoire"
+        "image": "git-registry.lab.sspcloud.fr/funcamp-r/funcamp-r-grimoire"
       }
     }
   }
