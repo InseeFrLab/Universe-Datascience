@@ -7,7 +7,7 @@
     "assets": {
       "container": {
         "docker": {
-          "image": "git-registry.lab.sspcloud.fr/lxwgkb/ubuntu-solarus:latest"
+          "image": "git-registry.lab.sspcloud.fr/funcamp-r/funcamp-r-ubuntu-solarus:latest"
         }
       }
     }
