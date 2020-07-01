@@ -1,22 +1,24 @@
 {
     "packagingVersion": "3.0",
-    "name": "icarius",
+    "name": "icaRius",
     "version": "1.0",
     "minDcosReleaseVersion": "1.8",
-    "scm": "https://git.lab.sspcloud.fr/lxwgkb/ubuntu-solarus",
+    "scm": "https://git.lab.sspcloud.fr/funcamp-r/funcamp-r-ubuntu-solarus",
     "maintainer": "https://github.com/inseefrlab",
-    "website": "https://git.lab.sspcloud.fr/lxwgkb/ubuntu-solarus",
+    "website": "http://funcamp-r.pages.lab.sspcloud.fr/funcamp-r/",
     "framework": false,
-    "description": "Icarius game",
+    "description": "Funcamp-R Game. Serious game based on a famous RPG well known in the 90s, dedicated to R learning for beginners.",
     "tags": [
       "icarius",
+      "R",
       "game",
+      "learning",
       "fun"
     ],
     "preInstallNotes": "Let's play !",
     "postInstallNotes": "Enjoy :)",
     "postUninstallNotes": "Game over",
     "selected": false,
-    "lastUpdated": 1587653197
+    "lastUpdated": 1593597686
   }
   
