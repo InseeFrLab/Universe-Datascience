@@ -14,6 +14,7 @@
        "type": "DOCKER",
        "docker": {
            "image": "{{resource.assets.container.docker.image}}",
+           "forcePullImage": true,
            "network": "BRIDGE",
            "portMappings": [
               { "containerPort": 80, "hostPort": 0 }
