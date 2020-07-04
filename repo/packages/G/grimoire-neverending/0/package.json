@@ -1,11 +1,11 @@
 {
   "packagingVersion": "3.0",
-  "name": "grimoire-last-chapter",
+  "name": "grimoire-neverending",
   "version": "0.1",
   "minDcosReleaseVersion": "1.8",
-  "scm": "https://git.lab.sspcloud.fr/funcamp-r/funcamp-r-grimoire",
+  "scm": "https://git.lab.sspcloud.fr/funcamp-r/funcamp-r-neverending",
   "maintainer": "https://github.com/inseefrlab",
-  "website": "https://git.lab.sspcloud.fr/funcamp-r/funcamp-r-grimoire",
+  "website": "https://git.lab.sspcloud.fr/funcamp-r/funcamp-r-neverending",
   "framework": false,
   "description": "FuncampR Grimoire - Last chapter. Final part of a collection of R tutorials for beginners, with enigmas related to icaRius game.",
   "tags": [
