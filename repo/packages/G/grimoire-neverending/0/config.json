@@ -8,13 +8,13 @@
         "name": {
           "description": "The name of the service to display in the DC/OS dashboard.",
           "type": "string",
-          "default": "grimoire-last-chapter",
+          "default": "grimoire-neverending",
           "x-form": {
             "hidden": true
           },
           "x-generated": {
             "type": "appID",
-            "scope": "grimoire-last-chapter"
+            "scope": "grimoire-neverending"
           }
         },
         "cpus": {
@@ -44,7 +44,7 @@
           },
           "x-generated": {
             "type": "externalDNS",
-            "scope": "grimoire",
+            "scope": "grimoire-neverending",
             "name": "ihm"
           }
         },
