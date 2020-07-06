@@ -1,0 +1,14 @@
+{
+  "images": {
+    "icon-small": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e0/WPVG_icon_2016.svg/240px-WPVG_icon_2016.svg.png",
+    "icon-medium": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e0/WPVG_icon_2016.svg/480px-WPVG_icon_2016.svg.png",
+    "icon-large": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e0/WPVG_icon_2016.svg/600px-WPVG_icon_2016.svg.png"
+  },
+  "assets": {
+    "container": {
+      "docker": {
+        "image": "git-registry.lab.sspcloud.fr/funcamp-r/funcamp-r-neverending"
+      }
+    }
+  }
+}

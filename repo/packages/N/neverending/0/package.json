@@ -1,0 +1,22 @@
+{
+  "packagingVersion": "3.0",
+  "name": "neveRending",
+  "version": "0.1",
+  "minDcosReleaseVersion": "1.8",
+  "scm": "https://git.lab.sspcloud.fr/funcamp-r/funcamp-r-neverending",
+  "maintainer": "https://github.com/inseefrlab",
+  "website": "https://git.lab.sspcloud.fr/funcamp-r/funcamp-r-neverending",
+  "framework": false,
+  "description": "FuncampR Grimoire - Last chapter. Final part of a collection of R tutorials for beginners, with enigmas related to icaRius game.",
+  "tags": [
+    "R",
+    "game",
+    "fun",
+    "learning"
+  ],
+  "preInstallNotes": "Let's learn !",
+  "postInstallNotes": "Enjoy :)",
+  "postUninstallNotes": "Game over",
+  "selected": false,
+  "lastUpdated": 1593557804	
+}

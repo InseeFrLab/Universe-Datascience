@@ -1,0 +1,45 @@
+{
+  "id": "{{service.name}}",
+  "cpus": {{service.cpus}},
+  "mem": {{service.mem}},
+  "instances": 1,
+  "container": {
+       "type": "DOCKER",
+       "docker": {
+           "image": "{{resource.assets.container.docker.image}}",
+           "forcePullImage": true,
+           "network": "BRIDGE",
+           "portMappings": [
+              { "containerPort": 8787, "hostPort": 0 }
+          ]
+       }
+   },
+   "healthChecks": [
+    {
+      "path": "/",
+      "portIndex": 0,
+      "protocol": "HTTP",
+      "gracePeriodSeconds": 30,
+      "intervalSeconds": 60,
+      "timeoutSeconds": 20,
+      "maxConsecutiveFailures": 3
+    }
+  ],
+  "labels": {
+    "HAPROXY_GROUP":"external",
+    "HAPROXY_0_VHOST":"{{networking.virtual-host}}",
+    "HAPROXY_0_REDIRECT_TO_HTTPS": "true",
+    "HAPROXY_0_ENABLED":"true",
+    "HAPROXY_0_FRONTEND_HEAD":"",
+    "HAPROXY_0_FRONTEND_BACKEND_GLUE":"",
+    {{#networking.whitelist.enable}}
+    "HAPROXY_0_BACKEND_NETWORK_ALLOWED_ACL": "{{networking.whitelist.ip}}",
+    {{/networking.whitelist.enable}}
+
+    "MARATHON_SINGLE_INSTANCE_APP": "true"
+  },
+  "upgradeStrategy":{
+    "minimumHealthCapacity": 0,
+    "maximumOverCapacity": 0
+  }
+}
