@@ -3,6 +3,11 @@
   "cpus": {{service.cpus}},
   "mem": {{service.mem}},
   "instances": 1,
+  "env": {
+    "USER": "icarius",
+    "PASSWORD": "statia",
+    "DISABLE_AUTH": "true" 
+  },
   "container": {
        "type": "DOCKER",
        "docker": {
