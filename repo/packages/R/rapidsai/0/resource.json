@@ -1,0 +1,14 @@
+{
+  "images": {
+    "icon-small": "https://cdn-images-1.medium.com/max/1200/1*0jBgSuZf2y8g7JOvWQjsVg.png",
+    "icon-medium": "https://cdn-images-1.medium.com/max/1200/1*0jBgSuZf2y8g7JOvWQjsVg.png",
+    "icon-large": "https://cdn-images-1.medium.com/max/1200/1*0jBgSuZf2y8g7JOvWQjsVg.png"
+  },
+  "assets": {
+    "container": {
+      "docker": {
+        "image": "git-registry.lab.sspcloud.fr/tm8enk/rapidsai"
+      }
+    }
+  }
+}
