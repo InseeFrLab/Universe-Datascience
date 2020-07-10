@@ -1,6 +1,6 @@
 {
     "packagingVersion": "3.0",
-    "name": "tensorflow",
+    "name": "blazingsql",
     "version": "1.0",
     "minDcosReleaseVersion": "1.8",
     "scm": "https://github.com/BlazingDB/blazingsql",
