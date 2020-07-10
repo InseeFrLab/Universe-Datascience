@@ -123,7 +123,22 @@
           }
         }
       }
-    }
+    },
+    "init": {
+      "description": "Init parameters",
+      "type": "object",
+      "properties": {
+        "global": {
+          "type": "string",
+          "description": "initialization script",
+          "default": "",
+          "x-form": {
+            "value": "{{region.init}}",
+            "readonly": true
+          }
+        }
+      }
+    }   
   },
   "required": ["service", "vscode", "git"]
 }
