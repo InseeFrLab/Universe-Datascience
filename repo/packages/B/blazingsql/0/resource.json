@@ -1,0 +1,14 @@
+{
+  "images": {
+    "icon-small": "https://blazingsql.com/src/assets/etl-data-from-datalake-to-rapids-ai.png",
+    "icon-medium": "https://blazingsql.com/src/assets/etl-data-from-datalake-to-rapids-ai.png",
+    "icon-large": "https://blazingsql.com/src/assets/etl-data-from-datalake-to-rapids-ai.png"
+  },
+  "assets": {
+    "container": {
+      "docker": {
+        "image": "git-registry.lab.sspcloud.fr/tm8enk/blazingsql"
+      }
+    }
+  }
+}
