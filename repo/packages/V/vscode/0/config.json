@@ -145,7 +145,7 @@
           "description": "initialization script",
           "default": "",
           "x-form": {
-            "value": "{{region.init}}",
+            "value": "https://git.lab.sspcloud.fr/innovation/plateforme-onyxia/services-ressources/-/raw/master/onyxia-init.sh",
             "readonly": true
           }
         }
