@@ -4,15 +4,27 @@
     "mem":  {{service.mem}},
     "instances": 1,
     "container": {
-        "type": "DOCKER",
+        "type": "DOCKER",            
+        "portMappings": [
+                {"containerPort": 80, "name":"pgadmin" }
+            ],
         "docker": {
             "image": "{{resource.assets.container.docker.image}}",
-            "network": "BRIDGE",
-            "portMappings": [
-                { "protocol": "tcp", "hostPort": 0, "containerPort": 80 }
-            ]
+
         }
     },
+    "network-name": {
+        "description": "Name of the container network to use",
+        "type": "string",
+        "default": "dcos",
+        "x-form": {
+            "hidden": true
+        },
+        "x-generated": {
+            "type": "containerNetworkName",
+            "scope": "pgadmin"
+          }
+        },
     "healthChecks": [
         {
             "protocol": "MESOS_TCP",

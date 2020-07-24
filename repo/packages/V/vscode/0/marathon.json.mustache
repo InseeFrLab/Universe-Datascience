@@ -12,15 +12,20 @@
     "PORT":"8080"
   },
   "container": {
-       "type": "DOCKER",
+       "type": "DOCKER",           
+       "portMappings": [
+              { "containerPort": 8080, "name": "vscode" }
+          ],
        "docker": {
            "image": "{{vscode.image}}",
-           "network": "BRIDGE",
-           "portMappings": [
-              { "containerPort": 8080, "hostPort": 0 }
-          ]
        }
    },
+   "networks": [
+      {
+        "name": "{{networking.network-name}}",
+        "mode": "container"
+      }
+    ],
    "healthChecks": [
     {
       "path": "/",
@@ -47,7 +52,7 @@
   },
   "fetch": [
       {
-        "uri": "{{global.init}}",
+        "uri": "{{init.global}}",
         "extract": false,
         "executable": true,
         "cache": false,

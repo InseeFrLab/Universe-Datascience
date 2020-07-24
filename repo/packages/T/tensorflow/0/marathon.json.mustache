@@ -12,12 +12,11 @@
         ],
         "docker": {
             "image": "{{resource.assets.container.docker.image}}"
-
         }
     },
     "networks": [
       {
-        "name": "dcos",
+        "name": "{{networking.network-name}}",
         "mode": "container"
       }
     ],

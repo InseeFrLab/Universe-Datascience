@@ -62,6 +62,18 @@
         "description": "Networking-related configuration properties for neo4j on DC/OS.",
         "type": "object",
         "properties": {
+          "network-name": {
+            "description": "Name of the container network to use",
+            "type": "string",
+            "default": "dcos",
+            "x-form": {
+              "hidden": true
+            },
+            "x-generated": {
+              "type": "containerNetworkName",
+              "scope": "neo4j"
+            }
+          },
           "virtual-host": {
             "description": "The virtual host address to configure for integration with Marathon-lb.",
             "type": "string",

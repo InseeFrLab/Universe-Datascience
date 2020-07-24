@@ -4,16 +4,21 @@
     "mem":  {{service.mem}},
     "instances":1,
     "cmd": "bash /mnt/mesos/sandbox/onyxia-init.sh /opt/spark/bin/spark-class org.apache.spark.deploy.history.HistoryServer",
-    "container": {
+    "container": {            
+        "portMappings": [
+            { "containerPort": 18080 , "name": "spark"}
+        ],
         "type": "DOCKER",
         "docker": {
-            "image": "{{service.image}}",
-            "network": "BRIDGE",
-            "portMappings": [
-                { "containerPort": 18080 , "name": "spark"}
-            ]
+            "image": "{{service.image}}"
         }
-    },
+    },    
+    "networks": [
+      {
+        "name": "{{networking.network-name}}",
+        "mode": "container"
+      }
+    ],
     "healthChecks": [{
         "protocol": "MESOS_TCP",
         "gracePeriodSeconds": 300,

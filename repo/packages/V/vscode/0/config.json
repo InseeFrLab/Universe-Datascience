@@ -56,6 +56,18 @@
       "description": "Networking-related configuration",
       "type": "string",
       "properties": {
+        "network-name": {
+          "description": "Name of the container network to use",
+          "type": "string",
+          "default": "dcos",
+          "x-form": {
+            "hidden": true
+          },
+          "x-generated": {
+            "type": "containerNetworkName",
+            "scope": "blazingsql"
+          }
+        },
         "virtual-host": {
           "type": "string",
           "description": "Virtual host to expose VSCode on",

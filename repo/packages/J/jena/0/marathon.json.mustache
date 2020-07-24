@@ -11,14 +11,14 @@
     {{/jena.password}}
   },
   "container": {
-       "type": "DOCKER",
-       "docker": {
-           "image": "{{resource.assets.container.docker.image}}",
-           "network": "BRIDGE",
-           "portMappings": [
+       "type": "DOCKER",       
+       "portMappings": [
               { "containerPort": 3030, "hostPort": 0 }
-          ]
-       }
+          ],
+       "docker": {
+           "image": "{{resource.assets.container.docker.image}}"
+       }          
+
    },
    "healthChecks": [
     {

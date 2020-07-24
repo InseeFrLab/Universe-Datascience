@@ -13,16 +13,21 @@
     "NEO4J_dbms_connector_bolt_advertised__address": "{{networking.virtual-host-bolt}}:443"
   },
   "container": {
-       "type": "DOCKER",
+       "type": "DOCKER",           
+       "portMappings": [
+              { "containerPort": 7474, "name": "ui"},
+              { "containerPort": 7687, "name": "bolt" }
+          ],
        "docker": {
-           "image": "{{resource.assets.container.docker.image}}:{{neo4j.version}}",
-           "network": "BRIDGE",
-           "portMappings": [
-              { "containerPort": 7474, "hostPort": 0 },
-              { "containerPort": 7687, "hostPort": 0 }
-          ]
+           "image": "{{resource.assets.container.docker.image}}:{{neo4j.version}}"
        }
-   },
+   },    
+   "networks": [
+      {
+        "name": "{{networking.network-name}}",
+        "mode": "container"
+      }
+    ],
    "healthChecks": [
     {
       "portIndex": 0,

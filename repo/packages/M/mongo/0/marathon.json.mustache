@@ -11,19 +11,20 @@
     "type": "DOCKER",
     "docker": {
       "image": "{{resource.assets.container.docker.image}}:{{mongo.version}}",
-      "network": "BRIDGE",
+
+        "forcePullImage": false
+    },
       "portMappings":
         [
-        {
-          "containerPort": 27017,
-          "hostPort": 0,
-          "protocol": "tcp",
-          "name": "mongo"
-        }
-        ],
-        "forcePullImage": false
-    }
+          {"containerPort": 27017, "name": "mongo"}
+        ]
   },
+  "networks": [
+      {
+        "name": "{{networking.network-name}}",
+        "mode": "container"
+      }
+    ],
     "upgradeStrategy":
     {
       "maximumOverCapacity": 0,

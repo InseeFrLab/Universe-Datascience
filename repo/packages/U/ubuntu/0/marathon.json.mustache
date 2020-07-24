@@ -22,22 +22,27 @@
 
   },
   "container": {
-       "type": "DOCKER",
+       "type": "DOCKER",           
+       "portMappings": [
+          { "containerPort": 6901, "name": "ubuntu" }
+        ],
        "docker": {
            "image": "{{resource.assets.container.docker.image}}",
            "privileged": true,
-           "network": "BRIDGE",
            "parameters": [
               {
                 "key": "shm-size",
                  "value": "512m"
               }
-           ],
-           "portMappings": [
-              { "containerPort": 6901, "hostPort": 0 }
-          ]
+           ]
        }
    },
+    "networks": [
+      {
+        "name": "{{networking.network-name}}",
+        "mode": "container"
+      }
+    ],
    "healthChecks": [
     {
       "portIndex": 0,

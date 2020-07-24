@@ -4,15 +4,20 @@
   "mem": {{service.mem}},
   "instances": 1,
   "container": {
-       "type": "DOCKER",
+       "type": "DOCKER",           
+       "portMappings": [
+              { "containerPort": 3333, "name": "openrefine" }
+          ],
        "docker": {
            "image": "{{resource.assets.container.docker.image}}",
-           "network": "BRIDGE",
-           "portMappings": [
-              { "containerPort": 3333, "hostPort": 0 }
-          ]
        }
-   },
+   },    
+   "networks": [
+      {
+        "name": "{{networking.network-name}}",
+        "mode": "container"
+      }
+    ],
    "healthChecks": [
     {
       "portIndex": 0,
