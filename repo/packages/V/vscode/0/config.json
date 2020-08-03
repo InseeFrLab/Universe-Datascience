@@ -65,7 +65,7 @@
           },
           "x-generated": {
             "type": "containerNetworkName",
-            "scope": "blazingsql"
+            "scope": "vscode"
           }
         },
         "virtual-host": {
@@ -145,8 +145,11 @@
           "description": "initialization script",
           "default": "",
           "x-form": {
-            "value": "https://git.lab.sspcloud.fr/innovation/plateforme-onyxia/services-ressources/-/raw/master/onyxia-init.sh",
-            "readonly": true
+            "hidden": true
+          },
+          "x-generated": {
+            "type": "initScript",
+            "scope": "vscode"
           }
         }
       }
