@@ -64,6 +64,24 @@
         }
       }
     },
+    "init": {
+      "description": "Init parameters",
+      "type": "object",
+      "properties": {
+        "global": {
+          "type": "string",
+          "description": "initialization script",
+          "default": "",
+          "x-form": {
+            "hidden": true
+          },
+          "x-generated": {
+            "type": "initScript",
+            "scope": "vscode"
+          }
+        }
+      }
+    },
     "networking": {
       "description": "Networking-related configuration properties for jupyter on DC/OS.",
       "type": "object",
