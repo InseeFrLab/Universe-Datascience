@@ -48,7 +48,7 @@
         "image": {
             "type": "string",
             "description": "Version of vscode to use",
-            "default": "inseefrlab/jupyter-datascience:v2.4.6-3.2.1",
+            "default": "inseefrlab/jupyter-datascience:v3.0.0-3.2.1",
             "enum": [
               "jupyter/datascience-notebook", 
               "jupyter/all-spark-notebook", 
