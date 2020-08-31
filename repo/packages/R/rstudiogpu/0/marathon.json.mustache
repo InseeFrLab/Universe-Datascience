@@ -26,12 +26,13 @@
   },
   "container": {
        "type": "MESOS",
+        "portMappings": [
+            { "containerPort": 8787, "hostPort": 0 },
+            { "containerPort": 4040,  "name": "sparkui"}
+        ]
        "docker": {
-           "image": "{{resource.assets.container.docker.image}}",
-           "portMappings": [
-              { "containerPort": 8787, "hostPort": 0 },
-              { "containerPort": 4040,  "name": "sparkui"}
-          ]
+           "image": "{{resource.assets.container.docker.image}}"
+
        }
    },
    "networks": [
