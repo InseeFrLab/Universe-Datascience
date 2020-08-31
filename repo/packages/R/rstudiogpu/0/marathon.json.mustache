@@ -3,7 +3,7 @@
   "cpus": {{service.cpus}},
   "mem": {{service.mem}},
   "instances": 1,
-  "cmd": "sudo bash /mnt/mesos/sandbox/onyxia-init.sh /init",
+  "cmd": "sudo  --preserve-env  USER=rstudio bash /mnt/mesos/sandbox/onyxia-init.sh /init",
   "env": {
     "AWS_ACCESS_KEY_ID" : "{{s3.accessKeyId}}",
     "AWS_S3_ENDPOINT" : "{{s3.endpoint}}",
