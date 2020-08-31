@@ -1,0 +1,97 @@
+{
+  "id": "{{service.name}}",
+  "cpus": {{service.cpus}},
+  "mem": {{service.mem}},
+  "instances": 1,
+  "cmd": "sudo bash /mnt/mesos/sandbox/onyxia-init.sh /init",
+  "env": {
+    "AWS_ACCESS_KEY_ID" : "{{s3.accessKeyId}}",
+    "AWS_S3_ENDPOINT" : "{{s3.endpoint}}",
+    "AWS_DEFAULT_REGION" : "{{s3.defaultRegion}}",
+    "AWS_SECRET_ACCESS_KEY" : "{{s3.secretAccessKey}}",
+    "AWS_SESSION_TOKEN" : "{{s3.sessionToken}}",
+    "AWS_EXPIRATION" : "{{s3.expiration}}",
+    "GIT_USER_NAME": "{{git.name}}",
+    "GIT_USER_MAIL": "{{git.email}}",
+    "GIT_CREDENTIALS_CACHE_DURATION": "{{git.cache}}",
+    "VAULT_ADDR": "{{vault.url}}",
+    "VAULT_TOKEN": "{{vault.token}}",
+    "ROOT": "TRUE",
+    {{#rstudio.password}}
+      "PASSWORD": "{{rstudio.password}}"
+    {{/rstudio.password}}
+    {{^rstudio.password}}
+      "DISABLE_AUTH": "true"
+    {{/rstudio.password}}
+  },
+  "container": {
+       "type": "MESOS",
+       "docker": {
+           "image": "{{resource.assets.container.docker.image}}",
+           "portMappings": [
+              { "containerPort": 8787, "hostPort": 0 },
+              { "containerPort": 4040,  "name": "sparkui"}
+          ]
+       }
+   },
+   "networks": [
+      {
+        "name": "{{networking.network-name}}",
+        "mode": "container"
+      }
+    ],
+   "healthChecks": [
+    {
+      "portIndex": 0,
+      "protocol": "MESOS_TCP",
+      "gracePeriodSeconds": 30,
+      "intervalSeconds": 60,
+      "timeoutSeconds": 20,
+      "maxConsecutiveFailures": 3
+    }
+  ],
+  "labels": {
+    "HAPROXY_GROUP":"external",
+    "HAPROXY_0_VHOST":"{{networking.virtual-host}}",
+    "HAPROXY_0_REDIRECT_TO_HTTPS": "{{networking.https-redirect}}",
+    "HAPROXY_0_ENABLED":"true",
+    "HAPROXY_0_FRONTEND_HEAD":"",
+    "HAPROXY_0_FRONTEND_BACKEND_GLUE":"",
+    {{#networking.whitelist.enable}}
+    "HAPROXY_0_BACKEND_NETWORK_ALLOWED_ACL": "{{networking.whitelist.ip}}",
+    {{/networking.whitelist.enable}}
+    {{#rstudio.spark-ui}}
+    "HAPROXY_1_VHOST": "{{networking.virtual-host-sparkui}}",
+    "HAPROXY_1_REDIRECT_TO_HTTPS": "{{networking.https-redirect}}",
+    "HAPROXY_1_FRONTEND_HEAD": "",
+    "HAPROXY_1_FRONTEND_BACKEND_GLUE": "",
+    "HAPROXY_1_ENABLED":"true",
+    {{#networking.whitelist.enable}}
+    "HAPROXY_1_BACKEND_NETWORK_ALLOWED_ACL": "{{networking.whitelist.ip}}",
+    {{/networking.whitelist.enable}}
+    {{/rstudio.spark-ui}}    
+    "MARATHON_SINGLE_INSTANCE_APP": "true"
+  },
+  "fetch": [
+      {
+        "uri": "{{init.global}}",
+        "extract": false,
+        "executable": true,
+        "cache": false,
+        "destPath": "onyxia-init.sh"
+      }
+        {{#script.uri}}
+        ,
+    {
+      "uri": "{{script.uri}}",
+      "extract": false,
+      "executable": true,
+      "cache": false
+  }
+  {{/script.uri}}
+  ],
+  "upgradeStrategy":{
+    "minimumHealthCapacity": 0,
+    "maximumOverCapacity": 0
+  }
+}
