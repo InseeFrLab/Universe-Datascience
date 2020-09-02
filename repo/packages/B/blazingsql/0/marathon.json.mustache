@@ -4,7 +4,7 @@
     "gpus": {{service.gpus}},
     "mem":  {{service.mem}},
     "instances":1,
-    "cmd": "bash /mnt/mesos/sandbox/onyxia-init.sh /run_jupyter.sh --NotebookApp.token='{{jupyter.password}}'",
+    "cmd": "bash /mnt/mesos/sandbox/onyxia-init.sh /register_run.sh jupyter-lab --notebook=/blazingsql/ --allow-root --ip=0.0.0.0 --port=8888 --no-browser --NotebookApp.token='{{jupyter.password}}'",
     "container": {
         "type": "MESOS",
         "portMappings": [
