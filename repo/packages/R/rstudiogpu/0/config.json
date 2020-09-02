@@ -8,13 +8,13 @@
         "name": {
           "description": "The name of the service to display in the DC/OS dashboard.",
           "type": "string",
-          "default": "rstudio",
+          "default": "rstudiogpu",
           "x-form": {
             "hidden": true
           },
           "x-generated": {
             "type": "appID",
-            "scope": "rstudio"
+            "scope": "rstudiogpu"
           }
         },
         "cpus": {
@@ -82,7 +82,7 @@
           },
           "x-generated": {
             "type": "initScript",
-            "scope": "vscode"
+            "scope": "rstudiogpu"
           }
         }
       }
@@ -100,7 +100,7 @@
           },
           "x-generated": {
             "type": "containerNetworkName",
-            "scope": "rstudio"
+            "scope": "rstudiogpu"
           }
         },
         "virtual-host": {
@@ -111,7 +111,7 @@
           },
           "x-generated": {
             "type": "externalDNS",
-            "scope": "rstudio",
+            "scope": "rstudiogpu",
             "name": "ihm"
           }
         },
@@ -123,7 +123,7 @@
           },
           "x-generated": {
             "type": "externalDNS",
-            "scope": "rstudio",
+            "scope": "rstudiogpu",
             "name": "spark-ui"
           }
         },
