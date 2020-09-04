@@ -8,6 +8,7 @@
         "type": "DOCKER",
         "docker": {
             "image": "{{jupyter.image}}",
+            "forcePullImage": true,
             "portMappings": [
                 { "containerPort": 8888 , "name": "jupyter"},
                 { "containerPort": 4040,  "name": "sparkui"}

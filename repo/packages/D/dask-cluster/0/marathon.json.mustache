@@ -21,7 +21,8 @@
               { "protocol": "tcp", "hostPort": 0, "containerPort": 8786 }
           ],
           "docker": {
-              "image": "{{resource.assets.container.docker.dask}}"
+              "image": "{{resource.assets.container.docker.dask}}",
+              "forcePullImage": true
           }
       },
       "healthChecks": [
@@ -52,6 +53,12 @@
         "MARATHON_SINGLE_INSTANCE_APP": "true"
       },
       "env": {
+        "AWS_ACCESS_KEY_ID": "{{s3.accessKeyId}}",
+        "AWS_SECRET_ACCESS_KEY": "{{s3.secretAccessKey}}",
+        "AWS_SESSION_TOKEN": "{{s3.sessionToken}}",
+        "AWS_DEFAULT_REGION": "{{s3.defaultRegion}}",
+        "AWS_S3_ENDPOINT": "{{s3.endpoint}}",
+        "AWS_EXPIRATION": "{{s3.expiration}}",
         "URL_INIT_SERVICE": "https://git.lab.sspcloud.fr/innovation/plateforme-onyxia/services-ressources/-/raw/master/onyxia-init-jupyter.sh",
         "EXTRA_APT_PACKAGES": "{{packages.EXTRA_APT_PACKAGES}}",
         "EXTRA_CONDA_PACKAGES":"{{packages.EXTRA_CONDA_PACKAGES}}",
@@ -82,13 +89,20 @@
       "container": {
           "type": "DOCKER",
           "docker": {
-              "image": "{{resource.assets.container.docker.dask}}"
+              "image": "{{resource.assets.container.docker.dask}}",
+              "forcePullImage": true
           }
       },
       "labels": {
         "ONYXIA_INSTANCE_EDITABLE": "true"
       },
       "env": {
+        "AWS_ACCESS_KEY_ID": "{{s3.accessKeyId}}",
+        "AWS_SECRET_ACCESS_KEY": "{{s3.secretAccessKey}}",
+        "AWS_SESSION_TOKEN": "{{s3.sessionToken}}",
+        "AWS_DEFAULT_REGION": "{{s3.defaultRegion}}",
+        "AWS_S3_ENDPOINT": "{{s3.endpoint}}",
+        "AWS_EXPIRATION": "{{s3.expiration}}",
         "URL_INIT_SERVICE": "https://git.lab.sspcloud.fr/innovation/plateforme-onyxia/services-ressources/-/raw/master/onyxia-init-jupyter.sh", 
         "EXTRA_APT_PACKAGES": "{{packages.EXTRA_APT_PACKAGES}}",
         "EXTRA_CONDA_PACKAGES":"{{packages.EXTRA_CONDA_PACKAGES}}",
