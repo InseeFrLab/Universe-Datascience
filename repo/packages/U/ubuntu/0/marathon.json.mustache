@@ -18,8 +18,12 @@
     "GIT_USER_MAIL": "{{git.email}}",
     "GIT_CREDENTIALS_CACHE_DURATION": "{{git.cache}}",
     "VAULT_ADDR": "{{vault.url}}",
-    "VAULT_TOKEN": "{{vault.token}}"
-
+    "VAULT_TOKEN": "{{vault.token}}",
+    {{#vault.secret}}
+    "VAULT_RELATIVE_PATH": "{{vault.secret}}",
+    {{/vault.secret}}    
+    "VAULT_TOP_DIR": "vault.dir",
+    "VAULT_MOUNT": "vault.mount"
   },
   "container": {
        "type": "DOCKER",           
