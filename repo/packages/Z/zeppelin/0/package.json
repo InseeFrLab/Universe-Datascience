@@ -1,0 +1,20 @@
+{
+  "packagingVersion": "3.0",
+  "name": "zeppelin",
+  "version": "1.0",
+  "minDcosReleaseVersion": "1.8",
+  "scm": "https://github.com/apache/zeppelin",
+  "maintainer": "https://github.com/Inseefrlab/",
+  "website": "https://zeppelin.apache.org/",
+  "framework": false,
+  "description": "Zeppelin is a WEB IDE multilanguage.",
+  "tags": [
+    "datascience",
+    "python"
+  ],
+  "preInstallNotes": "Attention no data persistence is guaranteed. You must therefore make sure to save your notebooks on Gitlab or manually manage the downloading and uploading of your notebooks.",
+  "postInstallNotes": "No access control",
+  "postUninstallNotes": "Zeppelin has been uninstalled.",
+  "selected": false,
+  "lastUpdated": 1585220308
+}
