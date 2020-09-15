@@ -33,6 +33,35 @@
         }
       }
     },
+    "script": {
+      "type": "object",
+      "description": "scripts",
+      "properties": {
+        "uri": {
+          "type": "string",
+          "description": "uri of a .sh file that will be executed at runtime",
+          "default": ""
+        }
+      }
+    },
+    "init": {
+      "description": "Init parameters",
+      "type": "object",
+      "properties": {
+        "global": {
+          "type": "string",
+          "description": "initialization script",
+          "default": "",
+          "x-form": {
+            "hidden": true
+          },
+          "x-generated": {
+            "type": "initScript",
+            "scope": "zeppelin"
+          }
+        }
+      }
+    },
     "vault": {
       "description": "Configuration of vault client",
       "type": "object",

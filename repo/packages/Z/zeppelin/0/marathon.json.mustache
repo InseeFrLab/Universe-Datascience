@@ -3,6 +3,7 @@
     "cpus": {{service.cpus}},
     "mem":  {{service.mem}},
     "instances": 1,
+    "cmd": "bash /mnt/mesos/sandbox/onyxia-init.sh bin/zeppelin.sh"
     "container": {
         "type": "DOCKER",            
         "portMappings": [
@@ -10,7 +11,6 @@
             ],
         "docker": {
             "image": "{{resource.assets.container.docker.image}}"
-
         }
     },
     "networks": [
@@ -28,6 +28,25 @@
             "timeoutSeconds": 15,
             "maxConsecutiveFailures": 3
         }
+    ],
+    "fetch": [
+      {
+        "uri": "{{init.global}}",
+        "extract": false,
+        "executable": true,
+        "cache": false,
+        "destPath": "onyxia-init.sh"
+      }
+        {{#script.uri}}
+        ,
+        {
+        "uri": "{{script.uri}}",
+        "extract": false,
+        "executable": true,
+        "cache": false,
+        "destPath": "init-user.sh"
+    }
+    {{/script.uri}}
     ],
     "env": {
         "AWS_ACCESS_KEY_ID": "{{s3.accessKeyId}}",
