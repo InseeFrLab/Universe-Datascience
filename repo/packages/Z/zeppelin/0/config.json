@@ -1,6 +1,6 @@
 {
   "type": "object",
-  "required": ["service", "pgadmin"],
+  "required": ["service"],
   "properties": {
     "service": {
       "description": "Configuration properties for the pdAdmin service for DC/OS.",
@@ -20,13 +20,13 @@
           }
         },
         "cpus": {
-          "description": "CPU shares to allocate to this pdAdmin instance.",
+          "description": "CPU shares to allocate to this zeppelin instance.",
           "type": "number",
           "default": 0.1,
           "minimum": 0.1
         },
         "mem": {
-          "description": "Memory (in MB) to allocate to this pdAdmin instance.",
+          "description": "Memory (in MB) to allocate to this zeppelin instance.",
           "type": "number",
           "default": 4096,
           "minimum": 2048
