@@ -33,6 +33,28 @@
         }
       }
     },
+    "zeppelin": {
+      "description": "Zeppelin specific configuration",
+      "type": "object",
+      "properties": {
+        "username": {
+          "description": "Zeppelin user name.",
+          "type": "string",
+          "default": "admin",
+          "x-form": {
+            "value": "{{user.idep}}"
+          }
+        },
+        "password": {
+          "description": "Zeppelin password.",
+          "type": "string",
+          "default": "changeme",
+          "x-form": {
+            "value": "{{user.password}}"
+          }
+        }
+      }
+    },
     "script": {
       "type": "object",
       "description": "scripts",
