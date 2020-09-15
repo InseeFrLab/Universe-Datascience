@@ -7,7 +7,7 @@
   "assets": {
     "container": {
       "docker": {
-        "image": "apache/zeppelin:0.9.0"
+        "image": "git-registry.lab.sspcloud.fr/tm8enk/zeppelin"
       }
     }
   }
