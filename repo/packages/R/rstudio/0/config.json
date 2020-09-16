@@ -199,6 +199,25 @@
           "x-form": {
             "value": "{{vault.VAULT_ADDR}}"
           }
+        },
+        "mount": {
+          "description": "mount of the v2 secret engine",
+          "type": "string",
+          "x-form": {
+            "value": "{{vault.VAULT_MOUNT}}"
+          }
+        },
+        "directory": {
+          "description": "top level directory",
+          "type": "string",
+          "x-form": {
+            "value": "{{vault.VAULT_TOP_DIR}}"
+          }
+        },
+        "secret": {
+          "description": "the path of the secret to convert into a list of environment variables",
+          "type": "string",
+          "default": ""
         }
       }
     },
