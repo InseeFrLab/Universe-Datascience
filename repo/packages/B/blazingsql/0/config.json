@@ -171,6 +171,45 @@
         }
       }
     },
+    "vault": {
+      "description": "Configuration of vault client",
+      "type": "object",
+      "properties": {
+        "token": {
+          "description": "token vault",
+          "type": "string",
+          "x-form": {
+            "value": "{{vault.VAULT_TOKEN}}"
+          }
+        },
+        "url": {
+          "description": "url of vault server",
+          "type": "string",
+          "x-form": {
+            "value": "{{vault.VAULT_ADDR}}"
+          }
+        },
+        "mount": {
+          "description": "mount of the v2 secret engine",
+          "type": "string",
+          "x-form": {
+            "value": "{{vault.VAULT_MOUNT}}"
+          }
+        },
+        "directory": {
+          "description": "top level directory",
+          "type": "string",
+          "x-form": {
+            "value": "{{vault.VAULT_TOP_DIR}}"
+          }
+        },
+        "secret": {
+          "description": "the path of the secret to convert into a list of environment variables",
+          "type": "string",
+          "default": ""
+        }
+      }
+    },
     "s3": {
       "description": "Configuration of temporary identity",
       "type": "object",
