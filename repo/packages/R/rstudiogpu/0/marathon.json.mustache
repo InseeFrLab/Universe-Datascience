@@ -37,7 +37,8 @@
             { "containerPort": 4040,  "name": "sparkui"}
         ],
        "docker": {
-           "image": "{{resource.assets.container.docker.image}}"
+           "image": "{{resource.assets.container.docker.image}}",
+           "forcePullImage": true
 
        }
    },

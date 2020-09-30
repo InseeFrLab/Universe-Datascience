@@ -11,8 +11,7 @@
     "type": "DOCKER",
     "docker": {
       "image": "{{resource.assets.container.docker.image}}:{{mongo.version}}",
-
-        "forcePullImage": false
+      "forcePullImage": true
     },
       "portMappings":
         [

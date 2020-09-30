@@ -11,7 +11,8 @@
             { "containerPort": 8888 , "name": "jupyter"}
         ],
         "docker": {
-            "image": "{{resource.assets.container.docker.image}}"
+            "image": "{{resource.assets.container.docker.image}}",
+            "forcePullImage": true
 
         }
     },

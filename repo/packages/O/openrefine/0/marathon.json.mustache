@@ -9,7 +9,8 @@
               { "containerPort": 3333, "name": "openrefine" }
           ],
        "docker": {
-           "image": "{{resource.assets.container.docker.image}}"
+           "image": "{{resource.assets.container.docker.image}}",
+            "forcePullImage": true
        }
    },    
    "networks": [

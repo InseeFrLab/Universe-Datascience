@@ -10,7 +10,8 @@
                 {"containerPort": 8080, "name":"zeppelin" }
             ],
         "docker": {
-            "image": "{{resource.assets.container.docker.image}}"
+            "image": "{{resource.assets.container.docker.image}}",
+            "forcePullImage": true
         }
     },
     "networks": [

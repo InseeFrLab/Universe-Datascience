@@ -19,7 +19,8 @@
               { "containerPort": 7687, "name": "bolt" }
           ],
        "docker": {
-           "image": "{{resource.assets.container.docker.image}}:{{neo4j.version}}"
+           "image": "{{resource.assets.container.docker.image}}:{{neo4j.version}}",
+           "forcePullImage": true
        }
    },    
    "networks": [

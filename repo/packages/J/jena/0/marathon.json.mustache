@@ -16,7 +16,8 @@
               { "containerPort": 3030, "hostPort": 0 }
           ],
        "docker": {
-           "image": "{{resource.assets.container.docker.image}}"
+           "image": "{{resource.assets.container.docker.image}}",
+            "forcePullImage": true
        }          
 
    },

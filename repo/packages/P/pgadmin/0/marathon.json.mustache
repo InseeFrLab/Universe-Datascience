@@ -9,7 +9,8 @@
                 {"containerPort": 80, "name":"pgadmin" }
             ],
         "docker": {
-            "image": "{{resource.assets.container.docker.image}}"
+            "image": "{{resource.assets.container.docker.image}}",
+            "forcePullImage": true
 
         }
     },

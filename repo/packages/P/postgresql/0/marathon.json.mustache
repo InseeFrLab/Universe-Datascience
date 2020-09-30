@@ -14,6 +14,7 @@
     "type": "DOCKER",
     "docker": {
       "image": "{{resource.assets.container.docker.image}}:{{postresql.version}}",
+      "forcePullImage": true
       "portMappings": 
       [
         {

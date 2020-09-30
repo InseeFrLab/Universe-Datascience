@@ -21,7 +21,8 @@
               { "protocol": "tcp", "hostPort": 0, "containerPort": 7077 }
           ],
           "docker": {
-              "image": "{{service.image}}"
+              "image": "{{service.image}}",
+            "forcePullImage": true
           }
       },
       "healthChecks": [
@@ -70,7 +71,8 @@
               { "protocol": "tcp", "hostPort": 0, "containerPort": 8081 }
           ],
           "docker": {
-              "image": "{{service.image}}"
+              "image": "{{service.image}}",
+            "forcePullImage": true
           }
       },
       "healthChecks": [
