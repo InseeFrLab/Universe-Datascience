@@ -117,6 +117,24 @@
               }
           }
       },
+      "init": {
+        "description": "Init parameters",
+        "type": "object",
+        "properties": {
+          "global": {
+            "type": "string",
+            "description": "initialization script",
+            "default": "",
+            "x-form": {
+              "hidden": true
+            },
+            "x-generated": {
+              "type": "initScript",
+              "scope": "spark-cluster"
+            }
+          }
+        }
+      },
       "networking": {
         "description": "Networking-related configuration properties for elk on DC/OS.",
         "type": "object",

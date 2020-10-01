@@ -7,7 +7,7 @@
       "cpus": {{master.cpus}},
       "mem":  {{master.mem}},
       "instances": 1,
-      "cmd": " /opt/spark/bin/spark-class org.apache.spark.deploy.master.Master",
+      "cmd": "bash /mnt/mesos/sandbox/onyxia-init.sh /opt/spark/bin/spark-class org.apache.spark.deploy.master.Master",
       "networks": [
           {
           "mode": "container",
@@ -35,6 +35,16 @@
           "maxConsecutiveFailures": 3
         }
       ],
+      "fetch": [
+        {
+          "uri": "{{init.global}}",
+          "extract": false,
+          "executable": true,
+          "cache": false,
+          "destPath": "onyxia-init.sh"
+        }
+      
+      ],
       "labels": {
         "HAPROXY_GROUP":"external",
         "HAPROXY_0_VHOST":"{{networking.virtual-host}}",
@@ -58,7 +68,7 @@
       "cpus": {{worker.cpus}},
       "mem":  {{worker.mem}},
       "instances": {{worker.instances}},
-      "cmd": "/opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker {{master.endpoint}}:7077",
+      "cmd": "bash /mnt/mesos/sandbox/onyxia-init.sh  /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker {{master.endpoint}}:7077",
       "networks": [
           {
           "mode": "container",
@@ -84,6 +94,16 @@
           "timeoutSeconds": 20,
           "maxConsecutiveFailures": 3
         }
+      ],
+      "fetch": [
+        {
+          "uri": "{{init.global}}",
+          "extract": false,
+          "executable": true,
+          "cache": false,
+          "destPath": "onyxia-init.sh"
+        }
+      
       ],
       "env": {
         "SPARK_WORKER_CORES" : "{{worker.worker-cores}}",
