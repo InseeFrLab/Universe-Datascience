@@ -14,7 +14,7 @@
     "type": "DOCKER",
     "docker": {
       "image": "{{resource.assets.container.docker.image}}:{{postresql.version}}",
-      "forcePullImage": true
+      "forcePullImage": true,
       "portMappings": 
       [
         {
@@ -23,8 +23,7 @@
           "protocol": "tcp",
           "name": "postgresql"
         }
-      ],
-      "forcePullImage": false
+      ]
     }
   },
   "networks": [
