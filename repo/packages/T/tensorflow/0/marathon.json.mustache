@@ -4,7 +4,7 @@
     "gpus": {{service.gpus}},
     "mem":  {{service.mem}},
     "instances":1,
-    "cmd": "bash /mnt/mesos/sandbox/onyxia-init.sh jupyter-lab --ip=0.0.0.0 --no-browser --NotebookApp.token='{{jupyter.password}}'",
+    "cmd": "bash /mnt/mesos/sandbox/onyxia-init.sh jupyter-lab --ip=0.0.0.0 --allow-root --no-browser --NotebookApp.token='{{jupyter.password}}'",
     "container": {
         "type": "MESOS",
         "portMappings": [
