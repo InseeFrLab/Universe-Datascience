@@ -7,7 +7,7 @@
   "assets": {
     "container": {
       "docker": {
-        "image": "git-registry.lab.sspcloud.fr/tm8enk/rstudio-ml-gpu"
+        "image": "inseefrlab/tm8enk/rstudio-gpu"
       }
     }
   }
