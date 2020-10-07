@@ -7,7 +7,7 @@
   "assets": {
     "container": {
       "docker": {
-        "image": "git-registry.lab.sspcloud.fr/tm8enk/blazingsql"
+        "image": "inseefrlab/blazingsql"
       }
     }
   }
