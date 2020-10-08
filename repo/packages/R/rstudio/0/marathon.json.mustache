@@ -17,7 +17,7 @@
     "VAULT_ADDR": "{{vault.url}}",
     "VAULT_TOKEN": "{{vault.token}}",
     {{#vault.secret}}
-    "VAULT_RELATIVE_PATH": "{{vault.secret}}",
+      "VAULT_RELATIVE_PATH": "{{vault.secret}}",
     {{/vault.secret}}    
     "VAULT_TOP_DIR": "{{vault.directory}}",
     "VAULT_MOUNT": "{{vault.mount}}",
@@ -32,7 +32,7 @@
   "container": {
        "type": "DOCKER",
        "docker": {
-           "image": "{{resource.assets.container.docker.image}}",
+           "image": "{{rstudio.image}}",
            "forcePullImage": true,
            "portMappings": [
               { "containerPort": 8787, "hostPort": 0 },
@@ -64,37 +64,37 @@
     "HAPROXY_0_FRONTEND_HEAD":"",
     "HAPROXY_0_FRONTEND_BACKEND_GLUE":"",
     {{#networking.whitelist.enable}}
-    "HAPROXY_0_BACKEND_NETWORK_ALLOWED_ACL": "{{networking.whitelist.ip}}",
+      "HAPROXY_0_BACKEND_NETWORK_ALLOWED_ACL": "{{networking.whitelist.ip}}",
     {{/networking.whitelist.enable}}
     {{#rstudio.spark-ui}}
-    "HAPROXY_1_VHOST": "{{networking.virtual-host-sparkui}}",
-    "HAPROXY_1_REDIRECT_TO_HTTPS": "{{networking.https-redirect}}",
-    "HAPROXY_1_FRONTEND_HEAD": "",
-    "HAPROXY_1_FRONTEND_BACKEND_GLUE": "",
-    "HAPROXY_1_ENABLED":"true",
-    {{#networking.whitelist.enable}}
-    "HAPROXY_1_BACKEND_NETWORK_ALLOWED_ACL": "{{networking.whitelist.ip}}",
-    {{/networking.whitelist.enable}}
+      "HAPROXY_1_VHOST": "{{networking.virtual-host-sparkui}}",
+      "HAPROXY_1_REDIRECT_TO_HTTPS": "{{networking.https-redirect}}",
+      "HAPROXY_1_FRONTEND_HEAD": "",
+      "HAPROXY_1_FRONTEND_BACKEND_GLUE": "",
+      "HAPROXY_1_ENABLED":"true",
+      {{#networking.whitelist.enable}}
+        "HAPROXY_1_BACKEND_NETWORK_ALLOWED_ACL": "{{networking.whitelist.ip}}",
+      {{/networking.whitelist.enable}}
     {{/rstudio.spark-ui}}    
     "MARATHON_SINGLE_INSTANCE_APP": "true"
   },
   "fetch": [
-      {
-        "uri": "{{init.global}}",
-        "extract": false,
-        "executable": true,
-        "cache": false,
-        "destPath": "onyxia-init.sh"
-      }
-        {{#script.uri}}
-        ,
+    {
+      "uri": "{{init.global}}",
+      "extract": false,
+      "executable": true,
+      "cache": false,
+      "destPath": "onyxia-init.sh"
+    }
+    {{#script.uri}}
+    ,
     {
       "uri": "{{script.uri}}",
       "extract": false,
       "executable": true,
       "cache": false
-  }
-  {{/script.uri}}
+    }
+    {{/script.uri}}
   ],
   "upgradeStrategy":{
     "minimumHealthCapacity": 0,

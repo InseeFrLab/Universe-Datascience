@@ -3,12 +3,5 @@
     "icon-small": "https://secure.gravatar.com/avatar/5809d093183fe6ca0174066078054949.jpg",
     "icon-medium": "https://secure.gravatar.com/avatar/5809d093183fe6ca0174066078054949.jpg",
     "icon-large": "https://secure.gravatar.com/avatar/5809d093183fe6ca0174066078054949.jpg"
-  },
-  "assets": {
-    "container": {
-      "docker": {
-        "image": "inseefrlab/rstudio"
-      }
-    }
   }
 }
