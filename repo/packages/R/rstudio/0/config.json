@@ -47,9 +47,9 @@
         "image": {
           "type": "string",
           "description": "Version of RStudio to use",
-          "default": "inseefrlab/rstudio:v4.0.3",
+          "default": "inseefrlab/rstudio:v3.6.3",
           "enum": [
-            "inseefrlab/rstudio:v4.0.3", 
+            "inseefrlab/rstudio:v4.0.1", 
             "inseefrlab/rstudio:v3.6.3"
           ]
       },
