@@ -71,13 +71,13 @@
         },
         "extensions": {
           "description": "Extensions name to send to postgres initdb. The value is a comma separated string of arguments as postgis initdb would expect them.",
-          "type": "string"
+          "type": "string",
+          "default": "postgis,hstore,postgis_topology,postgis_raster,pgrouting"
         },
         "uri": {
           "description": "Sql files could be on an archive root",
           "title": "Initialisation script Url",
-          "type": "string",
-          "default": "postgis,hstore,postgis_topology,postgis_raster,pgrouting"
+          "type": "string"
         }
       }
     },

@@ -2,19 +2,19 @@
   "id": "{{service.name}}",
   "cpus": {{service.cpus}},
   "mem": {{service.mem}},
-  "cmd": "{{#postresql.uri}}rm -rf /docker-entrypoint-initdb.d && ln -s $MESOS_SANDBOX /docker-entrypoint-initdb.d && {{/postresql.uri}}docker-entrypoint.sh postgres",
+  "cmd": "{{#postgis.uri}}rm -rf /docker-entrypoint-initdb.d && ln -s $MESOS_SANDBOX /docker-entrypoint-initdb.d && {{/postgis.uri}}docker-entrypoint.sh postgres",
   "instances": 1,
   "env": {
-    "POSTGRES_USER": "{{postresql.username}}", 
-    "POSTGRES_PASS": "{{postresql.password}}",
-    "POSTGRES_DBNAME": "{{postresql.dbname}}",
-    "POSTGRES_INITDB_ARGS": "{{postresql.initdbargs}}"
-    "POSTGRES_MULTIPLE_EXTENSIONS": "{{postresql.extensions}}"
+    "POSTGRES_USER": "{{postgis.username}}", 
+    "POSTGRES_PASS": "{{postgis.password}}",
+    "POSTGRES_DBNAME": "{{postgis.dbname}}",
+    "POSTGRES_INITDB_ARGS": "{{postgis.initdbargs}}"
+    "POSTGRES_MULTIPLE_EXTENSIONS": "{{postgis.extensions}}"
   },
   "container": {
     "type": "DOCKER",
     "docker": {
-      "image": "{{resource.assets.container.docker.image}}:{{postresql.version}}",
+      "image": "{{resource.assets.container.docker.image}}:{{postgis.version}}",
       "forcePullImage": true,
       "portMappings": 
       [
@@ -39,7 +39,7 @@
     "minimumHealthCapacity": 0
   },
   "healthChecks": [
-    {{#postresql.uri}}
+    {{#postgis.uri}}
         {
             "protocol": "MESOS_TCP",
             "portIndex": 0,
@@ -48,17 +48,17 @@
             "timeoutSeconds": 20,
             "maxConsecutiveFailures": 3
         }
-    {{/postresql.uri}}
+    {{/postgis.uri}}
    ],
   "fetch": [
-    {{#postresql.uri}}
+    {{#postgis.uri}}
         {
-            "uri": "{{postresql.uri}}",
+            "uri": "{{postgis.uri}}",
             "extract": true,
             "executable": false,
             "cache": false
         }
-    {{/postresql.uri}}
+    {{/postgis.uri}}
     ],
   "labels": {
     "HAPROXY_0_ENABLED":"true",
