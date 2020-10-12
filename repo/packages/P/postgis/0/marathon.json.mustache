@@ -1,0 +1,68 @@
+{
+  "id": "{{service.name}}",
+  "cpus": {{service.cpus}},
+  "mem": {{service.mem}},
+  "cmd": "{{#postresql.uri}}rm -rf /docker-entrypoint-initdb.d && ln -s $MESOS_SANDBOX /docker-entrypoint-initdb.d && {{/postresql.uri}}docker-entrypoint.sh postgres",
+  "instances": 1,
+  "env": {
+    "POSTGRES_USER": "{{postresql.username}}", 
+    "POSTGRES_PASS": "{{postresql.password}}",
+    "POSTGRES_DBNAME": "{{postresql.dbname}}",
+    "POSTGRES_INITDB_ARGS": "{{postresql.initdbargs}}"
+    "POSTGRES_MULTIPLE_EXTENSIONS": "{{postresql.extensions}}"
+  },
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "{{resource.assets.container.docker.image}}:{{postresql.version}}",
+      "forcePullImage": true,
+      "portMappings": 
+      [
+        {
+          "containerPort": 5432,
+          "hostPort": 0,
+          "protocol": "tcp",
+          "name": "postgresql"
+        }
+      ]
+    }
+  },
+  "networks": [
+      {
+        "name": "{{networking.network-name}}",
+        "mode": "container"
+      }
+    ],
+  "upgradeStrategy": 
+  {
+    "maximumOverCapacity": 0,
+    "minimumHealthCapacity": 0
+  },
+  "healthChecks": [
+    {{#postresql.uri}}
+        {
+            "protocol": "MESOS_TCP",
+            "portIndex": 0,
+            "gracePeriodSeconds": 1800,
+            "intervalSeconds": 60,
+            "timeoutSeconds": 20,
+            "maxConsecutiveFailures": 3
+        }
+    {{/postresql.uri}}
+   ],
+  "fetch": [
+    {{#postresql.uri}}
+        {
+            "uri": "{{postresql.uri}}",
+            "extract": true,
+            "executable": false,
+            "cache": false
+        }
+    {{/postresql.uri}}
+    ],
+  "labels": {
+    "HAPROXY_0_ENABLED":"true",
+    "MARATHON_SINGLE_INSTANCE_APP": "true",
+    "ONYXIA_PRIVATE_ENDPOINT":"postgresql://{{networking.internal-host}}:5432"
+  }
+}

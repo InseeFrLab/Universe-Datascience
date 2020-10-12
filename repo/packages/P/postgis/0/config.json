@@ -1,0 +1,114 @@
+{
+  "type": "object",
+  "required": ["service", "postresql"],
+  "properties": {
+    "service": {
+      "type": "object",
+      "required": ["name", "cpu", "mem"],
+      "description": "Configuration properties for the postgis service for DC/OS.",
+      "properties": {
+        "name": {
+          "description": "The name of the service to display in the DC/OS dashboard.",
+          "type": "string",
+          "default": "postgis",
+          "x-form": {
+            "hidden": true
+          },
+          "x-generated": {
+            "type": "appID",
+            "scope": "postgis"
+          }
+        },
+        "cpus": {
+          "description": "CPU shares to allocate to this Postgis instance.",
+          "type": "number",
+          "default": 0.1,
+          "minimum": 0.1
+        },
+        "mem": {
+          "description": "Memory to allocate to this Postgis instance.",
+          "type": "number",
+          "default": 1024.0,
+          "minimum": 1024.0
+        }
+      }
+    },
+    "postresql": {
+      "type": "object",
+      "required": ["version", "username", "password"],
+      "description": "Postgres database configuration properties",
+      "properties": {
+        "version": {
+          "description": "Postgres major version",
+          "type": "string",
+          "enum": ["10.0-2.4"],
+          "default": "10.0-2.4"
+        },
+        "username": {
+          "description": "Postgres user name.",
+          "type": "string",
+          "default": "admin",
+          "x-form": {
+            "value": "{{user.idep}}"
+          }
+        },
+        "password": {
+          "description": "Postgres password.",
+          "type": "string",
+          "default": "changeme",
+          "x-form": {
+            "value": "{{user.password}}"
+          }
+        },
+        "dbname": {
+          "description": "Name for the default database that is created when the image is first started.",
+          "type": "string",
+          "default": "defaultdb"
+        },
+        "initdbargs": {
+          "description": "Arguments to send to postgres initdb. The value is a space separated string of arguments as postgres initdb would expect them.",
+          "type": "string"
+        },
+        "extensions": {
+          "description": "Extensions name to send to postgres initdb. The value is a comma separated string of arguments as postgis initdb would expect them.",
+          "type": "string"
+        },
+        "uri": {
+          "description": "Sql files could be on an archive root",
+          "title": "Initialisation script Url",
+          "type": "string",
+          "default": "postgis,hstore,postgis_topology,postgis_raster,pgrouting"
+        }
+      }
+    },
+    "networking": {
+      "description": "Networking-related configuration properties for pgAdmin on DC/OS.",
+      "type": "object",
+      "properties": {
+        "network-name": {
+          "description": "Name of the container network to use",
+          "type": "string",
+          "default": "dcos",
+          "x-form": {
+            "hidden": true
+          },
+          "x-generated": {
+            "type": "containerNetworkName",
+            "scope": "postgis"
+          }
+        },
+        "internal-host": {
+          "description": "The virtual host address to configure for integration with Marathon-lb.",
+          "type": "string",
+          "x-form": {
+            "hidden": true
+          },
+          "x-generated": {
+            "type": "internalDNS",
+            "scope": "postgis"
+          }
+        }
+      }
+    }
+  }
+}
