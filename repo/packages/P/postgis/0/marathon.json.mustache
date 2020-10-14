@@ -1,0 +1,68 @@
+{
+  "id": "{{service.name}}",
+  "cpus": {{service.cpus}},
+  "mem": {{service.mem}},
+  "cmd": "{{#postgis.uri}}rm -rf /docker-entrypoint-initdb.d && ln -s $MESOS_SANDBOX /docker-entrypoint-initdb.d && {{/postgis.uri}}docker-entrypoint.sh postgres",
+  "instances": 1,
+  "env": {
+    "POSTGRES_USER": "{{postgis.username}}", 
+    "POSTGRES_PASS": "{{postgis.password}}",
+    "POSTGRES_DBNAME": "{{postgis.dbname}}",
+    "POSTGRES_INITDB_ARGS": "{{postgis.initdbargs}}"
+    "POSTGRES_MULTIPLE_EXTENSIONS": "{{postgis.extensions}}"
+  },
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "{{resource.assets.container.docker.image}}:{{postgis.version}}",
+      "forcePullImage": true,
+      "portMappings": 
+      [
+        {
+          "containerPort": 5432,
+          "hostPort": 0,
+          "protocol": "tcp",
+          "name": "postgresql"
+        }
+      ]
+    }
+  },
+  "networks": [
+      {
+        "name": "{{networking.network-name}}",
+        "mode": "container"
+      }
+    ],
+  "upgradeStrategy": 
+  {
+    "maximumOverCapacity": 0,
+    "minimumHealthCapacity": 0
+  },
+  "healthChecks": [
+    {{#postgis.uri}}
+        {
+            "protocol": "MESOS_TCP",
+            "portIndex": 0,
+            "gracePeriodSeconds": 1800,
+            "intervalSeconds": 60,
+            "timeoutSeconds": 20,
+            "maxConsecutiveFailures": 3
+        }
+    {{/postgis.uri}}
+   ],
+  "fetch": [
+    {{#postgis.uri}}
+        {
+            "uri": "{{postgis.uri}}",
+            "extract": true,
+            "executable": false,
+            "cache": false
+        }
+    {{/postgis.uri}}
+    ],
+  "labels": {
+    "HAPROXY_0_ENABLED":"true",
+    "MARATHON_SINGLE_INSTANCE_APP": "true",
+    "ONYXIA_PRIVATE_ENDPOINT":"postgresql://{{networking.internal-host}}:5432"
+  }
+}
