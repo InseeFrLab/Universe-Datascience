@@ -8,7 +8,7 @@
     "POSTGRES_USER": "{{postgis.username}}", 
     "POSTGRES_PASS": "{{postgis.password}}",
     "POSTGRES_DBNAME": "{{postgis.dbname}}",
-    "POSTGRES_INITDB_ARGS": "{{postgis.initdbargs}}"
+    "POSTGRES_INITDB_ARGS": "{{postgis.initdbargs}}",
     "POSTGRES_MULTIPLE_EXTENSIONS": "{{postgis.extensions}}"
   },
   "container": {
@@ -61,7 +61,6 @@
     {{/postgis.uri}}
     ],
   "labels": {
-    "HAPROXY_0_ENABLED":"true",
     "MARATHON_SINGLE_INSTANCE_APP": "true",
     "ONYXIA_PRIVATE_ENDPOINT":"postgresql://{{networking.internal-host}}:5432"
   }

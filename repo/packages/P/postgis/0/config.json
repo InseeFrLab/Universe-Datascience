@@ -33,7 +33,7 @@
         }
       }
     },
-    "postresql": {
+    "postgis": {
       "type": "object",
       "required": ["version", "username", "password"],
       "description": "Postgres database configuration properties",
