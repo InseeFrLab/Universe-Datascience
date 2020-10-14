@@ -41,8 +41,8 @@
         "version": {
           "description": "Postgres major version",
           "type": "string",
-          "enum": ["10.0-2.4"],
-          "default": "10.0-2.4"
+          "enum": ["13.0"],
+          "default": "13.0"
         },
         "username": {
           "description": "Postgres user name.",
