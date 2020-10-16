@@ -1,0 +1,14 @@
+{
+  "images": {
+    "icon-small": "https://julialang.org/assets/infra/logo.svg",
+    "icon-medium": "https://julialang.org/assets/infra/logo.svg",
+    "icon-large": "https://julialang.org/assets/infra/logo.svg"
+  },
+  "assets": {
+    "container": {
+      "docker": {
+        "image": "plutojl/pluto"
+      }
+    }
+  }
+}
