@@ -38,7 +38,6 @@
     "minimumHealthCapacity": 0
   },
   "healthChecks": [
-    {{#postresql.uri}}
         {
             "protocol": "MESOS_TCP",
             "portIndex": 0,
@@ -47,7 +46,6 @@
             "timeoutSeconds": 20,
             "maxConsecutiveFailures": 3
         }
-    {{/postresql.uri}}
    ],
   "fetch": [
     {{#postresql.uri}}
