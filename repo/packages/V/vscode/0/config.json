@@ -217,6 +217,13 @@
             "value": "{{s3.AWS_SESSION_TOKEN}}"
           }
         },
+        "bucketName": {
+          "description": "AWS S3 bucket name",
+          "type": "string",
+          "x-form": {
+            "value": "{{s3.AWS_BUCKET_NAME}}"
+          }
+        },
         "expiration": {
           "description": "Temporary identity expiration date",
           "type": "string",
