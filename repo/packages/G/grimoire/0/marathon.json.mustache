@@ -3,7 +3,7 @@
   "cpus": {{service.cpus}},
   "mem": {{service.mem}},
   "instances": 1,
-  "cmd":"R -e \"funcampR::launch_learn(port=3838,host='0.0.0.0',file=funcampR:::tous_les_programmes('{{grimoire.chapitre}}.Rmd', 'Grimoire_IGoR'))\"",
+  "cmd":"R -e \"funcampR::launch_learn(port=3838,host='0.0.0.0',file=funcampR:::tous_les_programmes('{{grimoire.chapitre}}.Rmd', '{{grimoire.quete}}'))\"",
   "container": {
        "type": "DOCKER",
        "docker": {
