@@ -41,6 +41,12 @@
           "description": "Chapitre",
           "default": "chapitre1",
           "enum": ["chapitre1","chapitre2","chapitre3","chapitre4","chapitre5","chapitre6","chapitre7","chapitre8","chapitre9","chapitre10","chapitre11","chapitre12","chapitre13"]
+        },
+        "quete": {
+          "type": "string",
+          "description": "Chapitre",
+          "default": "Grimoire_IGoR",
+          "enum": ["Grimoire_IGoR","Spellbook_IGoR"]
         }
       }
     },
