@@ -7,7 +7,7 @@
   "assets": {
     "container": {
       "docker": {
-        "image": "inseefrlab/tm8enk/rstudio-gpu"
+        "image": "inseefrlab/rstudio-gpu"
       }
     }
   }
